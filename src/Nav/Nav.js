@@ -4,7 +4,7 @@ import './Nav.css';
 function Nav() {
   return (
     <div>
-      <h2>Hello World</h2>
+      <h2>Nav</h2>
     </div>
   )
 };
