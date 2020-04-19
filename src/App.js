@@ -5,14 +5,20 @@ import BagCreator from './BagCreator/BagCreator.js';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <Nav />
-      <BagCreator />
-      <Footer />
-    </div>
-  );
-}
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  };
+  render() {
+    return (
+      <div className="App">
+        <Nav />
+        <BagCreator />
+        <Footer />
+      </div>
+    )
+  }
+};
 
 export default App;
