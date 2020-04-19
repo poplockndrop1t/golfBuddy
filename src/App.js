@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      driver: '',
+      driver: 'm4',
       threeWood: '',
       gapWood: '',
       irons: '',
