@@ -2,14 +2,13 @@ import React from 'react';
 import Nav from './Nav/Nav.js';
 import Footer from './Footer/Footer.js';
 import BagCreator from './BagCreator/BagCreator.js';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      driver: 'm4',
+      driver: '',
       threeWood: '',
       gapWood: '',
       irons: '',
@@ -18,12 +17,14 @@ class App extends React.Component {
       lobWedge: '',
       putter: ''
     };
+
+    this.setBagState = this.setBagState.bind(this);
   };
 
-  setBagState(event) {
-    this.setState(state => {
-      console.log('here');
-    })
+  setBagState(stateName, newStateValue) {
+    this.setState({
+      [stateName]: newStateValue
+    });
   }
 
   render() {

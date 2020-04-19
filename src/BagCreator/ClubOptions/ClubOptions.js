@@ -1,17 +1,17 @@
 import React from 'react';
 import './ClubOptions.css';
 
-function ClubOptions() {
+function ClubOptions({ setBagState }) {
 
   function handleCange(event) {
-    console.log(event);
+    return setBagState(event.target.name, event.target.value);
   }
 
   return (
     <div className="bagCreatorContainer">
       <form>
         <label>Driver
-          <select onChange={ handleCange }>
+          <select name="driver" onChange={ handleCange }>
             <option value="TaylorMade">TaylorMade</option>
             <option value="Titleist">Titleist</option>
             <option value="Callaway">Callaway</option>
