@@ -8,7 +8,7 @@ function BagCreator({ bag }) {
       <h2>Bag Creator</h2>
       <h6>Add your clubs and create your own pdf</h6>
       <h6>{ bag.driver }</h6>
-      <ClubOptions />
+      <ClubOptions bag={bag} />
     </div>
   )
 };
