@@ -19,11 +19,20 @@ class App extends React.Component {
       putter: ''
     };
   };
+
+  setBagState(event) {
+    this.setState(state => {
+      console.log('here');
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <Nav />
-        <BagCreator bag={this.state} />
+        <BagCreator
+          bag={this.state}
+          setBagState={this.setBagState} />
         <Footer />
       </div>
     )
