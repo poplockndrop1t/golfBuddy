@@ -23,7 +23,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Nav />
-        <BagCreator />
+        <BagCreator bag={this.state} />
         <Footer />
       </div>
     )
