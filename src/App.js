@@ -8,7 +8,16 @@ import './App.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      driver: '',
+      threeWood: '',
+      gapWood: '',
+      irons: '',
+      gapWedge: '',
+      sandWedge: '',
+      lobWedge: '',
+      putter: ''
+    };
   };
   render() {
     return (
