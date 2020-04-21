@@ -8,19 +8,21 @@ class ClubOptions extends React.Component {
     this.handleCange = this.handleCange.bind(this);
     this.handleWoodsChange = this.handleWoodsChange.bind(this);
     this.addNewWood = this.addNewWood.bind(this);
-  }
+  };
 
   handleCange(event) {
     return this.props.setBagState(event.target.name, event.target.value);
-  }
+  };
+
   handleWoodsChange(event) {
     return this.props.setNewClubValue(event.target.name, event.target.value, 'woods');
-  }
+  };
+
   addNewWood() {
     if (this.props.newClub.type && this.props.newClub.brand) {
       return this.props.createNewClub(this.props.newClub.type, this.props.newClub.brand, 'woods');
     }
-  }
+  };
 
   render() {
     return (
