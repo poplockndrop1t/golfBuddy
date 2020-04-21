@@ -4,17 +4,20 @@ import './ClubOptions.css';
 var newWood = { type: '', brand: '' };
 
 
-function ClubOptions({ setBagState, createNewClub, newClub }) {
+function ClubOptions({ setBagState, createNewClub, newClub, setNewClubValue }) {
   function handleCange(event) {
     return setBagState(event.target.name, event.target.value);
   };
 
   function handleWoodsChange(event) {
     console.log(event.target.name, event.target.value, newClub);
+    return setNewClubValue(event.target.name, event.target.value);
   };
 
   function addNewWood() {
-    return createNewClub(newClub.type, newClub.brand);
+    if (newClub.type && newClub.brand) {
+      return createNewClub(newClub.type, newClub.brand);
+    }
   };
 
   return (
@@ -30,13 +33,13 @@ function ClubOptions({ setBagState, createNewClub, newClub }) {
         </label>
       </div>
       <div className="woodsContainer" onChange={ handleWoodsChange }>
-        <select name="woodsType" >
+        <select name="type" >
           <option value="3+">3+</option>
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-        <select name="woodsBrand" >
+        <select name="brand" >
           <option value="TaylorMade">TaylorMade</option>
           <option value="Titleist">Titleist</option>
           <option value="Callaway">Callaway</option>

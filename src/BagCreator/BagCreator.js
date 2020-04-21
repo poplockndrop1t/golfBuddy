@@ -14,7 +14,7 @@ function formatWoods(array) {
   )
 };
 
-function BagCreator({ bag, setBagState, createNewClub, newClub }) {
+function BagCreator({ bag, setBagState, createNewClub, newClub, setNewClubValue }) {
   return (
     <div className="bagCreatorContainer">
       <h2>Bag Creator</h2>
@@ -23,6 +23,7 @@ function BagCreator({ bag, setBagState, createNewClub, newClub }) {
         bag={bag}
         newClub={newClub}
         setBagState={setBagState}
+        setNewClubValue={setNewClubValue}
         createNewClub={createNewClub}
         />
       <h6>Your Bag</h6>

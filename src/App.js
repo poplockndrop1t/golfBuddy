@@ -31,6 +31,7 @@ class App extends React.Component {
 
     this.setBagState = this.setBagState.bind(this);
     this.createNewClub = this.createNewClub.bind(this);
+    this.setNewClubValue = this.setNewClubValue.bind(this);
   };
 
   setBagState(stateName, newStateValue) {
@@ -48,8 +49,14 @@ class App extends React.Component {
       // add new club to bag
       // remove temp club from new club state
     // if only one exists
-
   };
+
+  setNewClubValue(typeOrBrand, value) {
+    const { newClub } = {...this.state};
+    const currentNewClubState = newClub;
+    currentNewClubState[typeOrBrand] = value;
+    this.setState({ newClub: currentNewClubState });
+  }
 
   render() {
     return (
@@ -58,7 +65,8 @@ class App extends React.Component {
         <BagCreator
           bag={this.state.bag}
           newClub={this.state.newClub}
-          createNewClub={this.state.createNewClub}
+          createNewClub={this.createNewClub}
+          setNewClubValue={this.setNewClubValue}
           setBagState={this.setBagState} />
         <Footer />
       </div>
