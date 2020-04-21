@@ -9,7 +9,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       driver: '',
-      woods: [{ 'wood': 'Titleist' }],
+      woods: [
+        {
+          'type': '3wood',
+          'brand': 'Titleist'
+        }
+      ],
       hybrids: [],
       irons: '',
       gapWedge: '',
