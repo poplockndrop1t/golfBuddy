@@ -14,16 +14,17 @@ function formatWoods(array) {
   )
 };
 
-function BagCreator({ bag, setBagState }) {
+function BagCreator({ bag, setBagState, createNewClub, newClub }) {
   return (
     <div className="bagCreatorContainer">
       <h2>Bag Creator</h2>
       <h6>Add your clubs and create your own pdf</h6>
       <ClubOptions
         bag={bag}
+        newClub={newClub}
         setBagState={setBagState}
+        createNewClub={createNewClub}
         />
-
       <h6>Your Bag</h6>
       <h6>Driver --- { bag.driver }</h6>
       <h6>Woods --- { formatWoods(bag.woods) }</h6>
