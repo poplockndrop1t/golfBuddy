@@ -10,13 +10,12 @@ function ClubOptions({ setBagState, createNewClub, newClub, setNewClubValue }) {
   };
 
   function handleWoodsChange(event) {
-    console.log(event.target.name, event.target.value, newClub);
-    return setNewClubValue(event.target.name, event.target.value);
+    return setNewClubValue(event.target.name, event.target.value, 'woods');
   };
 
   function addNewWood() {
     if (newClub.type && newClub.brand) {
-      return createNewClub(newClub.type, newClub.brand);
+      return createNewClub(newClub.type, newClub.brand, 'woods');
     }
   };
 

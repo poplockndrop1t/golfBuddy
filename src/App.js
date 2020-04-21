@@ -24,6 +24,7 @@ class App extends React.Component {
         putter: ''
       },
       newClub: {
+        category: '',
         type: '',
         brand: ''
       }
@@ -41,20 +42,21 @@ class App extends React.Component {
     this.setState({ bag: currentBagState });
   }
 
-  createNewClub(clubType, clubBrand) {
+  createNewClub(clubType, clubBrand, clubCategory) {
     const { bag, newClub } = { ...this.state };
     const currentBagState = bag;
-    console.log(bag, newClub);
-    // if both type and brand exist on the new club
-      // add new club to bag
-      // remove temp club from new club state
-    // if only one exists
+    const currentNewClub = { type: clubType, brand: clubBrand };
+    const resetClub = { category: '', type: '', brand: '' }
+    currentBagState[clubCategory].push(currentNewClub);
+    this.setState({ bag: currentBagState });
+    this.setState({ newClub: resetClub });
   };
 
-  setNewClubValue(typeOrBrand, value) {
+  setNewClubValue(typeOrBrand, value, category) {
     const { newClub } = {...this.state};
     const currentNewClubState = newClub;
     currentNewClubState[typeOrBrand] = value;
+    currentNewClubState['category'] = category;
     this.setState({ newClub: currentNewClubState });
   }
 
