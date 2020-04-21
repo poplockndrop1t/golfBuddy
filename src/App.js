@@ -9,8 +9,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       driver: '',
-      threeWood: '',
-      gapWood: '',
+      woods: [{ 'wood': 'Titleist' }],
+      hybrids: [],
       irons: '',
       gapWedge: '',
       sandWedge: '',

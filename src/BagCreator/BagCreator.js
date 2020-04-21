@@ -14,8 +14,13 @@ function BagCreator({ bag, setBagState }) {
 
       <h6>Your Bag</h6>
       <h6>Driver --- { bag.driver }</h6>
+      <h6>Woods --- {
+        bag.woods.map(wood => wood.wood)
+
+      }</h6>
     </div>
   )
 };
+
 
 export default BagCreator;

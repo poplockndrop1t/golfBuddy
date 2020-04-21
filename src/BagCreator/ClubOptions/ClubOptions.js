@@ -9,7 +9,7 @@ function ClubOptions({ setBagState }) {
 
   return (
     <div className="bagCreatorContainer">
-      <form>
+      <div className="driverContainer">
         <label>Driver
           <select name="driver" onChange={ handleCange }>
             <option value="TaylorMade">TaylorMade</option>
@@ -18,7 +18,10 @@ function ClubOptions({ setBagState }) {
             <option value="Ping">Ping</option>
           </select>
         </label>
-      </form>
+      </div>
+      <div className="woodsContainer">
+
+      </div>
     </div>
   )
 };
