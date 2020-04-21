@@ -8,28 +8,35 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      driver: '',
-      woods: [
-        {
-          'type': '3wood',
-          'brand': 'Titleist'
-        }
-      ],
-      hybrids: [],
-      irons: '',
-      gapWedge: '',
-      sandWedge: '',
-      lobWedge: '',
-      putter: ''
+      bag: {
+        driver: '',
+        woods: [
+          {
+            'type': '3wood',
+            'brand': 'Titleist'
+          }
+        ],
+        hybrids: [],
+        irons: '',
+        gapWedge: '',
+        sandWedge: '',
+        lobWedge: '',
+        putter: ''
+      },
+      newClub: {
+        type: '',
+        brand: ''
+      }
     };
 
     this.setBagState = this.setBagState.bind(this);
   };
 
   setBagState(stateName, newStateValue) {
-    this.setState({
-      [stateName]: newStateValue
-    });
+    const { bag } = { ...this.state };
+    const currentBagState = bag;
+    currentBagState[stateName] = newStateValue;
+    this.setState({ bag: currentBagState });
   }
 
   render() {
@@ -37,7 +44,8 @@ class App extends React.Component {
       <div className="App">
         <Nav />
         <BagCreator
-          bag={this.state}
+          bag={this.state.bag}
+          newClub={this.state.newClub}
           setBagState={this.setBagState} />
         <Footer />
       </div>
