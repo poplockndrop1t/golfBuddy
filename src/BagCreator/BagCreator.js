@@ -28,7 +28,7 @@ function BagCreator({ bag, setBagState, createNewClub, newClub, setNewClubValue 
         />
       <h6>Your Bag</h6>
       <h6>Driver --- { bag.driver }</h6>
-      <h6>Woods --- { /* formatWoods(bag.woods)*/ }</h6>
+      <h6>Woods --- { formatWoods(bag.woods) }</h6>
     </div>
   )
 };

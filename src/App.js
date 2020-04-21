@@ -10,12 +10,7 @@ class App extends React.Component {
     this.state = {
       bag: {
         driver: '',
-        woods: [
-          {
-            'type': '3wood',
-            'brand': 'Titleist'
-          }
-        ],
+        woods: [],
         hybrids: [],
         irons: '',
         gapWedge: '',
