@@ -81,6 +81,7 @@ class ClubOptions extends React.Component {
             <option value="Ping">Ping</option>
           </select>
           <button onClick={ this.addNewClub }>Add Iron Set</button>
+        </div>
       </div>
     )
   }
