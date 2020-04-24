@@ -41,8 +41,8 @@ class App extends React.Component {
     const { bag, newClub } = { ...this.state };
     const currentBagState = bag;
     const currentNewClub = { type: clubType, brand: clubBrand };
-    const resetClub = { category: '', type: '', brand: '' }
-    currentBagState[clubCategory].push(currentNewClub);
+    const resetClub = { category: '', type: '', brand: '' };
+    currentBagState[newClub.category].push(currentNewClub);
     this.setState({ bag: currentBagState });
     this.setState({ newClub: resetClub });
   };

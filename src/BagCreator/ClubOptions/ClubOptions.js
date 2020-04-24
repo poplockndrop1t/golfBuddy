@@ -59,13 +59,13 @@ class ClubOptions extends React.Component {
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-          <select className="woods" name="brand" >
+          <select className="hybrids" name="brand" >
             <option value="TaylorMade">TaylorMade</option>
             <option value="Titleist">Titleist</option>
             <option value="Callaway">Callaway</option>
             <option value="Ping">Ping</option>
           </select>
-          <button onClick={ this.addNewClub }>Add Wood</button>
+          <button onClick={ this.addNewClub }>Add Hybrid</button>
         </div>
       </div>
     )

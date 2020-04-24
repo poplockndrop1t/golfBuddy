@@ -2,7 +2,7 @@ import React from 'react';
 import ClubOptions from './ClubOptions/ClubOptions.js';
 import './BagCreator.css';
 
-function formatWoods(array) {
+function formatClubs(array) {
   return (
     <ul>
       {
@@ -28,7 +28,8 @@ function BagCreator({ bag, setBagState, createNewClub, newClub, setNewClubValue 
         />
       <h6>Your Bag</h6>
       <h6>Driver --- { bag.driver }</h6>
-      <h6>Woods --- { formatWoods(bag.woods) }</h6>
+      <h6>Woods --- { formatClubs(bag.woods) }</h6>
+      <h6>Hybrids --- { formatClubs(bag.hybrids) }</h6>
     </div>
   )
 };
