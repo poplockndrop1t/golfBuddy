@@ -67,6 +67,20 @@ class ClubOptions extends React.Component {
           </select>
           <button onClick={ this.addNewClub }>Add Hybrid</button>
         </div>
+        <div className="ironsContainer" onChange={ this.handleChange }>
+          <select className="irons" name="type">
+            <option value="3p">3p</option>
+            <option value="4a">4a</option>
+            <option value="5a">5a</option>
+            <option value="5p">5p</option>
+          </select>
+          <select className="hybrids" name="brand" >
+            <option value="TaylorMade">TaylorMade</option>
+            <option value="Titleist">Titleist</option>
+            <option value="Callaway">Callaway</option>
+            <option value="Ping">Ping</option>
+          </select>
+          <button onClick={ this.addNewClub }>Add Iron Set</button>
       </div>
     )
   }
