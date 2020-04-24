@@ -13,9 +13,7 @@ class App extends React.Component {
         woods: [],
         hybrids: [],
         irons: [],
-        gapWedge: '',
-        sandWedge: '',
-        lobWedge: '',
+        wedges: [],
         putter: ''
       },
       newClub: {

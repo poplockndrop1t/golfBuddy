@@ -83,6 +83,23 @@ class ClubOptions extends React.Component {
           </select>
           <button onClick={ this.addNewClub }>Add Iron Set</button>
         </div>
+        <div className="wedgesContainer" onChange={ this.handleClubChange }>
+          <select className="irons" name="type">
+            <option value="50">50</option>
+            <option value="52">52</option>
+            <option value="54">54</option>
+            <option value="56">56</option>
+            <option value="58">58</option>
+            <option value="60">60</option>
+          </select>
+          <select className="wedges" name="brand">
+            <option value="TaylorMade">TaylorMade</option>
+            <option value="TaylorMade">TaylorMade</option>
+            <option value="Titleist">Titleist</option>
+            <option value="Callaway">Callaway</option>
+            <option value="Ping">Ping</option>
+          </select>
+        </div>
       </div>
     )
   }
