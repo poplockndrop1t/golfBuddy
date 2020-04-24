@@ -12,10 +12,11 @@ class ClubOptions extends React.Component {
 
   handleCange(event) {
     return this.props.setBagState(event.target.name, event.target.value);
-  };
+  }; 
 
   handleWoodsChange(event) {
-    return this.props.setNewClubValue(event.target.name, event.target.value, 'woods');
+    console.log(event.target.classList[0], event.target.name, event.target.value);
+    return this.props.setNewClubValue(event.target.name, event.target.value, event.target.classList[0]);
   };
 
   addNewWood() {
@@ -38,13 +39,13 @@ class ClubOptions extends React.Component {
           </label>
         </div>
         <div className="woodsContainer" onChange={ this.handleWoodsChange }>
-          <select name="type" >
+          <select className="woods" name="type" >
             <option value="3+">3+</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-          <select name="brand" >
+          <select className="woods" name="brand" >
             <option value="TaylorMade">TaylorMade</option>
             <option value="Titleist">Titleist</option>
             <option value="Callaway">Callaway</option>
@@ -58,3 +59,6 @@ class ClubOptions extends React.Component {
 };
 
 export default ClubOptions;
+        // <div className="hybridsContainer" onChange={ this.handleClubChange }>
+
+        // </div>
