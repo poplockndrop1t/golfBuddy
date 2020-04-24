@@ -12,7 +12,7 @@ class App extends React.Component {
         driver: '',
         woods: [],
         hybrids: [],
-        irons: '',
+        irons: [],
         gapWedge: '',
         sandWedge: '',
         lobWedge: '',

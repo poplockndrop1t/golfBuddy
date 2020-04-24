@@ -5,12 +5,13 @@ class ClubOptions extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleCange = this.handleCange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleClubChange = this.handleClubChange.bind(this);
     this.addNewClub = this.addNewClub.bind(this);
   };
 
-  handleCange(event) {
+  handleChange(event) {
+    console.log(event.target.name, event.target.value);
     return this.props.setBagState(event.target.name, event.target.value);
   }; 
 
@@ -29,7 +30,7 @@ class ClubOptions extends React.Component {
       <div className="bagCreatorContainer">
         <div className="driverContainer">
           <label>Driver
-            <select name="driver" onChange={ this.handleCange }>
+            <select name="driver" onChange={ this.handleChange }>
               <option value="TaylorMade">TaylorMade</option>
               <option value="Titleist">Titleist</option>
               <option value="Callaway">Callaway</option>
@@ -67,14 +68,14 @@ class ClubOptions extends React.Component {
           </select>
           <button onClick={ this.addNewClub }>Add Hybrid</button>
         </div>
-        <div className="ironsContainer" onChange={ this.handleChange }>
+        <div className="ironsContainer" onChange={ this.handleClubChange }>
           <select className="irons" name="type">
             <option value="3p">3p</option>
             <option value="4a">4a</option>
             <option value="5a">5a</option>
             <option value="5p">5p</option>
           </select>
-          <select className="hybrids" name="brand" >
+          <select className="irons" name="brand" >
             <option value="TaylorMade">TaylorMade</option>
             <option value="Titleist">Titleist</option>
             <option value="Callaway">Callaway</option>
