@@ -11,7 +11,6 @@ class ClubOptions extends React.Component {
   };
 
   handleChange(event) {
-    console.log(event.target.name, event.target.value);
     return this.props.setBagState(event.target.name, event.target.value);
   }; 
 
@@ -100,6 +99,14 @@ class ClubOptions extends React.Component {
             <option value="Ping">Ping</option>
           </select>
           <button onClick={ this.addNewClub }>Add Wedge</button>
+        </div>
+        <div className="putterContainer" onChange={ this.handleChange }>
+          <select name="putter">
+            <option value="TaylorMade">TaylorMade</option>
+            <option value="Titleist">Titleist</option>
+            <option value="Callaway">Callaway</option>
+            <option value="Ping">Ping</option>
+          </select>
         </div>
       </div>
     )

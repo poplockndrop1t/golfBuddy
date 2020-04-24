@@ -32,8 +32,10 @@ function BagCreator({ bag, setBagState, createNewClub, newClub, setNewClubValue 
       <h6>Hybrids --- { formatClubs(bag.hybrids) }</h6>
       <h6>Irons --- { formatClubs(bag.irons) }</h6>
       <h6>Wedges --- { formatClubs(bag.wedges) }</h6>
+      <h6>Putter --- { bag.putter }</h6>
     </div>
   )
 };
 
 export default BagCreator;
+
