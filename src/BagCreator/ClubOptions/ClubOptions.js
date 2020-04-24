@@ -99,6 +99,7 @@ class ClubOptions extends React.Component {
             <option value="Callaway">Callaway</option>
             <option value="Ping">Ping</option>
           </select>
+          <button onClick={ this.addNewClub }>Add Wedge</button>
         </div>
       </div>
     )
