@@ -15,7 +15,7 @@ function formatClubs(array) {
 
 function YourBag({ bag }) {
   return (
-    <div>
+    <div className="yourBagContainer">
       <h6>Your Bag</h6>
       <h6>Driver --- { bag.driver }</h6>
       <h6>Woods --- { formatClubs(bag.woods) }</h6>

@@ -26,7 +26,7 @@ class ClubOptions extends React.Component {
 
   render() {
     return (
-      <div className="bagCreatorContainer">
+      <div className="clubOptionsContainer">
         <div className="driverContainer">
           <label>Driver
             <select name="driver" onChange={ this.handleChange }>
