@@ -19,7 +19,7 @@ function YourBag({ bag }) {
       <h6>Your Bag</h6>
       <div className="club">
         <h6>Driver</h6>
-        <h6>{ bag.driver }</h6>
+        <p>{ bag.driver }</p>
       </div>
       <div className="club">
         <h6>Woods</h6>
