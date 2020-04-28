@@ -1,6 +1,18 @@
 import React from 'react';
 import './YourBag.css';
 
+function formatClubs(array) {
+  return (
+    <ul>
+      {
+        array.map((wood, key) =>
+           <li key={key}>{wood.type} {wood.brand}</li>
+        )
+      }
+    </ul>
+  )
+};
+
 function YourBag({ bag }) {
   return (
     <div>
@@ -13,4 +25,6 @@ function YourBag({ bag }) {
       <h6>Putter --- { bag.putter }</h6>
     </div>
   )
-}
+};
+
+export default YourBag;

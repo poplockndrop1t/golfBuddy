@@ -1,5 +1,6 @@
 import React from 'react';
 import ClubOptions from './ClubOptions/ClubOptions.js';
+import YourBag from './YourBag/YourBag.js';
 import './BagCreator.css';
 
 function formatClubs(array) {
