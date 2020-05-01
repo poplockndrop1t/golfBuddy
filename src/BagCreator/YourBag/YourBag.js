@@ -3,43 +3,43 @@ import './YourBag.css';
 
 function formatClubs(array) {
   return (
-    <ul>
+    <div>
       {
         array.map((wood, key) =>
-           <li key={key}>{wood.type} {wood.brand}</li>
+           <p key={key}>{wood.type} {wood.brand}</p>
         )
       }
-    </ul>
+    </div>
   )
 };
 
 function YourBag({ bag }) {
   return (
     <div className="yourBagContainer">
-      <h6>Your Bag</h6>
+      <h2>Your Bag</h2>
       <div className="club">
-        <h6>Driver</h6>
-        <p>{ bag.driver }</p>
+        <h3>Driver</h3>
+        { bag.driver }
       </div>
       <div className="club">
-        <h6>Woods</h6>
-        <h6>{ formatClubs(bag.woods) }</h6>
+        <h3>Woods</h3>
+        { formatClubs(bag.woods) }
       </div>
       <div className="club">
-        <h6>Hybrids</h6>
-        <h6>{ formatClubs(bag.hybrids) }</h6>
+        <h3>Hybrids</h3>
+        { formatClubs(bag.hybrids) }
       </div>
       <div className="club">
-        <h6>Irons</h6>
-        <h6>{ formatClubs(bag.irons) }</h6>
+        <h3>Irons</h3>
+        { formatClubs(bag.irons) }
       </div>
       <div className="club">
-        <h6>Wedges</h6>
-        <h6>{ formatClubs(bag.wedges) }</h6>
+        <h3>Wedges</h3>
+        { formatClubs(bag.wedges) }
       </div>
       <div className="club">
-        <h6>Putter</h6>
-        <h6>{ bag.putter }</h6>
+        <h3>Putter</h3>
+        { bag.putter }
       </div>
     </div>
   )

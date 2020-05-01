@@ -38,13 +38,13 @@ class ClubOptions extends React.Component {
         </div>
         <div className="woodsContainer" onChange={ this.handleClubChange }>
           <label>Woods</label>
-          <select className="woods" name="type" >
+          <select className="woods" name="type">
             <option value="3+">3+</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-          <select className="woods" name="brand" >
+          <select className="woods" name="brand">
             <option value="TaylorMade">TaylorMade</option>
             <option value="Titleist">Titleist</option>
             <option value="Callaway">Callaway</option>
