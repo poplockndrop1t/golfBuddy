@@ -1,8 +1,8 @@
-.clubContainer {
-  display: flex;
-  flex-direction: column;
-};
-
 .clubOptionsContainer {
   width: 50%;
+};
+
+.clubOptionsContainer > * {
+  display: flex;
+  flex-direction: column;
 };
