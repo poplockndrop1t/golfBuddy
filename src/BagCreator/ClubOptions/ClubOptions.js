@@ -37,26 +37,16 @@ class ClubOptions extends React.Component {
             createNewClub={ this.props.createNewClub }
             newClub={ this.props.newClub }
             brands={ this.props.brands}
-            clubNumbers = { this.props.clubNumbers }
+            clubNumbers={ this.props.clubNumbers }
             clubType={"woods"}/>
         </div>
         <div className="hybridsContainer" onChange={ this.handleClubChange }>
-          <label>Hybrids</label>
-          <select className="hybrids" name="type">
-            <option value=""></option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-          <select className="hybrids" name="brand" >
-            <option value=""></option>
-            <option value="TaylorMade">TaylorMade</option>
-            <option value="Titleist">Titleist</option>
-            <option value="Callaway">Callaway</option>
-            <option value="Ping">Ping</option>
-          </select>
-          <button onClick={ this.addNewClub }>Add Hybrid</button>
+          <AddClubSelect
+            createNewClub={this.props.createNewClub}
+            newClub={this.props.newClub}
+            brands={this.props.brands}
+            clubNumbers={this.props.clubNumbers}
+            clubType={"hybrids"} />
         </div>
         <div className="ironsContainer" onChange={ this.handleClubChange }>
           <label>Irons</label>
