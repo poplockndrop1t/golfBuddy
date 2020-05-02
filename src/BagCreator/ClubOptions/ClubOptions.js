@@ -9,6 +9,8 @@ class ClubOptions extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClubChange = this.handleClubChange.bind(this);
     this.addNewClub = this.addNewClub.bind(this);
+
+    this.brands = ["TaylorMade", "Titleist", "Callaway", "Ping"];
   };
 
   handleChange(event) {
@@ -25,19 +27,19 @@ class ClubOptions extends React.Component {
     }
   };
 
+          // <label>Driver</label>
+            // <select name="driver" >
+            //   <option value=""></option>
+            //   <option value="TaylorMade">TaylorMade</option>
+            //   <option value="Titleist">Titleist</option>
+            //   <option value="Callaway">Callaway</option>
+            //   <option value="Ping">Ping</option>
+            // </select>
   render() {
     return (
       <div className="clubOptionsContainer">
-        <div className="driverContainer">
-          <label>Driver</label>
-            <select name="driver" onChange={ this.handleChange }>
-              <option value=""></option>
-              <option value="TaylorMade">TaylorMade</option>
-              <option value="Titleist">Titleist</option>
-              <option value="Callaway">Callaway</option>
-              <option value="Ping">Ping</option>
-            </select>
-          <ClubSelect />
+        <div className="driverContainer" onChange={ this.handleChange }>
+          <ClubSelect label={"Driver"} options={this.brands} />
         </div>
         <div className="woodsContainer" onChange={ this.handleClubChange }>
           <label>Woods</label>
