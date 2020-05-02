@@ -5,7 +5,8 @@ function AddClubSelect({
   createNewClub,
   newClub,
   brands,
-  clubNumbers }) {
+  clubNumbers,
+  clubType }) {
 
   function addNewClub() {
     if (newClub.type && newClub.brand) {
@@ -16,7 +17,7 @@ function AddClubSelect({
   return (
     <div>
       <label>Woods</label>
-      <select className="woods" name="type">
+      <select className={clubType} name="type">
         {
           clubNumbers.map((number, key) => {
             return (
@@ -25,7 +26,7 @@ function AddClubSelect({
           })
         }
       </select>
-      <select className="woods" name="brand">
+      <select className={clubType} name="brand">
         {
           brands.map((brand, key) => {
             return (
