@@ -29,6 +29,8 @@ class App extends React.Component {
 
     this.brands = ["", "TaylorMade", "Titleist", "Callaway", "Ping"];
     this.clubNumbers = ["", "2", "3+", "3", "4", "5"];
+    this.ironSets = ["", "3p", "4a", "4p", "5a", "5p"];
+    this.wedgeNumbers = ["", "46", "48", "50", "52", "54", "56", "58", "60"];
   };
 
   setBagState(stateName, newStateValue) {
@@ -67,7 +69,9 @@ class App extends React.Component {
           setNewClubValue={this.setNewClubValue}
           setBagState={this.setBagState}
           brands={this.brands}
-          clubNumbers={this.clubNumbers} />
+          clubNumbers={this.clubNumbers}
+          ironSets={this.ironSets}
+          wedgeNumbers={this.wedgeNumbers} />
         <Footer />
       </div>
     )
@@ -75,16 +79,3 @@ class App extends React.Component {
 };
 
 export default App;
-
-            // <option value=""></option>
-            // <option value="3p">3p</option>
-            // <option value="4a">4a</option>
-            // <option value="5a">5a</option>
-            // <option value="5p">5p</option>
-
-            //             <option value="50">50</option>
-            // <option value="52">52</option>
-            // <option value="54">54</option>
-            // <option value="56">56</option>
-            // <option value="58">58</option>
-            // <option value="60">60</option>

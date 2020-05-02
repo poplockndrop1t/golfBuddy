@@ -10,7 +10,9 @@ function BagCreator({
   createNewClub,
   newClub,
   setNewClubValue,
-  brands }) {
+  brands,
+  ironSets,
+  wedgeNumbers }) {
 
   return (
     <div className="container">
