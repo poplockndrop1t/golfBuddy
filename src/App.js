@@ -29,7 +29,7 @@ class App extends React.Component {
 
     this.brands = ["", "TaylorMade", "Titleist", "Callaway", "Ping"];
     this.clubNumbers = ["", "2", "3+", "3", "4", "5"];
-    this.ironSets = ["", "3p", "4a", "4p", "5a", "5p"];
+    this.ironNumbers = ["", "3p", "4a", "4p", "5a", "5p"];
     this.wedgeNumbers = ["", "46", "48", "50", "52", "54", "56", "58", "60"];
   };
 
@@ -70,7 +70,7 @@ class App extends React.Component {
           setBagState={this.setBagState}
           brands={this.brands}
           clubNumbers={this.clubNumbers}
-          ironSets={this.ironSets}
+          ironNumbers={this.ironNumbers}
           wedgeNumbers={this.wedgeNumbers} />
         <Footer />
       </div>

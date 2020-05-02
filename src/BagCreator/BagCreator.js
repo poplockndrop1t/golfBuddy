@@ -11,7 +11,7 @@ function BagCreator({
   newClub,
   setNewClubValue,
   brands,
-  ironSets,
+  ironNumbers,
   wedgeNumbers }) {
 
   return (
@@ -29,7 +29,7 @@ function BagCreator({
           createNewClub={createNewClub}
           brands={brands}
           clubNumbers={clubNumbers}
-          ironSets={ironSets}
+          ironNumbers={ironNumbers}
           wedgeNumbers={wedgeNumbers}
           />
         <YourBag bag={bag} />
