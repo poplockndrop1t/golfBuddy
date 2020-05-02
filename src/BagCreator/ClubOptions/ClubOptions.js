@@ -57,25 +57,12 @@ class ClubOptions extends React.Component {
             clubType={"irons"} />
         </div>
         <div className="wedgesContainer" onChange={ this.handleClubChange }>
-          <label>Wedges</label>
-          <select className="irons" name="type">
-            <option value=""></option>
-            <option value="50">50</option>
-            <option value="52">52</option>
-            <option value="54">54</option>
-            <option value="56">56</option>
-            <option value="58">58</option>
-            <option value="60">60</option>
-          </select>
-          <select className="wedges" name="brand">
-            <option value=""></option>
-            <option value="TaylorMade">TaylorMade</option>
-            <option value="TaylorMade">TaylorMade</option>
-            <option value="Titleist">Titleist</option>
-            <option value="Callaway">Callaway</option>
-            <option value="Ping">Ping</option>
-          </select>
-          <button onClick={ this.addNewClub }>Add Wedge</button>
+          <AddClubSelect
+            createNewClub={this.props.createNewClub}
+            newClub={this.props.newClub}
+            brands={this.props.brands}
+            clubNumbers={this.props.clubNumbers}
+            clubType={"wedges" } />
         </div>
         <div className="putterContainer" onChange={ this.handleChange }>
           <ClubSelect clubType={"putter"} options={this.props.brands} />

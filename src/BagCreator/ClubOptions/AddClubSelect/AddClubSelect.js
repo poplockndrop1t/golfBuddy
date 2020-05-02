@@ -35,7 +35,7 @@ function AddClubSelect({
           })
         }
       </select>
-      <button onClick={addNewClub}>Add Wood</button>
+      <button onClick={addNewClub}>Add {clubType}</button>
     </div>
   )
 };
