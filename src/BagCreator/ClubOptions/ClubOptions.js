@@ -33,22 +33,6 @@ class ClubOptions extends React.Component {
           <ClubSelect clubType={"driver"} options={this.props.brands} />
         </div>
         <div className="woodsContainer" onChange={ this.handleClubChange }>
-          <label>Woods</label>
-          <select className="woods" name="type">
-            <option value=""></option>
-            <option value="3+">3+</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-          <select className="woods" name="brand">
-            <option value=""></option>
-            <option value="TaylorMade">TaylorMade</option>
-            <option value="Titleist">Titleist</option>
-            <option value="Callaway">Callaway</option>
-            <option value="Ping">Ping</option>
-          </select>
-          <button onClick={ this.addNewClub }>Add Wood</button>
           <AddClubSelect
             createNewClub={ this.props.createNewClub }
             newClub={ this.props.newClub }
@@ -121,3 +105,20 @@ class ClubOptions extends React.Component {
 };
 
 export default ClubOptions;
+
+          // <label>Woods</label>
+          // <select className="woods" name="type">
+          //   <option value=""></option>
+          //   <option value="3+">3+</option>
+          //   <option value="3">3</option>
+          //   <option value="4">4</option>
+          //   <option value="5">5</option>
+          // </select>
+          // <select className="woods" name="brand">
+          //   <option value=""></option>
+          //   <option value="TaylorMade">TaylorMade</option>
+          //   <option value="Titleist">Titleist</option>
+          //   <option value="Callaway">Callaway</option>
+          //   <option value="Ping">Ping</option>
+          // </select>
+          // <button onClick={ this.addNewClub }>Add Wood</button>
