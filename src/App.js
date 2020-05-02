@@ -23,8 +23,8 @@ class App extends React.Component {
       },
     };
 
-    this.setBagState = this.setBagState.bind(this);
     this.createNewClub = this.createNewClub.bind(this);
+    this.setBagState = this.setBagState.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
 
     this.brands = ["", "TaylorMade", "Titleist", "Callaway", "Ping"];
@@ -64,13 +64,13 @@ class App extends React.Component {
         <Nav />
         <BagCreator
           bag={this.state.bag}
-          newClub={this.state.newClub}
-          createNewClub={this.createNewClub}
-          setNewClubValue={this.setNewClubValue}
-          setBagState={this.setBagState}
           brands={this.brands}
           clubNumbers={this.clubNumbers}
+          createNewClub={this.createNewClub}
           ironNumbers={this.ironNumbers}
+          newClub={this.state.newClub}
+          setBagState={this.setBagState}
+          setNewClubValue={this.setNewClubValue}
           wedgeNumbers={this.wedgeNumbers} />
         <Footer />
       </div>

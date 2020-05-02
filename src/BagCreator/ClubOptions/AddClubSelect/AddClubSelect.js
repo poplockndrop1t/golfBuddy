@@ -1,12 +1,7 @@
 import React from 'react';
 import './AddClubSelect.css';
 
-function AddClubSelect({
-  createNewClub,
-  newClub,
-  brands,
-  clubNumbers,
-  clubType }) {
+function AddClubSelect({ brands, clubNumbers, clubType, createNewClub, newClub }) {
 
   function addNewClub() {
     if (newClub.type && newClub.brand) {
