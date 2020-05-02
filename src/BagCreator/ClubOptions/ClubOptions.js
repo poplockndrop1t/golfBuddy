@@ -1,5 +1,6 @@
 import React from 'react';
 import './ClubOptions.css';
+import ClubSelect from './ClubSelect/ClubSelect.js';
 
 class ClubOptions extends React.Component {
   constructor(props) {
