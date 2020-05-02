@@ -30,6 +30,7 @@ class ClubOptions extends React.Component {
         <div className="driverContainer">
           <label>Driver</label>
             <select name="driver" onChange={ this.handleChange }>
+              <option value=""></option>
               <option value="TaylorMade">TaylorMade</option>
               <option value="Titleist">Titleist</option>
               <option value="Callaway">Callaway</option>
@@ -39,12 +40,14 @@ class ClubOptions extends React.Component {
         <div className="woodsContainer" onChange={ this.handleClubChange }>
           <label>Woods</label>
           <select className="woods" name="type">
+            <option value=""></option>
             <option value="3+">3+</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
           <select className="woods" name="brand">
+            <option value=""></option>
             <option value="TaylorMade">TaylorMade</option>
             <option value="Titleist">Titleist</option>
             <option value="Callaway">Callaway</option>
@@ -55,12 +58,14 @@ class ClubOptions extends React.Component {
         <div className="hybridsContainer" onChange={ this.handleClubChange }>
           <label>Hybrids</label>
           <select className="hybrids" name="type">
+            <option value=""></option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
           <select className="hybrids" name="brand" >
+            <option value=""></option>
             <option value="TaylorMade">TaylorMade</option>
             <option value="Titleist">Titleist</option>
             <option value="Callaway">Callaway</option>
@@ -71,12 +76,14 @@ class ClubOptions extends React.Component {
         <div className="ironsContainer" onChange={ this.handleClubChange }>
           <label>Irons</label>
           <select className="irons" name="type">
+            <option value=""></option>
             <option value="3p">3p</option>
             <option value="4a">4a</option>
             <option value="5a">5a</option>
             <option value="5p">5p</option>
           </select>
           <select className="irons" name="brand" >
+            <option value=""></option>
             <option value="TaylorMade">TaylorMade</option>
             <option value="Titleist">Titleist</option>
             <option value="Callaway">Callaway</option>
@@ -87,6 +94,7 @@ class ClubOptions extends React.Component {
         <div className="wedgesContainer" onChange={ this.handleClubChange }>
           <label>Wedges</label>
           <select className="irons" name="type">
+            <option value=""></option>
             <option value="50">50</option>
             <option value="52">52</option>
             <option value="54">54</option>
@@ -95,6 +103,7 @@ class ClubOptions extends React.Component {
             <option value="60">60</option>
           </select>
           <select className="wedges" name="brand">
+            <option value=""></option>
             <option value="TaylorMade">TaylorMade</option>
             <option value="TaylorMade">TaylorMade</option>
             <option value="Titleist">Titleist</option>
@@ -106,6 +115,7 @@ class ClubOptions extends React.Component {
         <div className="putterContainer" onChange={ this.handleChange }>
           <label>Putter</label>
           <select name="putter">
+            <option value=""></option>
             <option value="TaylorMade">TaylorMade</option>
             <option value="Titleist">Titleist</option>
             <option value="Callaway">Callaway</option>
