@@ -5,6 +5,7 @@ import './BagCreator.css';
 
 function BagCreator({
   bag,
+  clubNumbers,
   setBagState,
   createNewClub,
   newClub,
@@ -25,6 +26,7 @@ function BagCreator({
           setNewClubValue={setNewClubValue}
           createNewClub={createNewClub}
           brands={brands}
+          clubNumbers={clubNumbers}
           />
         <YourBag bag={bag} />
       </div>
