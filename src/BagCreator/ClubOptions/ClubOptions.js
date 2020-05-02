@@ -9,8 +9,6 @@ class ClubOptions extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClubChange = this.handleClubChange.bind(this);
     this.addNewClub = this.addNewClub.bind(this);
-
-    // this.props.brands = ["", "TaylorMade", "Titleist", "Callaway", "Ping"];
   };
 
   handleChange(event) {

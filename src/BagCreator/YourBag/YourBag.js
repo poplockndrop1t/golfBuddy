@@ -5,9 +5,11 @@ function formatClubs(array) {
   return (
     <div>
       {
-        array.map((wood, key) =>
-           <p key={key}>{wood.type} {wood.brand}</p>
-        )
+        array.map((wood, key) => {
+          return (
+            <p key={key}>{wood.type} {wood.brand}</p>
+          )
+        })
       }
     </div>
   )
