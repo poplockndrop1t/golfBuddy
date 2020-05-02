@@ -20,12 +20,14 @@ class App extends React.Component {
         category: '',
         type: '',
         brand: ''
-      }
+      },
     };
 
     this.setBagState = this.setBagState.bind(this);
     this.createNewClub = this.createNewClub.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
+
+    this.brands = ["", "TaylorMade", "Titleist", "Callaway", "Ping"];
   };
 
   setBagState(stateName, newStateValue) {
@@ -62,7 +64,8 @@ class App extends React.Component {
           newClub={this.state.newClub}
           createNewClub={this.createNewClub}
           setNewClubValue={this.setNewClubValue}
-          setBagState={this.setBagState} />
+          setBagState={this.setBagState}
+          brands={this.brands} />
         <Footer />
       </div>
     )

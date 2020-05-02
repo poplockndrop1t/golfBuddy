@@ -3,7 +3,14 @@ import ClubOptions from './ClubOptions/ClubOptions.js';
 import YourBag from './YourBag/YourBag.js';
 import './BagCreator.css';
 
-function BagCreator({ bag, setBagState, createNewClub, newClub, setNewClubValue }) {
+function BagCreator({
+  bag,
+  setBagState,
+  createNewClub,
+  newClub,
+  setNewClubValue,
+  brands }) {
+
   return (
     <div className="container">
       <div>
@@ -17,6 +24,7 @@ function BagCreator({ bag, setBagState, createNewClub, newClub, setNewClubValue 
           setBagState={setBagState}
           setNewClubValue={setNewClubValue}
           createNewClub={createNewClub}
+          brands={brands}
           />
         <YourBag bag={bag} />
       </div>

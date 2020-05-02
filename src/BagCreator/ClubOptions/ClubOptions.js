@@ -10,7 +10,7 @@ class ClubOptions extends React.Component {
     this.handleClubChange = this.handleClubChange.bind(this);
     this.addNewClub = this.addNewClub.bind(this);
 
-    this.brands = ["", "TaylorMade", "Titleist", "Callaway", "Ping"];
+    // this.props.brands = ["", "TaylorMade", "Titleist", "Callaway", "Ping"];
   };
 
   handleChange(event) {
@@ -31,7 +31,7 @@ class ClubOptions extends React.Component {
     return (
       <div className="clubOptionsContainer">
         <div className="driverContainer" onChange={ this.handleChange }>
-          <ClubSelect clubType={"driver"} options={this.brands} />
+          <ClubSelect clubType={"driver"} options={this.props.brands} />
         </div>
         <div className="woodsContainer" onChange={ this.handleClubChange }>
           <label>Woods</label>
@@ -109,7 +109,7 @@ class ClubOptions extends React.Component {
           <button onClick={ this.addNewClub }>Add Wedge</button>
         </div>
         <div className="putterContainer" onChange={ this.handleChange }>
-          <ClubSelect clubType={"putter"} options={this.brands} />
+          <ClubSelect clubType={"putter"} options={this.props.brands} />
         </div>
       </div>
     )
@@ -117,12 +117,3 @@ class ClubOptions extends React.Component {
 };
 
 export default ClubOptions;
-
-          // <label>Putter</label>
-          // <select name="putter">
-          //   <option value=""></option>
-          //   <option value="TaylorMade">TaylorMade</option>
-          //   <option value="Titleist">Titleist</option>
-          //   <option value="Callaway">Callaway</option>
-          //   <option value="Ping">Ping</option>
-          // </select>
