@@ -15,8 +15,8 @@ function AddClubSelect({
   };
 
   return (
-    <div>
-      <label>Woods</label>
+    <div className="addClubSelectContainer">
+      <label>{clubType}</label>
       <select className={clubType} name="type">
         {
           clubNumbers.map((number, key) => {
