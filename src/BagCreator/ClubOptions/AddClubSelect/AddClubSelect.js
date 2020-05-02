@@ -1,9 +1,15 @@
 import React from 'react';
 import './AddClubSelect.css';
 
-function AddClubSelect() {
+function AddClubSelect({ createNewClub, newClub }) {
+  function addNewClub() {
+    console.log(createNewClub);
+  };
+
   return (
-    <h3>Hello World</h3>
+    <div>
+      <button onClick={addNewClub}>Add Wood</button>
+    </div>
   )
 };
 

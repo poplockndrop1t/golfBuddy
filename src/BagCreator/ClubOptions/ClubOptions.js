@@ -49,7 +49,11 @@ class ClubOptions extends React.Component {
             <option value="Ping">Ping</option>
           </select>
           <button onClick={ this.addNewClub }>Add Wood</button>
-          <AddClubSelect createNewClub={ this.props.createNewClub } newClub={ this.props.newClub } />
+          <AddClubSelect
+            createNewClub={ this.props.createNewClub }
+            newClub={ this.props.newClub }
+            brands={ this.props.brands}
+            clubNumbers = { this.props.clubNumbers } />
         </div>
         <div className="hybridsContainer" onChange={ this.handleClubChange }>
           <label>Hybrids</label>
