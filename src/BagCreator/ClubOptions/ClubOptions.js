@@ -3,73 +3,119 @@ import './ClubOptions.css';
 import ClubSelect from './ClubSelect/ClubSelect.js';
 import AddClubSelect from './AddClubSelect/AddClubSelect.js';
 
-class ClubOptions extends React.Component {
-  constructor(props) {
-    super(props);
+// class ClubOptions extends React.Component {
+//   constructor(props) {
+//     super(props);
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClubChange = this.handleClubChange.bind(this);
-    this.addNewClub = this.addNewClub.bind(this);
+//     handleChange = handleChange.bind(;
+//     handleClubChange = handleClubChange.bind(;
+//   };
+
+//   handleChange(event) {
+//     return props.setBagState(event.target.name, event.target.value);
+//   }; 
+
+//   handleClubChange(event) {
+//     return props.setNewClubValue(event.target.name, event.target.value, event.target.classList[0]);
+//   };
+
+//   render() {
+//     return (
+//       <div className="clubOptionsContainer">
+//         <div className="driverContainer" onChange={handleChange}>
+//           <ClubSelect clubType={"driver"} options={props.brands} />
+//         </div>
+//         <div className="woodsContainer" onChange={handleClubChange}>
+//           <AddClubSelect
+//             createNewClub={ props.createNewClub }
+//             newClub={ props.newClub }
+//             brands={ props.brands}
+//             clubNumbers={ props.clubNumbers }
+//             clubType={"woods"}/>
+//         </div>
+//         <div className="hybridsContainer" onChange={handleClubChange}>
+//           <AddClubSelect
+//             createNewClub={props.createNewClub}
+//             newClub={props.newClub}
+//             brands={props.brands}
+//             clubNumbers={props.clubNumbers}
+//             clubType={"hybrids"} />
+//         </div>
+//         <div className="ironsContainer" onChange={handleClubChange}>
+//           <AddClubSelect
+//             createNewClub={props.createNewClub}
+//             newClub={props.newClub}
+//             brands={props.brands}
+//             clubNumbers={props.ironNumbers}
+//             clubType={"irons"} />
+//         </div>
+//         <div className="wedgesContainer" onChange={handleClubChange}>
+//           <AddClubSelect
+//             createNewClub={props.createNewClub}
+//             newClub={props.newClub}
+//             brands={props.brands}
+//             clubNumbers={props.wedgeNumbers}
+//             clubType={"wedges" } />
+//         </div>
+//         <div className="putterContainer" onChange={handleChange}>
+//           <ClubSelect clubType={"putter"} options={props.brands} />
+//         </div>
+//       </div>
+//     )
+//   }
+// };
+
+function ClubOptions(props) {
+  function handleChange(event) {
+    return props.setBagState(event.target.name, event.target.value);
   };
 
-  handleChange(event) {
-    return this.props.setBagState(event.target.name, event.target.value);
-  }; 
-
-  handleClubChange(event) {
-    return this.props.setNewClubValue(event.target.name, event.target.value, event.target.classList[0]);
+  function handleClubChange(event) {
+    //     return props.setBagState(event.target.name, event.target.value);
   };
 
-  addNewClub() {
-    if (this.props.newClub.type && this.props.newClub.brand) {
-      return this.props.createNewClub(this.props.newClub.type, this.props.newClub.brand);
-    }
-  };
-
-  render() {
-    return (
+  return (
       <div className="clubOptionsContainer">
-        <div className="driverContainer" onChange={ this.handleChange }>
-          <ClubSelect clubType={"driver"} options={this.props.brands} />
+        <div className="driverContainer" onChange={handleChange}>
+          <ClubSelect clubType={"driver"} options={props.brands} />
         </div>
-        <div className="woodsContainer" onChange={ this.handleClubChange }>
+        <div className="woodsContainer" onChange={handleClubChange}>
           <AddClubSelect
-            createNewClub={ this.props.createNewClub }
-            newClub={ this.props.newClub }
-            brands={ this.props.brands}
-            clubNumbers={ this.props.clubNumbers }
+            createNewClub={ props.createNewClub }
+            newClub={ props.newClub }
+            brands={ props.brands}
+            clubNumbers={ props.clubNumbers }
             clubType={"woods"}/>
         </div>
-        <div className="hybridsContainer" onChange={ this.handleClubChange }>
+        <div className="hybridsContainer" onChange={handleClubChange}>
           <AddClubSelect
-            createNewClub={this.props.createNewClub}
-            newClub={this.props.newClub}
-            brands={this.props.brands}
-            clubNumbers={this.props.clubNumbers}
+            createNewClub={props.createNewClub}
+            newClub={props.newClub}
+            brands={props.brands}
+            clubNumbers={props.clubNumbers}
             clubType={"hybrids"} />
         </div>
-        <div className="ironsContainer" onChange={ this.handleClubChange }>
+        <div className="ironsContainer" onChange={handleClubChange}>
           <AddClubSelect
-            createNewClub={this.props.createNewClub}
-            newClub={this.props.newClub}
-            brands={this.props.brands}
-            clubNumbers={this.props.ironNumbers}
+            createNewClub={props.createNewClub}
+            newClub={props.newClub}
+            brands={props.brands}
+            clubNumbers={props.ironNumbers}
             clubType={"irons"} />
         </div>
-        <div className="wedgesContainer" onChange={ this.handleClubChange }>
+        <div className="wedgesContainer" onChange={handleClubChange}>
           <AddClubSelect
-            createNewClub={this.props.createNewClub}
-            newClub={this.props.newClub}
-            brands={this.props.brands}
-            clubNumbers={this.props.wedgeNumbers}
+            createNewClub={props.createNewClub}
+            newClub={props.newClub}
+            brands={props.brands}
+            clubNumbers={props.wedgeNumbers}
             clubType={"wedges" } />
         </div>
-        <div className="putterContainer" onChange={ this.handleChange }>
-          <ClubSelect clubType={"putter"} options={this.props.brands} />
+        <div className="putterContainer" onChange={handleChange}>
+          <ClubSelect clubType={"putter"} options={props.brands} />
         </div>
       </div>
-    )
-  }
-};
+  )
+}
 
 export default ClubOptions;
