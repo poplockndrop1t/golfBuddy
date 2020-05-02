@@ -29,6 +29,8 @@ function BagCreator({
           createNewClub={createNewClub}
           brands={brands}
           clubNumbers={clubNumbers}
+          ironSets={ironSets}
+          wedgeNumbers={wedgeNumbers}
           />
         <YourBag bag={bag} />
       </div>

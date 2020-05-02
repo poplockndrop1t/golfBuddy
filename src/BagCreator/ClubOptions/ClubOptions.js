@@ -61,7 +61,7 @@ class ClubOptions extends React.Component {
             createNewClub={this.props.createNewClub}
             newClub={this.props.newClub}
             brands={this.props.brands}
-            clubNumbers={this.props.clubNumbers}
+            clubNumbers={this.props.wedgeNumbers}
             clubType={"wedges" } />
         </div>
         <div className="putterContainer" onChange={ this.handleChange }>
