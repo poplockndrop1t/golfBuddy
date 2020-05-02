@@ -49,22 +49,12 @@ class ClubOptions extends React.Component {
             clubType={"hybrids"} />
         </div>
         <div className="ironsContainer" onChange={ this.handleClubChange }>
-          <label>Irons</label>
-          <select className="irons" name="type">
-            <option value=""></option>
-            <option value="3p">3p</option>
-            <option value="4a">4a</option>
-            <option value="5a">5a</option>
-            <option value="5p">5p</option>
-          </select>
-          <select className="irons" name="brand" >
-            <option value=""></option>
-            <option value="TaylorMade">TaylorMade</option>
-            <option value="Titleist">Titleist</option>
-            <option value="Callaway">Callaway</option>
-            <option value="Ping">Ping</option>
-          </select>
-          <button onClick={ this.addNewClub }>Add Iron Set</button>
+          <AddClubSelect
+            createNewClub={this.props.createNewClub}
+            newClub={this.props.newClub}
+            brands={this.props.brands}
+            clubNumbers={this.props.clubNumbers}
+            clubType={"irons"} />
         </div>
         <div className="wedgesContainer" onChange={ this.handleClubChange }>
           <label>Wedges</label>
@@ -96,20 +86,3 @@ class ClubOptions extends React.Component {
 };
 
 export default ClubOptions;
-
-          // <label>Woods</label>
-          // <select className="woods" name="type">
-          //   <option value=""></option>
-          //   <option value="3+">3+</option>
-          //   <option value="3">3</option>
-          //   <option value="4">4</option>
-          //   <option value="5">5</option>
-          // </select>
-          // <select className="woods" name="brand">
-          //   <option value=""></option>
-          //   <option value="TaylorMade">TaylorMade</option>
-          //   <option value="Titleist">Titleist</option>
-          //   <option value="Callaway">Callaway</option>
-          //   <option value="Ping">Ping</option>
-          // </select>
-          // <button onClick={ this.addNewClub }>Add Wood</button>
