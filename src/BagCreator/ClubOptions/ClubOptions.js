@@ -1,6 +1,7 @@
 import React from 'react';
 import './ClubOptions.css';
 import ClubSelect from './ClubSelect/ClubSelect.js';
+import AddClubSelect from './AddClubSelect/AddClubSelect.js';
 
 class ClubOptions extends React.Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class ClubOptions extends React.Component {
             <option value="Ping">Ping</option>
           </select>
           <button onClick={ this.addNewClub }>Add Wood</button>
+          <AddClubSelect createNewClub={ this.props.createNewClub } newClub={ this.props.newClub } />
         </div>
         <div className="hybridsContainer" onChange={ this.handleClubChange }>
           <label>Hybrids</label>
