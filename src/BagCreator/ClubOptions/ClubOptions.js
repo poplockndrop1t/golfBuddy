@@ -27,19 +27,11 @@ class ClubOptions extends React.Component {
     }
   };
 
-          // <label>Driver</label>
-            // <select name="driver" >
-            //   <option value=""></option>
-            //   <option value="TaylorMade">TaylorMade</option>
-            //   <option value="Titleist">Titleist</option>
-            //   <option value="Callaway">Callaway</option>
-            //   <option value="Ping">Ping</option>
-            // </select>
   render() {
     return (
       <div className="clubOptionsContainer">
         <div className="driverContainer" onChange={ this.handleChange }>
-          <ClubSelect label={"Driver"} options={this.brands} />
+          <ClubSelect label={"driver"} options={this.brands} />
         </div>
         <div className="woodsContainer" onChange={ this.handleClubChange }>
           <label>Woods</label>

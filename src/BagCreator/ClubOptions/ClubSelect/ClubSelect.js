@@ -4,7 +4,7 @@ import './ClubSelect.css';
 
 function ClubSelect({ label, options }) {
   return (
-    <div>
+    <div className="clubSelectContainer">
       <label>{label}</label>
       <select name={label} >
         { options.map((option, key) => {
@@ -18,14 +18,3 @@ function ClubSelect({ label, options }) {
 };
 
 export default ClubSelect;
-    // <option value=""></option>
-    // <option value="TaylorMade">TaylorMade</option>
-    // <option value="Titleist">Titleist</option>
-    // <option value="Callaway">Callaway</option>
-    // <option value="Ping">Ping</option>
-
-    // <option value=""></option>
-    //   <option value="TaylorMade">TaylorMade</option>
-    //   <option value="Titleist">Titleist</option>
-    //   <option value="Callaway">Callaway</option>
-    //   <option value="Ping">Ping</option>
