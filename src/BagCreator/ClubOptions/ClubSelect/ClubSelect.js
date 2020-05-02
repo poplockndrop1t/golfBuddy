@@ -1,7 +1,7 @@
 import React from 'react';
 import './ClubSelect.css';
 
-function ClubSelect() {
+function ClubSelect({ label, options }) {
   return (
     <div>
       <h2>Hello World</h2>

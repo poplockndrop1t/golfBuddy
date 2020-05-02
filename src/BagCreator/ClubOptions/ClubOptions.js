@@ -37,6 +37,7 @@ class ClubOptions extends React.Component {
               <option value="Callaway">Callaway</option>
               <option value="Ping">Ping</option>
             </select>
+          <ClubSelect />
         </div>
         <div className="woodsContainer" onChange={ this.handleClubChange }>
           <label>Woods</label>
