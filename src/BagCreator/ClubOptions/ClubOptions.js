@@ -1,7 +1,7 @@
 import React from 'react';
-import './ClubOptions.css';
-import ClubSelect from './ClubSelect/ClubSelect.js';
 import AddClubSelect from './AddClubSelect/AddClubSelect.js';
+import ClubSelect from './ClubSelect/ClubSelect.js';
+import './ClubOptions.css';
 
 function ClubOptions(props) {
 

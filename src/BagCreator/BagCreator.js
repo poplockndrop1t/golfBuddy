@@ -3,9 +3,7 @@ import ClubOptions from './ClubOptions/ClubOptions.js';
 import YourBag from './YourBag/YourBag.js';
 import './BagCreator.css';
 
-function BagCreator({ bag, brands, clubNumbers, createNewClub, ironNumbers,
-  newClub, setBagState, setNewClubValue, wedgeNumbers}) {
-
+function BagCreator(props) {
   return (
     <div className="container">
       <div>
@@ -14,17 +12,17 @@ function BagCreator({ bag, brands, clubNumbers, createNewClub, ironNumbers,
       </div>
       <div className="bagCreatorContainer">
         <ClubOptions
-          bag={bag}
-          newClub={newClub}
-          setBagState={setBagState}
-          setNewClubValue={setNewClubValue}
-          createNewClub={createNewClub}
-          brands={brands}
-          clubNumbers={clubNumbers}
-          ironNumbers={ironNumbers}
-          wedgeNumbers={wedgeNumbers}
-          />
-        <YourBag bag={bag} />
+          bag={props.bag}
+          brands={props.brands}
+          clubNumbers={props.clubNumbers}
+          createNewClub={props.createNewClub}
+          ironNumbers={props.ironNumbers}
+          newClub={props.newClub}
+          setBagState={props.setBagState}
+          setNewClubValue={props.setNewClubValue}
+          wedgeNumbers={props.wedgeNumbers}
+        />
+        <YourBag bag={props.bag} />
       </div>
     </div>
   )

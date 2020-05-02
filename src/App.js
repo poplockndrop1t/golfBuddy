@@ -1,7 +1,7 @@
 import React from 'react';
-import Nav from './Nav/Nav.js';
-import Footer from './Footer/Footer.js';
 import BagCreator from './BagCreator/BagCreator.js';
+import Footer from './Footer/Footer.js';
+import Nav from './Nav/Nav.js';
 import './App.css';
 
 class App extends React.Component {
