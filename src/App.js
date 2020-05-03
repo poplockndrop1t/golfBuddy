@@ -21,6 +21,7 @@ class App extends React.Component {
         type: '',
         brand: ''
       },
+      bagSize: 0
     };
 
     this.createNewClub = this.createNewClub.bind(this);
@@ -40,7 +41,7 @@ class App extends React.Component {
     this.setState({ bag: currentBagState });
   }
 
-  createNewClub(clubType, clubBrand, clubCategory) {
+  createNewClub(clubType, clubBrand, numberOfClubs) {
     const { bag, newClub } = { ...this.state };
     const currentBagState = bag;
     const currentNewClub = { type: clubType, brand: clubBrand };
