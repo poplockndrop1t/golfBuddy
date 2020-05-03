@@ -15,33 +15,34 @@ function formatClubs(array) {
   )
 };
 
-function YourBag({ bag }) {
+function YourBag({ bag, bagSize }) {
   return (
     <div className="yourBagContainer">
       <h2>Your Bag</h2>
+      <p>{bagSize} Clubs Total</p>
       <div className="club">
         <h3>Driver</h3>
-        { bag.driver }
+        {bag.driver}
       </div>
       <div className="club">
         <h3>Woods</h3>
-        { formatClubs(bag.woods) }
+        {formatClubs(bag.woods)}
       </div>
       <div className="club">
         <h3>Hybrids</h3>
-        { formatClubs(bag.hybrids) }
+        {formatClubs(bag.hybrids)}
       </div>
       <div className="club">
         <h3>Irons</h3>
-        { formatClubs(bag.irons) }
+        {formatClubs(bag.irons)}
       </div>
       <div className="club">
         <h3>Wedges</h3>
-        { formatClubs(bag.wedges) }
+        {formatClubs(bag.wedges)}
       </div>
       <div className="club">
         <h3>Putter</h3>
-        { bag.putter }
+        {bag.putter}
       </div>
     </div>
   )

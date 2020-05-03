@@ -78,7 +78,9 @@ class App extends React.Component {
           newClub={this.state.newClub}
           setBagState={this.setBagState}
           setNewClubValue={this.setNewClubValue}
-          wedgeNumbers={this.wedgeNumbers} />
+          wedgeNumbers={this.wedgeNumbers}
+          bagSize={this.state.bagSize}
+        />
         <Footer />
       </div>
     )

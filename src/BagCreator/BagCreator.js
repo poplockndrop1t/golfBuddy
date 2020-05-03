@@ -22,7 +22,10 @@ function BagCreator(props) {
           setNewClubValue={props.setNewClubValue}
           wedgeNumbers={props.wedgeNumbers}
         />
-        <YourBag bag={props.bag} />
+        <YourBag
+          bag={props.bag}
+          bagSize={props.bagSize}
+        />
       </div>
     </div>
   )
