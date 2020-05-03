@@ -34,11 +34,14 @@ class App extends React.Component {
     this.wedgeNumbers = ["", "46", "48", "50", "52", "54", "56", "58", "60"];
   };
 
-  setBagState(stateName, newStateValue) {
-    const { bag } = { ...this.state };
+  setBagState(stateName, newStateValue, numberOfClubs) {
+    const { bag, bagSize } = { ...this.state };
     const currentBagState = bag;
+    var newBagSize = bagSize;
+    newBagSize += 1;
     currentBagState[stateName] = newStateValue;
     this.setState({ bag: currentBagState });
+    this.setState({ bagSize: newBagSize });
   }
 
   createNewClub(clubType, clubBrand, numberOfClubs) {
