@@ -5,8 +5,9 @@ function AddClubSelect({ brands, clubNumbers, clubType, createNewClub, newClub }
 
   function addNewClub() {
     if (newClub.type && newClub.brand) {
-      console.log(newClub.category);
-      return createNewClub(newClub.type, newClub.brand);
+      if (newClub.category !== "irons") {
+        return createNewClub(newClub.type, newClub.brand, 1);
+      }
     }
   };
 
