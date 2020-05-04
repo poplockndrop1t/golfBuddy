@@ -6,7 +6,7 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   if (action.type === ADD_CLUB) {
-    let newBagSize = state.bagSize += 1;
+    let newBagSize = state.bagSize += action.payload;
     state.bagSize = newBagSize
   }
   return state;
