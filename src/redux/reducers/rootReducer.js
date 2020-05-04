@@ -1,5 +1,5 @@
 const initialState = {
-  test: []
+  bagSize: 0
 };
 
 function rootReducer(state = initialState, action) {
