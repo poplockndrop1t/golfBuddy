@@ -1,8 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { incrementBagSize } from './redux/actions/actions';
+import store from './redux/store/store.js';
 import BagCreator from './BagCreator/BagCreator.js';
 import Footer from './Footer/Footer.js';
 import Nav from './Nav/Nav.js';
 import './App.css';
+
+function mapDispatchToProps(dispatch) {
+  return {
+    incrementBagSize: size => dispatch(incrementBagSize(size))
+  }
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -20,8 +29,7 @@ class App extends React.Component {
         category: '',
         type: '',
         brand: ''
-      },
-      bagSize: 0
+      }
     };
 
     this.createNewClub = this.createNewClub.bind(this);
@@ -37,24 +45,20 @@ class App extends React.Component {
   setBagState(stateName, newStateValue, numberOfClubs) {
     const { bag, bagSize } = { ...this.state };
     const currentBagState = bag;
-    var newBagSize = bagSize;
-    newBagSize += 1;
     currentBagState[stateName] = newStateValue;
     this.setState({ bag: currentBagState });
-    this.setState({ bagSize: newBagSize });
+    this.props.incrementBagSize(numberOfClubs);
   }
 
   createNewClub(clubType, clubBrand, numberOfClubs) {
-    const { bag, newClub, bagSize } = { ...this.state };
+    const { bag, newClub } = { ...this.state };
     const currentNewClub = { type: clubType, brand: clubBrand };
     const resetClub = { category: '', type: '', brand: '' };
     const currentBagState = bag;
-    var newBagSize = bagSize;
     currentBagState[newClub.category].push(currentNewClub);
-    newBagSize += numberOfClubs;
     this.setState({ bag: currentBagState });
     this.setState({ newClub: resetClub });
-    this.setState({ bagSize: newBagSize });
+    this.props.incrementBagSize(numberOfClubs);
   };
 
   setNewClubValue(typeOrBrand, value, category) {
@@ -79,7 +83,7 @@ class App extends React.Component {
           setBagState={this.setBagState}
           setNewClubValue={this.setNewClubValue}
           wedgeNumbers={this.wedgeNumbers}
-          bagSize={this.state.bagSize}
+          bagSize={store.getState().bagSize}
         />
         <Footer />
       </div>
@@ -87,4 +91,7 @@ class App extends React.Component {
   }
 };
 
-export default App;
+
+const ConnectedApp = connect(null, mapDispatchToProps)(App);
+
+export default ConnectedApp;
