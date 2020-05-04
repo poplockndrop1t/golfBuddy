@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-import store from './redux/store/store';
-import { incrementBagSize } from './redux/actions/actions';
 
-window.store = store;
-window.addArticle = incrementBagSize;
+import * as serviceWorker from './serviceWorker';
+
+import store from './redux/store/store';
+import { Provider } from "react-redux";
+
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App store={store} />
   </React.StrictMode>,
   document.getElementById('root')
 );
