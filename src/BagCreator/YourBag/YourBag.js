@@ -1,4 +1,5 @@
 import React from 'react';
+import Club from './Club/Club.js';
 import './YourBag.css';
 
 function formatClubs(array) {
@@ -20,10 +21,7 @@ function YourBag({ bag, bagSize }) {
     <div className="yourBagContainer">
       <h2>Your Bag</h2>
       <p>{bagSize} Clubs Total</p>
-      <div className="club">
-        <h3>Driver</h3>
-        {bag.driver}
-      </div>
+      <Club bag={bag} bagSize={bagSize} />
       <div className="club">
         <h3>Woods</h3>
         {formatClubs(bag.woods)}

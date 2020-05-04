@@ -1,9 +1,12 @@
 import React from 'react';
 import './Club.css';
 
-function Club(props) {
+function Club({ bag, bagSize }) {
   return (
-    <h3>Club</h3>
+    <div className="club">
+      <h3>Driver</h3>
+      {bag.driver}
+    </div>
   )
 };
 
