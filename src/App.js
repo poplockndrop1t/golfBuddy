@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { incrementBagSize } from './redux/actions/actions';
+import store from './redux/store/store.js';
 import BagCreator from './BagCreator/BagCreator.js';
 import Footer from './Footer/Footer.js';
 import Nav from './Nav/Nav.js';
@@ -8,7 +9,7 @@ import './App.css';
 
 function mapDispatchToProps(dispatch) {
   return {
-    bagSize: dispatch(incrementBagSize())
+    incrementBagSize: size => dispatch(incrementBagSize(size))
   }
 };
 
@@ -28,8 +29,8 @@ class App extends React.Component {
         category: '',
         type: '',
         brand: ''
-      },
-      bagSize: 0
+      }
+      // bagSize: 0
     };
 
     this.createNewClub = this.createNewClub.bind(this);
@@ -53,16 +54,17 @@ class App extends React.Component {
   }
 
   createNewClub(clubType, clubBrand, numberOfClubs) {
+    this.props.incrementBagSize();
     const { bag, newClub, bagSize } = { ...this.state };
     const currentNewClub = { type: clubType, brand: clubBrand };
     const resetClub = { category: '', type: '', brand: '' };
     const currentBagState = bag;
-    var newBagSize = bagSize;
+    // var newBagSize = bagSize;
     currentBagState[newClub.category].push(currentNewClub);
-    newBagSize += numberOfClubs;
+    // newBagSize += numberOfClubs;
     this.setState({ bag: currentBagState });
     this.setState({ newClub: resetClub });
-    this.setState({ bagSize: newBagSize });
+    // this.setState({ bagSize: newBagSize });
   };
 
   setNewClubValue(typeOrBrand, value, category) {
@@ -87,7 +89,7 @@ class App extends React.Component {
           setBagState={this.setBagState}
           setNewClubValue={this.setNewClubValue}
           wedgeNumbers={this.wedgeNumbers}
-          bagSize={this.state.bagSize}
+          bagSize={store.getState().bagSize}
         />
         <Footer />
       </div>
