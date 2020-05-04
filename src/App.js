@@ -1,8 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { incrementBagSize } from './redux/actions/actions';
 import BagCreator from './BagCreator/BagCreator.js';
 import Footer from './Footer/Footer.js';
 import Nav from './Nav/Nav.js';
 import './App.css';
+
+function mapDispatchToProps(dispatch) {
+  return {
+    bagSize: dispatch(incrementBagSize())
+  }
+};
 
 class App extends React.Component {
   constructor(props) {
