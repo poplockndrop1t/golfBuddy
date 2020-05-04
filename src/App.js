@@ -30,7 +30,6 @@ class App extends React.Component {
         type: '',
         brand: ''
       }
-      // bagSize: 0
     };
 
     this.createNewClub = this.createNewClub.bind(this);
@@ -46,25 +45,20 @@ class App extends React.Component {
   setBagState(stateName, newStateValue, numberOfClubs) {
     const { bag, bagSize } = { ...this.state };
     const currentBagState = bag;
-    var newBagSize = bagSize;
-    newBagSize += 1;
     currentBagState[stateName] = newStateValue;
     this.setState({ bag: currentBagState });
-    this.setState({ bagSize: newBagSize });
+    this.props.incrementBagSize();
   }
 
   createNewClub(clubType, clubBrand, numberOfClubs) {
-    this.props.incrementBagSize();
-    const { bag, newClub, bagSize } = { ...this.state };
+    const { bag, newClub } = { ...this.state };
     const currentNewClub = { type: clubType, brand: clubBrand };
     const resetClub = { category: '', type: '', brand: '' };
     const currentBagState = bag;
-    // var newBagSize = bagSize;
     currentBagState[newClub.category].push(currentNewClub);
-    // newBagSize += numberOfClubs;
     this.setState({ bag: currentBagState });
     this.setState({ newClub: resetClub });
-    // this.setState({ bagSize: newBagSize });
+    this.props.incrementBagSize();
   };
 
   setNewClubValue(typeOrBrand, value, category) {
