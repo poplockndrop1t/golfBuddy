@@ -5,6 +5,7 @@ import './YourBag.css';
 function displayBag(bagObject) {
   var clubTypeArray = Object.keys(bagObject);
   var clubValuesArray = Object.values(bagObject);
+
   return (
     <div>
       {
