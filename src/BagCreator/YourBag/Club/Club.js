@@ -10,9 +10,10 @@ function formatClub(club, clubType) {
   )
 };
 
-function formatClubsArray(array) {
+function formatClubsArray(array, clubType) {
   return (
-    <div>
+    <div className="club">
+      <h3>{clubType}</h3>
       {
         array.map((wood, key) => {
           return (
@@ -29,11 +30,11 @@ function Club({ club, clubType }) {
     return (
       formatClub(club, clubType)
     )
+  } else {
+    return (
+      formatClubsArray(club, clubType)
+    )
   }
 };
 
 export default Club;
-    // <div className="club">
-    //   <h3>{clubType}</h3>
-    //   <p>{club}</p>
-    // </div>

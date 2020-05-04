@@ -24,10 +24,9 @@ function YourBag({ bag, bagSize }) {
 
       <Club club={bag.driver} clubType={"Driver"} />
 
-      <div className="club">
-        <h3>Woods</h3>
-        {formatClubs(bag.woods)}
-      </div>
+
+      <Club club={bag.woods} clubType={"Woods"} />
+
 
       <div className="club">
         <h3>Hybrids</h3>
@@ -43,9 +42,15 @@ function YourBag({ bag, bagSize }) {
         <h3>Wedges</h3>
         {formatClubs(bag.wedges)}
       </div>
+
+
       <Club club={bag.putter} clubType={"Putter"} />
     </div>
   )
 };
 
 export default YourBag;
+      // <div className="club">
+      //   <h3>Woods</h3>
+      //   {formatClubs(bag.woods)}
+      // </div>
