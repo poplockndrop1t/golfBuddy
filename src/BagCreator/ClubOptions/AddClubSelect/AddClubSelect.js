@@ -7,6 +7,12 @@ function AddClubSelect({ brands, clubNumbers, clubType, createNewClub, newClub }
     if (newClub.type && newClub.brand) {
       if (newClub.category !== "irons") {
         return createNewClub(newClub.type, newClub.brand, 1);
+      } else {
+        if (newClub.type === "3p") return createNewClub(newClub.type, newClub.brand, 8);
+        if (newClub.type === "4a") return createNewClub(newClub.type, newClub.brand, 8);
+        if (newClub.type === "4p") return createNewClub(newClub.type, newClub.brand, 7);
+        if (newClub.type === "5a") return createNewClub(newClub.type, newClub.brand, 7);
+        if (newClub.type === "5p") return createNewClub(newClub.type, newClub.brand, 6);
       }
     }
   };
