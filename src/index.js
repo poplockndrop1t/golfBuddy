@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import store from './redux/store/store';
+import { incrementBagSize } from './redux/actions/actions';
+
+window.store = store;
+window.addArticle = incrementBagSize;
 
 ReactDOM.render(
   <React.StrictMode>
