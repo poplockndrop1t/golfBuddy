@@ -61,10 +61,9 @@ class App extends React.Component {
     const { newClub } = {...this.state};
     const currentNewClubState = newClub;
     currentNewClubState[typeOrBrand] = value;
-    console.log(typeOrBrand, value, category);
     currentNewClubState['category'] = category;
     this.setState({ newClub: currentNewClubState });
-  }
+  };
 
   render() {
     return (
