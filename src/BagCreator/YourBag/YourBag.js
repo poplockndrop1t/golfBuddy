@@ -21,27 +21,29 @@ function YourBag({ bag, bagSize }) {
     <div className="yourBagContainer">
       <h2>Your Bag</h2>
       <p>{bagSize} Clubs Total</p>
-      <Club bag={bag} bagSize={bagSize} />
+
+      <Club club={bag.driver} clubType={"Driver"} />
+
       <div className="club">
         <h3>Woods</h3>
         {formatClubs(bag.woods)}
       </div>
+
       <div className="club">
         <h3>Hybrids</h3>
         {formatClubs(bag.hybrids)}
       </div>
+
       <div className="club">
         <h3>Irons</h3>
         {formatClubs(bag.irons)}
       </div>
+
       <div className="club">
         <h3>Wedges</h3>
         {formatClubs(bag.wedges)}
       </div>
-      <div className="club">
-        <h3>Putter</h3>
-        {bag.putter}
-      </div>
+      <Club club={bag.putter} clubType={"Putter"} />
     </div>
   )
 };
