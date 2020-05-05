@@ -46,6 +46,7 @@ class App extends React.Component {
     const { bag } = { ...this.state };
     const currentBagState = bag;
     currentBagState[stateName] = newStateValue;
+    console.log('here', stateName, newStateValue);
     this.setState({ bag: currentBagState });
     this.props.incrementBagSize(numberOfClubs);
   }

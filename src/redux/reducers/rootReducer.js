@@ -1,6 +1,14 @@
 import { ADD_CLUB } from '../constants/constants';
 
 const initialState = {
+  bag: {
+    driver: '',
+    woods: [],
+    hybrids: [],
+    irons: [],
+    wedges: [],
+    putter: ''
+  },
   bagSize: 0
 };
 
