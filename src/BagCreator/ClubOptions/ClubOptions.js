@@ -6,7 +6,7 @@ import './ClubOptions.css';
 function ClubOptions(props) {
 
   function handleChange(event) {
-    return props.setBagState(event.target.name, event.target.value, 1);
+    return props.setDriverOrPutter(event.target.name, event.target.value, 1);
   };
 
   function handleClubChange(event) {

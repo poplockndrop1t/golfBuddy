@@ -18,7 +18,7 @@ function BagCreator(props) {
           createNewClub={props.createNewClub}
           ironNumbers={props.ironNumbers}
           newClub={props.newClub}
-          setBagState={props.setBagState}
+          setDriverOrPutter={props.setDriverOrPutter}
           setNewClubValue={props.setNewClubValue}
           wedgeNumbers={props.wedgeNumbers}
         />

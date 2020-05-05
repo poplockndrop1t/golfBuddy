@@ -41,7 +41,7 @@ class App extends React.Component {
     };
 
     this.createNewClub = this.createNewClub.bind(this);
-    this.setBagState = this.setBagState.bind(this);
+    this.setDriverOrPutter = this.setDriverOrPutter.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
 
     this.brands = ["", "TaylorMade", "Titleist", "Callaway", "Ping"];
@@ -50,7 +50,7 @@ class App extends React.Component {
     this.wedgeNumbers = ["", "46", "48", "50", "52", "54", "56", "58", "60"];
   };
 
-  setBagState(stateName, newStateValue, numberOfClubs) {
+  setDriverOrPutter(stateName, newStateValue, numberOfClubs) {
     this.props.addClub({ type: stateName, brand: newStateValue });
     this.props.incrementBagSize(numberOfClubs);
     this.setState({ bag: store.getState().bag });
@@ -84,7 +84,7 @@ class App extends React.Component {
           createNewClub={this.createNewClub}
           ironNumbers={this.ironNumbers}
           newClub={this.state.newClub}
-          setBagState={this.setBagState}
+          setDriverOrPutter={this.setDriverOrPutter}
           setNewClubValue={this.setNewClubValue}
           wedgeNumbers={this.wedgeNumbers}
           bagSize={this.state.bagSize}
