@@ -28,18 +28,14 @@ function rootReducer(state = initialState, action) {
     return newState;
   } else if (action.type === ADD_NEW_CLUB) {
     const newState = {...state};
-    const clubCategory = newState.newClub.category;
-    // newState[clubCategory].concat(action.payload);
-    // console.log(newState.newClub);
-    // currentBagState[newClub.category].push(currentNewClub);
-    // {type: "2", brand: "TaylorMade"}
-    // console.log('here', newState, action);
+    const cleanClub = { category: '', type: '', brand: '' };
+    newState['bag'][newState.newClub.category].push(newState.newClub)
+    newState.newClub = cleanClub;
     return newState;
   } else if (action.type === SET_NEW_CLUB_VALUE) {
     const newState = {...state};
     newState.newClub = action.payload;
     return newState;
-    // console.log('ehre', action.payload);
   }
   return state;
 };

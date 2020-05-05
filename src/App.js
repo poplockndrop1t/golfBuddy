@@ -7,9 +7,9 @@ import Footer from './Footer/Footer.js';
 import Nav from './Nav/Nav.js';
 import './App.css';
 
-const mapStateToProps = (state, ownProps) => ({
-  active: console.log('ran', state, ownProps)
-});
+// const mapStateToProps = (state, ownProps) => ({
+//   active: console.log('ran', state, ownProps)
+// });
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -58,25 +58,11 @@ class App extends React.Component {
   };
 
   createNewClub(clubType, clubBrand, numberOfClubs) {
-    const { bag, newClub } = { ...this.state };
-    const currentNewClub = { type: clubType, brand: clubBrand };
-    const resetClub = { category: '', type: '', brand: '' };
-    const currentBagState = bag;
-
-    currentBagState[newClub.category].push(currentNewClub);
-
-    console.log('clubtype', clubType, clubBrand);
-
     this.props.addNewClub({ type: clubType, brand: clubBrand });
-
     this.props.incrementBagSize(numberOfClubs);
-
-
-
-
-    this.setState({ newClub: resetClub });
     this.setState({ bag: store.getState().bag });
     this.setState({ bagSize: store.getState().bagSize });
+    this.setState({ newClub: store.getState().newClub });
   };
 
   setNewClubValue(typeOrBrand, value, category) {
@@ -84,7 +70,6 @@ class App extends React.Component {
     newClub[typeOrBrand] = value;
     newClub['category'] = category;
     this.props.setNewClubValue(newClub);
-    // const currentNewClubState = newClub;
     this.setState({ newClub: newClub });
   };
 
@@ -110,6 +95,7 @@ class App extends React.Component {
   }
 };
 
-const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
+// const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
+const ConnectedApp = connect(null, mapDispatchToProps)(App);
 
 export default ConnectedApp;
