@@ -7,6 +7,11 @@ import Footer from './Footer/Footer.js';
 import Nav from './Nav/Nav.js';
 import './App.css';
 
+const mapStateToProps = (state, ownProps) => ({
+  // active: ownProps.filter === state.visibilityFilter
+  active: console.log('ran', state, ownProps)
+})
+
 function mapDispatchToProps(dispatch) {
   return {
     addClub: club => dispatch(addClub(club)),
@@ -30,7 +35,8 @@ class App extends React.Component {
         category: '',
         type: '',
         brand: ''
-      }
+      },
+      bagSize: 0
     };
 
     this.createNewClub = this.createNewClub.bind(this);
@@ -44,16 +50,11 @@ class App extends React.Component {
   };
 
   setBagState(stateName, newStateValue, numberOfClubs) {
-    const { bag } = { ...this.state };
-    const currentBagState = bag;
-    currentBagState[stateName] = newStateValue;
-    console.log(stateName, newStateValue);
-    // this.props.addClub()
     this.props.addClub({ type: stateName, brand: newStateValue });
-
-    this.setState({ bag: currentBagState });
     this.props.incrementBagSize(numberOfClubs);
-  }
+    this.setState({ bag: store.getState().bag });
+    this.setState({ bagSize: store.getState().bagSize });
+  };
 
   createNewClub(clubType, clubBrand, numberOfClubs) {
     const { bag, newClub } = { ...this.state };
@@ -88,7 +89,7 @@ class App extends React.Component {
           setBagState={this.setBagState}
           setNewClubValue={this.setNewClubValue}
           wedgeNumbers={this.wedgeNumbers}
-          bagSize={store.getState().bagSize}
+          bagSize={this.state.bagSize}
         />
         <Footer />
       </div>
@@ -96,7 +97,6 @@ class App extends React.Component {
   }
 };
 
-
-const ConnectedApp = connect(null, mapDispatchToProps)(App);
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
 
 export default ConnectedApp;
