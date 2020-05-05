@@ -50,19 +50,19 @@ class App extends React.Component {
     this.wedgeNumbers = ["", "46", "48", "50", "52", "54", "56", "58", "60"];
   };
 
-  setDriverOrPutter(stateName, newStateValue, numberOfClubs) {
-    this.props.addClub({ type: stateName, brand: newStateValue });
-    this.props.incrementBagSize(numberOfClubs);
-    this.setState({ bag: store.getState().bag });
-    this.setState({ bagSize: store.getState().bagSize });
-  };
-
   createNewClub(clubType, clubBrand, numberOfClubs) {
     this.props.addNewClub({ type: clubType, brand: clubBrand });
     this.props.incrementBagSize(numberOfClubs);
     this.setState({ bag: store.getState().bag });
     this.setState({ bagSize: store.getState().bagSize });
     this.setState({ newClub: store.getState().newClub });
+  };
+
+  setDriverOrPutter(stateName, newStateValue, numberOfClubs) {
+    this.props.addClub({ type: stateName, brand: newStateValue });
+    this.props.incrementBagSize(numberOfClubs);
+    this.setState({ bag: store.getState().bag });
+    this.setState({ bagSize: store.getState().bagSize });
   };
 
   setNewClubValue(typeOrBrand, value, category) {
