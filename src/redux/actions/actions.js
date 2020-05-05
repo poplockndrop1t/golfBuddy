@@ -1,4 +1,8 @@
-import { INCREMENT_BAG_SIZE, ADD_CLUB, ADD_NEW_CLUB, SET_NEW_CLUB_VALUE } from '../constants/constants';
+import {
+  ADD_CLUB,
+  ADD_NEW_CLUB,
+  INCREMENT_BAG_SIZE,
+  SET_NEW_CLUB_VALUE } from '../constants/constants';
 
 export function addClub(payload) {
   return { type: ADD_CLUB, payload };
