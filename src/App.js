@@ -1,10 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addClub, addNewClub, incrementBagSize, setNewClubValue } from './redux/actions/actions';
 import store from './redux/store/store.js';
 import BagCreator from './BagCreator/BagCreator.js';
 import Footer from './Footer/Footer.js';
 import Nav from './Nav/Nav.js';
+import {
+  addClub,
+  addNewClub,
+  decrementBagSize,
+  incrementBagSize,
+  removeClub,
+  setNewClubValue } from './redux/actions/actions';
 import './App.css';
 
 function mapStateToProps(state) {

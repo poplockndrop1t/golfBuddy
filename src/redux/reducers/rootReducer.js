@@ -26,9 +26,6 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   const newState = {...state};
   switch(action.type) {
-    case `${INCREMENT_BAG_SIZE}`:
-      newState.bagSize += action.payload;
-      return newState;
     case `${ADD_CLUB}`:
       newState['bag'][action.payload.type] = action.payload.brand;
       return newState;
@@ -36,6 +33,12 @@ function rootReducer(state = initialState, action) {
       const cleanClub = { category: '', type: '', brand: '' };
       newState['bag'][newState.newClub.category].push(newState.newClub)
       newState.newClub = cleanClub;
+      return newState;
+    case `${DECREMENT_BAG_SIZE}`:
+      newState.bagSize -= action.payload;
+      return newState;
+    case `${INCREMENT_BAG_SIZE}`:
+      newState.bagSize += action.payload;
       return newState;
     case `${SET_NEW_CLUB_VALUE}`:
       newState.newClub = action.payload;
