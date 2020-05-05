@@ -37,6 +37,7 @@ class App extends React.Component {
     super(props);
 
     this.createNewClub = this.createNewClub.bind(this);
+    this.removeClub = this.removeClub.bind(this);
     this.setDriverOrPutter = this.setDriverOrPutter.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
 
@@ -49,6 +50,10 @@ class App extends React.Component {
   createNewClub(clubType, clubBrand, numberOfClubs) {
     this.props.addNewClub({ type: clubType, brand: clubBrand });
     this.props.incrementBagSize(numberOfClubs);
+  };
+
+  removeClub(club) {
+    console.log('club', club);
   };
 
   setDriverOrPutter(stateName, newStateValue, numberOfClubs) {
