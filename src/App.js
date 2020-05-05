@@ -60,6 +60,7 @@ class App extends React.Component {
     const currentNewClub = { type: clubType, brand: clubBrand };
     const resetClub = { category: '', type: '', brand: '' };
     const currentBagState = bag;
+
     currentBagState[newClub.category].push(currentNewClub);
     this.props.incrementBagSize(numberOfClubs);
     this.setState({ newClub: resetClub });
