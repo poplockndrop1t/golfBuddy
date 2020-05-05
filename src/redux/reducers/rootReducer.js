@@ -41,6 +41,8 @@ function rootReducer(state = initialState, action) {
     case `${INCREMENT_BAG_SIZE}`:
       newState.bagSize += action.payload;
       return newState;
+    case `${REMOVE_CLUB}`:
+      console.log('test', newState, action.payload)
     case `${SET_NEW_CLUB_VALUE}`:
       newState.newClub = action.payload;
       return newState;
