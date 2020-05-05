@@ -25,6 +25,7 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   const newState = {...state};
+
   switch(action.type) {
     case `${ADD_CLUB}`:
       newState['bag'][action.payload.type] = action.payload.brand;

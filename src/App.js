@@ -25,7 +25,9 @@ function mapDispatchToProps(dispatch) {
   return {
     addClub: club => dispatch(addClub(club)),
     addNewClub: club => dispatch(addNewClub(club)),
+    decrementBagSize: size => dispatch(decrementBagSize(size)),
     incrementBagSize: size => dispatch(incrementBagSize(size)),
+    removeClub: club => dispatch(decrementBagSize(club)),
     setNewClubValue: value => dispatch(setNewClubValue(value))
   }
 };
