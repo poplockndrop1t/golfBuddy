@@ -18,26 +18,25 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
-  if (action.type === INCREMENT_BAG_SIZE) {
-    const newState = {...state};
-    newState.bagSize += action.payload;
-    return newState;
-  } else if (action.type === ADD_CLUB) {
-    const newState = {...state};
-    newState['bag'][action.payload.type] = action.payload.brand;
-    return newState;
-  } else if (action.type === ADD_NEW_CLUB) {
-    const newState = {...state};
-    const cleanClub = { category: '', type: '', brand: '' };
-    newState['bag'][newState.newClub.category].push(newState.newClub)
-    newState.newClub = cleanClub;
-    return newState;
-  } else if (action.type === SET_NEW_CLUB_VALUE) {
-    const newState = {...state};
-    newState.newClub = action.payload;
-    return newState;
+  const newState = {...state};
+  switch(action.type) {
+    case `${INCREMENT_BAG_SIZE}`:
+      newState.bagSize += action.payload;
+      return newState;
+    case `${ADD_CLUB}`:
+      newState['bag'][action.payload.type] = action.payload.brand;
+      return newState;
+    case `${ADD_NEW_CLUB}`:
+      const cleanClub = { category: '', type: '', brand: '' };
+      newState['bag'][newState.newClub.category].push(newState.newClub)
+      newState.newClub = cleanClub;
+      return newState;
+    case `${SET_NEW_CLUB_VALUE}`:
+      newState.newClub = action.payload;
+      return newState;
+    default:
+      return state
   }
-  return state;
 };
 
 export default rootReducer;
