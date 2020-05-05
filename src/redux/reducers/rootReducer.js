@@ -1,4 +1,4 @@
-import { ADD_CLUB } from '../constants/constants';
+import { INCREMENT_BAG_SIZE } from '../constants/constants';
 
 const initialState = {
   bag: {
@@ -13,7 +13,7 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
-  if (action.type === ADD_CLUB) {
+  if (action.type === INCREMENT_BAG_SIZE) {
     let newBagSize = state.bagSize += action.payload;
     state.bagSize = newBagSize
   }
