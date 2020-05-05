@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addClub, incrementBagSize } from './redux/actions/actions';
+import { addClub, addNewClub, incrementBagSize } from './redux/actions/actions';
 import store from './redux/store/store.js';
 import BagCreator from './BagCreator/BagCreator.js';
 import Footer from './Footer/Footer.js';
@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => ({
 function mapDispatchToProps(dispatch) {
   return {
     addClub: club => dispatch(addClub(club)),
+    addNewClub: club => dispatch(addNewClub(club)),
     incrementBagSize: size => dispatch(incrementBagSize(size))
   }
 };
@@ -62,7 +63,14 @@ class App extends React.Component {
     const currentBagState = bag;
 
     currentBagState[newClub.category].push(currentNewClub);
+
+    this.props.addNewClub({ type: clubType, brand: clubBrand });
+
     this.props.incrementBagSize(numberOfClubs);
+
+
+
+
     this.setState({ newClub: resetClub });
     this.setState({ bag: store.getState().bag });
     this.setState({ bagSize: store.getState().bagSize });
