@@ -1,4 +1,4 @@
-import { INCREMENT_BAG_SIZE } from '../constants/constants';
+import { INCREMENT_BAG_SIZE, ADD_CLUB } from '../constants/constants';
 
 const initialState = {
   bag: {

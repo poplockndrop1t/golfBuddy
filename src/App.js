@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { incrementBagSize } from './redux/actions/actions';
+import { addClub, incrementBagSize } from './redux/actions/actions';
 import store from './redux/store/store.js';
 import BagCreator from './BagCreator/BagCreator.js';
 import Footer from './Footer/Footer.js';
@@ -9,6 +9,7 @@ import './App.css';
 
 function mapDispatchToProps(dispatch) {
   return {
+    addClub: club => dispatch(addClub(club)),
     incrementBagSize: size => dispatch(incrementBagSize(size))
   }
 };
