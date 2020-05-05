@@ -7,9 +7,14 @@ import Footer from './Footer/Footer.js';
 import Nav from './Nav/Nav.js';
 import './App.css';
 
-// const mapStateToProps = (state, ownProps) => ({
-//   active: console.log('ran', state, ownProps)
-// });
+function mapStateToProps(state, ownProps) {
+  const test = {
+    bag: state.bag,
+    newClub: state.newClub,
+    bagSize: state.bagSize
+  }
+  return test;
+};
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -23,22 +28,6 @@ function mapDispatchToProps(dispatch) {
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      bag: {
-        driver: '',
-        woods: [],
-        hybrids: [],
-        irons: [],
-        wedges: [],
-        putter: ''
-      },
-      newClub: {
-        category: '',
-        type: '',
-        brand: ''
-      },
-      bagSize: 0
-    };
 
     this.createNewClub = this.createNewClub.bind(this);
     this.setDriverOrPutter = this.setDriverOrPutter.bind(this);
@@ -53,16 +42,11 @@ class App extends React.Component {
   createNewClub(clubType, clubBrand, numberOfClubs) {
     this.props.addNewClub({ type: clubType, brand: clubBrand });
     this.props.incrementBagSize(numberOfClubs);
-    this.setState({ bag: store.getState().bag });
-    this.setState({ bagSize: store.getState().bagSize });
-    this.setState({ newClub: store.getState().newClub });
   };
 
   setDriverOrPutter(stateName, newStateValue, numberOfClubs) {
     this.props.addClub({ type: stateName, brand: newStateValue });
     this.props.incrementBagSize(numberOfClubs);
-    this.setState({ bag: store.getState().bag });
-    this.setState({ bagSize: store.getState().bagSize });
   };
 
   setNewClubValue(typeOrBrand, value, category) {
@@ -70,7 +54,6 @@ class App extends React.Component {
     newClub[typeOrBrand] = value;
     newClub['category'] = category;
     this.props.setNewClubValue(newClub);
-    this.setState({ newClub: newClub });
   };
 
   render() {
@@ -78,16 +61,16 @@ class App extends React.Component {
       <div className="App">
         <Nav />
         <BagCreator
-          bag={this.state.bag}
+          bag={this.props.bag}
           brands={this.brands}
           clubNumbers={this.clubNumbers}
           createNewClub={this.createNewClub}
           ironNumbers={this.ironNumbers}
-          newClub={this.state.newClub}
+          newClub={this.props.newClub}
           setDriverOrPutter={this.setDriverOrPutter}
           setNewClubValue={this.setNewClubValue}
           wedgeNumbers={this.wedgeNumbers}
-          bagSize={this.state.bagSize}
+          bagSize={this.props.bagSize}
         />
         <Footer />
       </div>
@@ -95,7 +78,6 @@ class App extends React.Component {
   }
 };
 
-// const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
-const ConnectedApp = connect(null, mapDispatchToProps)(App);
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
 
 export default ConnectedApp;
