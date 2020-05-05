@@ -8,9 +8,8 @@ import Nav from './Nav/Nav.js';
 import './App.css';
 
 const mapStateToProps = (state, ownProps) => ({
-  // active: ownProps.filter === state.visibilityFilter
   active: console.log('ran', state, ownProps)
-})
+});
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -62,9 +61,10 @@ class App extends React.Component {
     const resetClub = { category: '', type: '', brand: '' };
     const currentBagState = bag;
     currentBagState[newClub.category].push(currentNewClub);
-    this.setState({ bag: currentBagState });
-    this.setState({ newClub: resetClub });
     this.props.incrementBagSize(numberOfClubs);
+    this.setState({ newClub: resetClub });
+    this.setState({ bag: store.getState().bag });
+    this.setState({ bagSize: store.getState().bagSize });
   };
 
   setNewClubValue(typeOrBrand, value, category) {
