@@ -43,6 +43,7 @@ function rootReducer(state = initialState, action) {
       return newState;
     case `${REMOVE_CLUB}`:
       console.log('test', newState, action.payload)
+      return newState;
     case `${SET_NEW_CLUB_VALUE}`:
       newState.newClub = action.payload;
       return newState;

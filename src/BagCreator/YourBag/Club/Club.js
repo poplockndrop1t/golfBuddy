@@ -1,11 +1,15 @@
 import React from 'react';
 import './Club.css';
 
+function handleClick(event) {
+  console.log(event.target)
+};
+
 function formatClub(club, clubType) {
   return (
     <div className="club">
       <h3>{clubType}</h3>
-      <p>{club}</p>
+      <p onClick={handleClick}>{club}</p>
     </div>
   )
 };
@@ -17,7 +21,7 @@ function formatClubsArray(array, clubType) {
       {
         array.map((wood, key) => {
           return (
-            <p key={key}>{wood.type} {wood.brand}</p>
+            <p onClick={handleClick} key={key}>{wood.type} {wood.brand}</p>
           )
         })
       }

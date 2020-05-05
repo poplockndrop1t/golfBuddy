@@ -79,6 +79,7 @@ class App extends React.Component {
           createNewClub={this.createNewClub}
           ironNumbers={this.ironNumbers}
           newClub={this.props.newClub}
+          removeClub={this.removeClub}
           setDriverOrPutter={this.setDriverOrPutter}
           setNewClubValue={this.setNewClubValue}
           wedgeNumbers={this.wedgeNumbers}

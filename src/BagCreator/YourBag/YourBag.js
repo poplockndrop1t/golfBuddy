@@ -2,15 +2,22 @@ import React from 'react';
 import Club from './Club/Club.js';
 import './YourBag.css';
 
-function displayBag(bagObject) {
-  var clubTypeArray = Object.keys(bagObject);
-  var clubValuesArray = Object.values(bagObject);
+
+function displayBag(props) {
+  var clubTypeArray = Object.keys(props.bag);
+  var clubValuesArray = Object.values(props.bag);
+
   return (
     <div>
       {
         clubTypeArray.map((club, key) => {
           return (
-            <Club club={clubValuesArray[key]} clubType={club} key={key} />
+            <Club
+              club={clubValuesArray[key]}
+              clubType={club}
+              removeClub={props.removeClub}
+              key={key}
+            />
           )
         })
       }
@@ -18,12 +25,12 @@ function displayBag(bagObject) {
   )
 };
 
-function YourBag({ bag, bagSize }) {
+function YourBag(props) {
   return (
     <div className="yourBagContainer">
       <h2>Your Bag</h2>
-      <p>{bagSize} Clubs Total</p>
-      {displayBag(bag)}
+      <p>{props.bagSize} Clubs Total</p>
+      {displayBag(props)}
     </div>
   )
 };
