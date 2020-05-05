@@ -7,13 +7,12 @@ import Footer from './Footer/Footer.js';
 import Nav from './Nav/Nav.js';
 import './App.css';
 
-function mapStateToProps(state, ownProps) {
-  const test = {
+function mapStateToProps(state) {
+  return {
     bag: state.bag,
-    newClub: state.newClub,
-    bagSize: state.bagSize
-  }
-  return test;
+    bagSize: state.bagSize,
+    newClub: state.newClub
+  };
 };
 
 function mapDispatchToProps(dispatch) {

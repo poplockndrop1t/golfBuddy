@@ -9,12 +9,12 @@ const initialState = {
     wedges: [],
     putter: ''
   },
+  bagSize: 0,
   newClub: {
     category: '',
     type: '',
     brand: ''
-  },
-  bagSize: 0
+  }
 };
 
 function rootReducer(state = initialState, action) {
