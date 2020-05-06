@@ -15,7 +15,6 @@ function displayBag(props) {
               club={clubValuesArray[key]}
               clubType={club}
               removeClub={props.removeClub}
-              i={key}
               key={key}
             />
           )
@@ -30,7 +29,7 @@ function YourBag(props) {
     <div className="yourBagContainer">
       <h2>Your Bag</h2>
       <p>{props.bagSize} Clubs Total</p>
-      { displayBag(props) }
+      {displayBag(props)}
     </div>
   )
 };

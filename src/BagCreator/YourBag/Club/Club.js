@@ -15,12 +15,12 @@ function formatClub(club, clubType, id, props) {
   )
 };
 
-function formatClubsArray(array, clubType, id, props) {
+function formatClubsArray(props) {
   return (
     <div className="club">
-      <h3>{clubType}</h3>
+      <h3>{props.clubType}</h3>
       {
-        array.map((club, key) => {
+        props.club.map((club, key) => {
           return (
             <p key={key}>{club.type} {club.brand}</p>
           )
@@ -30,16 +30,34 @@ function formatClubsArray(array, clubType, id, props) {
   )
 };
 
-function Club({ club, clubType, i, removeClub }, props) {
-  if (typeof club === 'string') {
-    return (
-      formatClub(props.club, props.clubType, props.i)
-    )
-  } else {
-    return (
-      formatClubsArray(props.club, props.clubType, props.i)
-    )
+// function Club(props) {
+//   if (typeof props.club === 'string') {
+//     return (
+//       formatClub(props.club, props.clubType, props.i, props)
+//     )
+//   } else {
+//     return (
+//       formatClubsArray(props)
+//     )
+//   }
+// };
+
+class Club extends React.Component {
+  constructor(props) {
+    super(props);
   }
-};
+
+  render() {
+    if (typeof this.props.club === 'string') {
+      return (
+        formatClub(this.props.club, this.props.clubType, this.props.i, this.props)
+      )
+    } else {
+      return (
+        formatClubsArray(this.props)
+      )
+    }
+  }
+}
 
 export default Club;
