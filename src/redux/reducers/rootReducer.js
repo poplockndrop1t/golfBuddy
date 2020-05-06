@@ -13,7 +13,7 @@ const initialState = {
     hybrids: [],
     irons: [],
     wedges: [],
-    putter: ''
+    putter: []
   },
   bagSize: 0,
   newClub: {

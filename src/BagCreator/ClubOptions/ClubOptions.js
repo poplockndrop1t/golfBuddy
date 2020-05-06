@@ -11,6 +11,7 @@ function ClubOptions(props) {
   };
 
   function handleClubChange(event) {
+    console.log('handle club change', event.target.name, event.target.value, event.target.classList[0])
     return props.setNewClubValue(event.target.name, event.target.value, event.target.classList[0]);
   };
 
@@ -40,7 +41,8 @@ function ClubOptions(props) {
           newClub={props.newClub}
           brands={props.brands}
           clubNumbers={props.clubNumbers}
-          clubType={"hybrids"} />
+          clubType={"hybrids"}
+        />
       </div>
       <div className="ironsContainer" onChange={handleClubChange}>
         <AddClubSelect
@@ -48,7 +50,8 @@ function ClubOptions(props) {
           newClub={props.newClub}
           brands={props.brands}
           clubNumbers={props.ironNumbers}
-          clubType={"irons"} />
+          clubType={"irons"}
+        />
       </div>
       <div className="wedgesContainer" onChange={handleClubChange}>
         <AddClubSelect
@@ -56,15 +59,20 @@ function ClubOptions(props) {
           newClub={props.newClub}
           brands={props.brands}
           clubNumbers={props.wedgeNumbers}
-          clubType={"wedges" } />
+          clubType={"wedges" }
+        />
       </div>
-      <div className="putterContainer" onChange={handleChange}>
-        <ClubSelect clubType={"putter"} options={props.brands} />
+      <div className="putterContainer" onChange={handleClubChange}>
+        <AddClubSelect
+          createNewClub={props.createNewClub}
+          newClub={props.newClub}
+          brands={props.brands}
+          clubNumbers={props.wedgeNumbers}
+          clubType={"putter"}
+        />
       </div>
     </div>
   )
 };
 
 export default ClubOptions;
-
-// <ClubSelect clubType={"driver"} options={props.brands} />

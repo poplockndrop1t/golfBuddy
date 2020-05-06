@@ -14,6 +14,7 @@ import {
   setNewClubValue } from './redux/actions/actions';
 
 function mapStateToProps(state) {
+  console.log('state', state);
   return {
     bag: state.bag,
     bagSize: state.bagSize,
