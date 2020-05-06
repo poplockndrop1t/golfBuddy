@@ -1,47 +1,6 @@
 import React from 'react';
 import './Club.css';
 
-// function handleClick(club, clubType, id) {
-//   console.log('here', club, clubType, id)
-// };
-
-// function formatClub(club, clubType, id, props) {
-//   return (
-//     <div className="club">
-//       <h3>{clubType}</h3>
-//       <p>{club}</p>
-//       <button onClick={ () => handleClick(club, clubType, id) }>Remove Club</button>
-//     </div>
-//   )
-// };
-
-// function formatClubsArray(props) {
-//   return (
-//     <div className="club">
-//       <h3>{props.clubType}</h3>
-//       {
-//         props.club.map((club, key) => {
-//           return (
-//             <p key={key}>{club.type} {club.brand}</p>
-//           )
-//         })
-//       }
-//     </div>
-//   )
-// };
-
-// function Club(props) {
-//   if (typeof props.club === 'string') {
-//     return (
-//       formatClub(props.club, props.clubType, props.i, props)
-//     )
-//   } else {
-//     return (
-//       formatClubsArray(props)
-//     )
-//   }
-// };
-
 class Club extends React.Component {
   constructor(props) {
     super(props);
@@ -51,26 +10,26 @@ class Club extends React.Component {
     this.formatClubsArray = this.formatClubsArray.bind(this);
   }
 
-  handleClick(club, clubType, id) {
-    console.log('here', club, clubType, id)
+  handleClick(event) {
+    console.log('here', this.props)
   };
 
-  formatClub(club, clubType, id, props) {
+  formatClub() {
     return (
       <div className="club">
-        <h3>{clubType}</h3>
-        <p>{club}</p>
-        <button onClick={ () => this.handleClick(club, clubType, id) }>Remove Club</button>
+        <h3>{this.props.clubType}</h3>
+        <p>{this.props.club}</p>
+        <button onClick={ this.handleClick }>Remove Club</button>
       </div>
     )
   };
 
-  formatClubsArray(props) {
+  formatClubsArray() {
     return (
       <div className="club">
-        <h3>{props.clubType}</h3>
+        <h3>{this.props.clubType}</h3>
         {
-          props.club.map((club, key) => {
+          this.props.club.map((club, key) => {
             return (
               <p key={key}>{club.type} {club.brand}</p>
             )
@@ -83,11 +42,11 @@ class Club extends React.Component {
   render() {
     if (typeof this.props.club === 'string') {
       return (
-        this.formatClub(this.props.club, this.props.clubType, this.props.i, this.props)
+        this.formatClub()
       )
     } else {
       return (
-        this.formatClubsArray(this.props)
+        this.formatClubsArray()
       )
     }
   }
