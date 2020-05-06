@@ -8,7 +8,7 @@ import {
 
 const initialState = {
   bag: {
-    driver: '',
+    driver: [],
     woods: [],
     hybrids: [],
     irons: [],

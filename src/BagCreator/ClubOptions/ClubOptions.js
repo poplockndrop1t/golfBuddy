@@ -3,6 +3,7 @@ import AddClubSelect from './AddClubSelect/AddClubSelect.js';
 import ClubSelect from './ClubSelect/ClubSelect.js';
 import './ClubOptions.css';
 
+
 function ClubOptions(props) {
 
   function handleChange(event) {
@@ -16,7 +17,13 @@ function ClubOptions(props) {
   return (
     <div className="clubOptionsContainer">
       <div className="driverContainer" onChange={handleChange}>
-        <ClubSelect clubType={"driver"} options={props.brands} />
+        <AddClubSelect
+          createNewClub={ props.createNewClub }
+          newClub={ props.newClub }
+          brands={ props.brands }
+          clubNumbers={ props.clubNumbers }
+          clubType={"driver"}
+        />
       </div>
       <div className="woodsContainer" onChange={handleClubChange}>
         <AddClubSelect
@@ -24,7 +31,8 @@ function ClubOptions(props) {
           newClub={ props.newClub }
           brands={ props.brands}
           clubNumbers={ props.clubNumbers }
-          clubType={"woods"}/>
+          clubType={"woods"}
+        />
       </div>
       <div className="hybridsContainer" onChange={handleClubChange}>
         <AddClubSelect
@@ -58,3 +66,5 @@ function ClubOptions(props) {
 };
 
 export default ClubOptions;
+
+// <ClubSelect clubType={"driver"} options={props.brands} />
