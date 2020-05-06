@@ -14,7 +14,6 @@ import {
   setNewClubValue } from './redux/actions/actions';
 
 function mapStateToProps(state) {
-  console.log('state', state);
   return {
     bag: state.bag,
     bagSize: state.bagSize,
@@ -83,6 +82,7 @@ class App extends React.Component {
         <Nav />
         <BagCreator
           bag={this.props.bag}
+          bagSize={this.props.bagSize}
           brands={this.brands}
           clubTypeNumbers={this.clubTypeNumbers}
           createNewClub={this.createNewClub}
@@ -92,7 +92,6 @@ class App extends React.Component {
           setDriverOrPutter={this.setDriverOrPutter}
           setNewClubValue={this.setNewClubValue}
           wedgeNumbers={this.wedgeNumbers}
-          bagSize={this.props.bagSize}
         />
         <Footer />
       </div>
