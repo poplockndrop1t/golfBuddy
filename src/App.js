@@ -14,6 +14,7 @@ import {
   setNewClubValue } from './redux/actions/actions';
 
 function mapStateToProps(state) {
+  console.log('state', state);
   return {
     bag: state.bag,
     bagSize: state.bagSize,
@@ -54,6 +55,7 @@ class App extends React.Component {
 
   removeClub(clubType, clubBrand, i) {
     this.props.removeClub({ type: clubType, brand: clubBrand, i: i });
+    this.props.decrementBagSize(1);
   };
 
   setDriverOrPutter(clubType, clubBrand, numberOfClubs) {
