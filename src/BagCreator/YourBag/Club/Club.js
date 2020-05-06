@@ -1,27 +1,28 @@
 import React from 'react';
 import './Club.css';
 
-function handleClick(event) {
-  console.log(event.target)
+function handleClick(club, clubType, id) {
+  console.log('here', club, clubType, id)
 };
 
-function formatClub(club, clubType) {
+function formatClub(club, clubType, id, props) {
   return (
     <div className="club">
       <h3>{clubType}</h3>
-      <p onClick={handleClick}>{club}</p>
+      <p>{club}</p>
+      <button onClick={ () => handleClick(club, clubType, id) }>Remove Club</button>
     </div>
   )
 };
 
-function formatClubsArray(array, clubType) {
+function formatClubsArray(array, clubType, id, props) {
   return (
     <div className="club">
       <h3>{clubType}</h3>
       {
-        array.map((wood, key) => {
+        array.map((club, key) => {
           return (
-            <p onClick={handleClick} key={key}>{wood.type} {wood.brand}</p>
+            <p key={key}>{club.type} {club.brand}</p>
           )
         })
       }
@@ -29,14 +30,14 @@ function formatClubsArray(array, clubType) {
   )
 };
 
-function Club({ club, clubType }) {
+function Club({ club, clubType, i, removeClub }, props) {
   if (typeof club === 'string') {
     return (
-      formatClub(club, clubType)
+      formatClub(props.club, props.clubType, props.i)
     )
   } else {
     return (
-      formatClubsArray(club, clubType)
+      formatClubsArray(props.club, props.clubType, props.i)
     )
   }
 };

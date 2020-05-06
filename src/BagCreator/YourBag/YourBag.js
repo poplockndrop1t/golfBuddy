@@ -2,7 +2,6 @@ import React from 'react';
 import Club from './Club/Club.js';
 import './YourBag.css';
 
-
 function displayBag(props) {
   var clubTypeArray = Object.keys(props.bag);
   var clubValuesArray = Object.values(props.bag);
@@ -16,6 +15,7 @@ function displayBag(props) {
               club={clubValuesArray[key]}
               clubType={club}
               removeClub={props.removeClub}
+              i={key}
               key={key}
             />
           )
@@ -30,7 +30,7 @@ function YourBag(props) {
     <div className="yourBagContainer">
       <h2>Your Bag</h2>
       <p>{props.bagSize} Clubs Total</p>
-      {displayBag(props)}
+      { displayBag(props) }
     </div>
   )
 };
