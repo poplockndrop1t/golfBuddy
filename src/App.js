@@ -52,7 +52,7 @@ class App extends React.Component {
     this.props.incrementBagSize(numberOfClubs);
   };
 
-  removeClub(club) {
+  removeClub(club, clubType) {
     console.log('club', club);
   };
 

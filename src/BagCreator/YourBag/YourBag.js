@@ -15,6 +15,7 @@ function displayBag(props) {
               club={clubValuesArray[key]}
               clubType={club}
               removeClub={props.removeClub}
+              i={key}
               key={key}
             />
           )

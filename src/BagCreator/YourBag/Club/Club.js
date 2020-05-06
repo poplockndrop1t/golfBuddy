@@ -11,7 +11,7 @@ class Club extends React.Component {
   }
 
   handleClick(event) {
-    console.log('here', this.props)
+    return this.props.removeClub(this.props.club, this.props.clubType, this.props.i)
   };
 
   formatClub() {
