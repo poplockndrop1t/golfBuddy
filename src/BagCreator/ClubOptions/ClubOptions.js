@@ -18,7 +18,7 @@ function ClubOptions(props) {
                 createNewClub={props.createNewClub}
                 newClub={props.newClub}
                 brands={props.brands}
-                clubNumbers={props.clubNumbers}
+                clubTypeNumbers={props.clubTypeNumbers[clubType]}
                 clubType={clubType}
               />
             </div>

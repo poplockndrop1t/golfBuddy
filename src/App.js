@@ -43,9 +43,14 @@ class App extends React.Component {
     this.setNewClubValue = this.setNewClubValue.bind(this);
 
     this.brands = ["", "TaylorMade", "Titleist", "Callaway", "Ping"];
-    this.clubNumbers = ["", "2", "3+", "3", "4", "5"];
-    this.ironNumbers = ["", "3p", "4a", "4p", "5a", "5p"];
-    this.wedgeNumbers = ["", "46", "48", "50", "52", "54", "56", "58", "60"];
+    this.clubTypeNumbers = {
+      driver: ["", "8.5", "9.5", "10.0", "10.5"],
+      hybrids: ["", "2", "3", "4", "5", "6"],
+      irons: ["", "3p", "4a", "4p", "5a", "5p"],
+      putter: ["", "33", "34", "35", "36", "37", "38"],
+      wedges: ["", "46", "48", "50", "52", "54", "56", "58", "60"],
+      woods: ["", "13.5", "15", "16.5", "19", "21"]
+    };
   };
 
   createNewClub(clubType, clubBrand, numberOfClubs) {
@@ -79,7 +84,7 @@ class App extends React.Component {
         <BagCreator
           bag={this.props.bag}
           brands={this.brands}
-          clubNumbers={this.clubNumbers}
+          clubTypeNumbers={this.clubTypeNumbers}
           createNewClub={this.createNewClub}
           ironNumbers={this.ironNumbers}
           newClub={this.props.newClub}
