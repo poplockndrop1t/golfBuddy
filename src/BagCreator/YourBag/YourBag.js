@@ -5,7 +5,7 @@ import './YourBag.css';
 function displayBag(props) {
   var clubTypeArray = Object.keys(props.bag);
   var clubValuesArray = Object.values(props.bag);
-
+  console.log(props);
   return (
     <div>
       {

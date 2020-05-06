@@ -16,7 +16,7 @@ function ClubOptions(props) {
 
   return (
     <div className="clubOptionsContainer">
-      <div className="driverContainer" onChange={handleChange}>
+      <div className="driverContainer" onChange={handleClubChange}>
         <AddClubSelect
           createNewClub={ props.createNewClub }
           newClub={ props.newClub }
