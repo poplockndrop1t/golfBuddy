@@ -8,12 +8,12 @@ import {
 
 const initialState = {
   bag: {
-    driver: '',
+    driver: [],
     woods: [],
     hybrids: [],
     irons: [],
     wedges: [],
-    putter: ''
+    putter: []
   },
   bagSize: 0,
   newClub: {

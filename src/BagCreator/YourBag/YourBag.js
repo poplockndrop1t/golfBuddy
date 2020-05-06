@@ -3,13 +3,12 @@ import Club from './Club/Club.js';
 import './YourBag.css';
 
 function displayBag(props) {
-  var clubTypeArray = Object.keys(props.bag);
   var clubValuesArray = Object.values(props.bag);
 
   return (
     <div>
       {
-        clubTypeArray.map((club, key) => {
+        Object.keys(props.bag).map((club, key) => {
           return (
             <Club
               club={clubValuesArray[key]}
