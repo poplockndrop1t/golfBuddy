@@ -27,7 +27,7 @@ function mapDispatchToProps(dispatch) {
     addNewClub: club => dispatch(addNewClub(club)),
     decrementBagSize: size => dispatch(decrementBagSize(size)),
     incrementBagSize: size => dispatch(incrementBagSize(size)),
-    removeClub: club => dispatch(decrementBagSize(club)),
+    removeClub: club => dispatch(removeClub(club)),
     setNewClubValue: value => dispatch(setNewClubValue(value))
   }
 };
@@ -52,12 +52,12 @@ class App extends React.Component {
     this.props.incrementBagSize(numberOfClubs);
   };
 
-  removeClub(club, clubType) {
-    console.log('club', club);
+  removeClub(clubType, clubBrand, i) {
+    this.props.removeClub({ type: clubType, brand: clubBrand, i: i });
   };
 
-  setDriverOrPutter(stateName, newStateValue, numberOfClubs) {
-    this.props.addClub({ type: stateName, brand: newStateValue });
+  setDriverOrPutter(clubType, clubBrand, numberOfClubs) {
+    this.props.addClub({ type: clubType, brand: clubBrand });
     this.props.incrementBagSize(numberOfClubs);
   };
 
