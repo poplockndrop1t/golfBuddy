@@ -1,9 +1,12 @@
+import { combineReducers } from 'redux';
+import clubReducer from './clubReducer';
 import {
   ADD_NEW_CLUB,
   DECREMENT_BAG_SIZE,
   INCREMENT_BAG_SIZE,
   REMOVE_CLUB,
   SET_NEW_CLUB_VALUE } from '../constants/constants';
+
 
 const initialState = {
   bag: {
