@@ -13,17 +13,13 @@ class Club extends React.Component {
     return this.props.removeClub(this.props.clubType, this.props.club, this.props.i);
   };
 
-  // formatClub() {
-  //   return (
-  //     <div className="club">
-  //       <h3>{this.props.clubType}</h3>
-  //       <p>{this.props.club}</p>
-  //       <button onClick={ this.handleClick }>Remove Club</button>
-  //     </div>
-  //   )
-  // };
-
   formatClubsArray() {
+  };
+
+  render() {
+    // return (
+    //   this.formatClubsArray()
+    // )
     return (
       <div className="club">
         <h3>{this.props.clubType}</h3>
@@ -36,18 +32,6 @@ class Club extends React.Component {
         }
       </div>
     )
-  };
-
-  render() {
-    // if (typeof this.props.club === 'string') {
-    //   return (
-    //     this.formatClub()
-    //   )
-    // } else {
-      return (
-        this.formatClubsArray()
-      )
-    // }
   }
 }
 
