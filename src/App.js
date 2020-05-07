@@ -6,7 +6,6 @@ import Footer from './Footer/Footer.js';
 import Nav from './Nav/Nav.js';
 import './App.css';
 import {
-  addClub,
   addNewClub,
   decrementBagSize,
   incrementBagSize,
@@ -23,7 +22,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addClub: club => dispatch(addClub(club)),
     addNewClub: club => dispatch(addNewClub(club)),
     decrementBagSize: size => dispatch(decrementBagSize(size)),
     incrementBagSize: size => dispatch(incrementBagSize(size)),
@@ -38,7 +36,6 @@ class App extends React.Component {
 
     this.createNewClub = this.createNewClub.bind(this);
     this.removeClub = this.removeClub.bind(this);
-    this.setDriverOrPutter = this.setDriverOrPutter.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
 
     this.brands = ["", "TaylorMade", "Titleist", "Callaway", "Ping"];
@@ -62,11 +59,6 @@ class App extends React.Component {
       this.props.removeClub({ type: clubType, brand: clubBrand, i: i });
       this.props.decrementBagSize(1);
     }
-  };
-
-  setDriverOrPutter(clubType, clubBrand, numberOfClubs) {
-    this.props.addClub({ type: clubType, brand: clubBrand });
-    this.props.incrementBagSize(numberOfClubs);
   };
 
   setNewClubValue(typeOrBrand, value, category) {

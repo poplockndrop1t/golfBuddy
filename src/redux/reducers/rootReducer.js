@@ -1,5 +1,4 @@
 import {
-  ADD_CLUB,
   ADD_NEW_CLUB,
   DECREMENT_BAG_SIZE,
   INCREMENT_BAG_SIZE,
@@ -27,9 +26,6 @@ function rootReducer(state = initialState, action) {
   const newState = {...state};
 
   switch(action.type) {
-    case `${ADD_CLUB}`:
-      newState['bag'][action.payload.type] = action.payload.brand;
-      return newState;
     case `${ADD_NEW_CLUB}`:
       const cleanClub = { category: '', type: '', brand: '' };
       newState['bag'][newState.newClub.category].push(newState.newClub)
