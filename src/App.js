@@ -47,19 +47,19 @@ class App extends React.Component {
   };
 
   removeClub(club, i) {
-    if (this.props.bagSize > 0 && club.category !== 'irons') {
-      this.props.removeClub({ type: club.category, i: i });
-      this.props.decrementBagSize(1);
+    if (this.props.bagSize > 0) {
+      if (club.category !== 'irons') {
+        this.props.removeClub({ type: club.category, i: i });
+        this.props.decrementBagSize(1);
+      } else {
+        this.props.removeClub({ type: club.category, i: i });
+        if (club.type === "3p") return this.props.decrementBagSize(8);
+        if (club.type === "4a") return this.props.decrementBagSize(8);
+        if (club.type === "4p") return this.props.decrementBagSize(7);
+        if (club.type === "5a") return this.props.decrementBagSize(7);
+        if (club.type === "5p") return this.props.decrementBagSize(6);
+      }
     }
-     // else {
-      // this.props.removeClub({ type: clubType, i: i });
-      // console.log('yes', clubType, clubBrand, i);
-      // if (newClub.type === "3p") return createNewClub(newClub.type, newClub.brand, 8);
-      // if (newClub.type === "4a") return createNewClub(newClub.type, newClub.brand, 8);
-      // if (newClub.type === "4p") return createNewClub(newClub.type, newClub.brand, 7);
-      // if (newClub.type === "5a") return createNewClub(newClub.type, newClub.brand, 7);
-      // if (newClub.type === "5p") return createNewClub(newClub.type, newClub.brand, 6);
-    // }
   };
 
   setNewClubValue(typeOrBrand, value, category) {
