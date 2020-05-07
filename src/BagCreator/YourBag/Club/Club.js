@@ -6,7 +6,6 @@ class Club extends React.Component {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
-    this.formatClub = this.formatClub.bind(this);
     this.formatClubsArray = this.formatClubsArray.bind(this);
   }
 
@@ -14,15 +13,15 @@ class Club extends React.Component {
     return this.props.removeClub(this.props.clubType, this.props.club, this.props.i);
   };
 
-  formatClub() {
-    return (
-      <div className="club">
-        <h3>{this.props.clubType}</h3>
-        <p>{this.props.club}</p>
-        <button onClick={ this.handleClick }>Remove Club</button>
-      </div>
-    )
-  };
+  // formatClub() {
+  //   return (
+  //     <div className="club">
+  //       <h3>{this.props.clubType}</h3>
+  //       <p>{this.props.club}</p>
+  //       <button onClick={ this.handleClick }>Remove Club</button>
+  //     </div>
+  //   )
+  // };
 
   formatClubsArray() {
     return (
@@ -40,15 +39,15 @@ class Club extends React.Component {
   };
 
   render() {
-    if (typeof this.props.club === 'string') {
-      return (
-        this.formatClub()
-      )
-    } else {
+    // if (typeof this.props.club === 'string') {
+    //   return (
+    //     this.formatClub()
+    //   )
+    // } else {
       return (
         this.formatClubsArray()
       )
-    }
+    // }
   }
 }
 
