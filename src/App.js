@@ -47,8 +47,8 @@ class App extends React.Component {
   };
 
   removeClub(clubType, clubBrand, i) {
-    if (this.props.bagSize > 0) {
-      this.props.removeClub({ type: clubType, brand: clubBrand, i: i });
+    if (this.props.bagSize > 0 && clubType !== 'irons') {
+      this.props.removeClub({ type: clubType, i: i });
       this.props.decrementBagSize(1);
     }
   };
