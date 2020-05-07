@@ -16,6 +16,8 @@ function mapStateToProps(state) {
   return {
     bag: state.bag,
     bagSize: state.bagSize,
+    brands: state.brands,
+    clubTypeNumbers: state.clubTypeNumbers,
     newClub: state.newClub
   };
 };
@@ -78,12 +80,9 @@ class App extends React.Component {
           brands={this.brands}
           clubTypeNumbers={this.clubTypeNumbers}
           createNewClub={this.createNewClub}
-          ironNumbers={this.ironNumbers}
           newClub={this.props.newClub}
           removeClub={this.removeClub}
-          setDriverOrPutter={this.setDriverOrPutter}
           setNewClubValue={this.setNewClubValue}
-          wedgeNumbers={this.wedgeNumbers}
         />
         <Footer />
       </div>
