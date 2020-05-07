@@ -1,4 +1,5 @@
 import clubReducer from './clubReducer.js';
+import bagCountReducer from './bagCountReducer';
 import initialState from '../initialState.js';
 import {
   ADD_NEW_CLUB,
@@ -14,11 +15,9 @@ function rootReducer(state = initialState, action) {
     case `${ADD_NEW_CLUB}`:
       return clubReducer(newState, action);
     case `${DECREMENT_BAG_SIZE}`:
-      newState.bagSize -= action.payload;
-      return newState;
+      return bagCountReducer(newState, action);
     case `${INCREMENT_BAG_SIZE}`:
-      newState.bagSize += action.payload;
-      return newState;
+      return bagCountReducer(newState, action);
     case `${REMOVE_CLUB}`:
       return clubReducer(newState, action);
     case `${SET_NEW_CLUB_VALUE}`:

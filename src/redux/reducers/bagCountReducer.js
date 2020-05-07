@@ -13,7 +13,7 @@ function bagCountReducer(state = [], action) {
     case `${INCREMENT_BAG_SIZE}`:
       newState.bagSize += action.payload;
       return newState;
-    default
+    default:
       return state;
   }
 }
