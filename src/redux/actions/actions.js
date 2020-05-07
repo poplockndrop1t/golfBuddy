@@ -23,4 +23,4 @@ export function removeClub(payload) {
 
 export function setNewClubValue(payload) {
   return { type: SET_NEW_CLUB_VALUE, payload };
-}
+};
