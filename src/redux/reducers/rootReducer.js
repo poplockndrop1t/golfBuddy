@@ -1,4 +1,3 @@
-import { reduceReducers } from 'redux';
 import clubReducer from './clubReducer.js';
 import {
   ADD_NEW_CLUB,
@@ -40,8 +39,7 @@ function rootReducer(state = initialState, action) {
     case `${REMOVE_CLUB}`:
       return clubReducer(newState, action);
     case `${SET_NEW_CLUB_VALUE}`:
-      newState.newClub = action.payload;
-      return newState;
+      return clubReducer(newState, action);
     default:
       return state
   }
