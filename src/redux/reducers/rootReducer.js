@@ -9,19 +9,17 @@ import {
   SET_NEW_CLUB_VALUE } from '../constants/constants';
 
 function rootReducer(state = initialState, action) {
-  const newState = {...state};
-
   switch(action.type) {
     case `${ADD_NEW_CLUB}`:
-      return clubReducer(newState, action);
+      return clubReducer(state, action);
     case `${DECREMENT_BAG_SIZE}`:
-      return bagCountReducer(newState, action);
+      return bagCountReducer(state, action);
     case `${INCREMENT_BAG_SIZE}`:
-      return bagCountReducer(newState, action);
+      return bagCountReducer(state, action);
     case `${REMOVE_CLUB}`:
-      return clubReducer(newState, action);
+      return clubReducer(state, action);
     case `${SET_NEW_CLUB_VALUE}`:
-      return clubReducer(newState, action);
+      return clubReducer(state, action);
     default:
       return state
   }
