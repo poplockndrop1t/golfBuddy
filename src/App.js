@@ -46,11 +46,20 @@ class App extends React.Component {
     this.props.incrementBagSize(numberOfClubs);
   };
 
-  removeClub(clubType, clubBrand, i) {
-    if (this.props.bagSize > 0 && clubType !== 'irons') {
-      this.props.removeClub({ type: clubType, i: i });
+  removeClub(club, i) {
+    if (this.props.bagSize > 0 && club.category !== 'irons') {
+      this.props.removeClub({ type: club.category, i: i });
       this.props.decrementBagSize(1);
     }
+     // else {
+      // this.props.removeClub({ type: clubType, i: i });
+      // console.log('yes', clubType, clubBrand, i);
+      // if (newClub.type === "3p") return createNewClub(newClub.type, newClub.brand, 8);
+      // if (newClub.type === "4a") return createNewClub(newClub.type, newClub.brand, 8);
+      // if (newClub.type === "4p") return createNewClub(newClub.type, newClub.brand, 7);
+      // if (newClub.type === "5a") return createNewClub(newClub.type, newClub.brand, 7);
+      // if (newClub.type === "5p") return createNewClub(newClub.type, newClub.brand, 6);
+    // }
   };
 
   setNewClubValue(typeOrBrand, value, category) {

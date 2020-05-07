@@ -3,8 +3,9 @@ import './Club.css';
 
 function Club(props) {
 
-  function handleClick(event) {
-    return props.removeClub(props.clubType, props.club, props.i);
+  function handleClick(club, key) {
+    // return props.removeClub(props.clubType, props.club, key);
+    return props.removeClub(club, key);
   };
 
   return (
@@ -15,7 +16,7 @@ function Club(props) {
           return (
             <p key={key}>
               {club.type} {club.brand}
-              <button onClick={handleClick} >Remove Club</button>
+              <button onClick={() => handleClick(club, key)} >Remove Club</button>
             </p>
           )
         })

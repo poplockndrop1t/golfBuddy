@@ -15,6 +15,7 @@ function clubReducer(state = [], action) {
       return newState;
     case `${REMOVE_CLUB}`:
       newState['bag'][action.payload.type].splice(action.payload.i, 1);
+      // console.log('newState', action.payload);
       return newState;
     case `${SET_NEW_CLUB_VALUE}`:
       newState.newClub = action.payload;
