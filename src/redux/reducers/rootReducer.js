@@ -3,7 +3,7 @@ import clubReducer from './clubReducer.js';
 import bagCountReducer from './bagCountReducer';
 
 const initialState = {
-  brands: ["", "TaylorMade", "Titleist", "Callaway", "Ping"],
+  brands: ["", "Callaway", "Cobra", "Mizuno", "TaylorMade", "Titleist", "Ping"],
   clubTypeNumbers: {
     driver: ["", "8.5", "9.5", "10.0", "10.5"],
     hybrids: ["", "2", "3", "4", "5", "6"],
@@ -12,7 +12,7 @@ const initialState = {
     wedges: ["", "46", "48", "50", "52", "54", "56", "58", "60"],
     woods: ["", "13.5", "15", "16.5", "19", "21"]
   },
-  flexOptions: ["", "Ladies", "Senior", "Regular", "Stiff", "Stiff+", "X"]
+  flexOptions: ["", "Regular", "Stiff", "Stiff+", "X", "Ladies", "Senior"]
 };
 
 function rootReducer(state = initialState, action) {
