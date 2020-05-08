@@ -20,6 +20,7 @@ function ClubOptions(props) {
                 brands={props.brands}
                 clubTypeNumbers={props.clubTypeNumbers[clubType]}
                 clubType={clubType}
+                flexOptions={props.flexOptions}
               />
             </div>
           )

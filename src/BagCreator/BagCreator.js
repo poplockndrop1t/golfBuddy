@@ -14,6 +14,7 @@ function BagCreator(props) {
         <ClubOptions
           bag={props.bag}
           brands={props.brands}
+          flexOptions={props.flexOptions}
           clubTypeNumbers={props.clubTypeNumbers}
           createNewClub={props.createNewClub}
           newClub={props.newClub}

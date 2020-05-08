@@ -1,7 +1,7 @@
 import React from 'react';
 import './AddClubSelect.css';
 
-function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newClub }) {
+function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newClub, flexOptions }) {
 
   function addNewClub() {
     if (newClub.type && newClub.brand) {
@@ -34,6 +34,15 @@ function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newCl
           clubTypeNumbers.map((number, key) => {
             return (
               <option value={number} key={key}>{number}</option>
+            )
+          })
+        }
+      </select>
+      <select className={clubType} name="type">
+        {
+          flexOptions.map((flexOption, key) => {
+            return (
+              <option value={flexOption} key={key}>{flexOption}</option>
             )
           })
         }
