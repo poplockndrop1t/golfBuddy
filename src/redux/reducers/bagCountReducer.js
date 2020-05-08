@@ -1,6 +1,5 @@
 import {
-  DECREMENT_BAG_SIZE,
-  INCREMENT_BAG_SIZE
+  DECREMENT_BAG_SIZE, INCREMENT_BAG_SIZE
 } from '../constants/constants';
 
 const initialState = {

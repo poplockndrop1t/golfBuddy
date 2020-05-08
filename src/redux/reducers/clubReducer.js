@@ -1,7 +1,5 @@
 import {
-  ADD_NEW_CLUB,
-  REMOVE_CLUB,
-  SET_NEW_CLUB_VALUE
+  ADD_NEW_CLUB, REMOVE_CLUB, SET_NEW_CLUB_VALUE
 } from '../constants/constants';
 
 const initialState = {

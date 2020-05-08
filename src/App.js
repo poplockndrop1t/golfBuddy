@@ -6,11 +6,9 @@ import Footer from './Footer/Footer.js';
 import Nav from './Nav/Nav.js';
 import './App.css';
 import {
-  addNewClub,
-  decrementBagSize,
-  incrementBagSize,
-  removeClub,
-  setNewClubValue } from './redux/actions/actions';
+  addNewClub, decrementBagSize,incrementBagSize,
+  removeClub, setNewClubValue
+} from './redux/actions/actions';
 
 function mapStateToProps(state) {
   console.log(state);
