@@ -38,7 +38,7 @@ function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newCl
           })
         }
       </select>
-      <select className={clubType} name="type">
+      <select className={clubType} name="flex">
         {
           flexOptions.map((flexOption, key) => {
             return (

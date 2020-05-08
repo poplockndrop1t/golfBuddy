@@ -13,8 +13,9 @@ const initialState = {
   },
   newClub: {
     category: '',
-    type: '',
-    brand: ''
+    brand: '',
+    flex: '',
+    type: ''
   }
 };
 
