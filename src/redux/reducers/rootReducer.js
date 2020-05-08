@@ -1,28 +1,28 @@
+import { combineReducers } from 'redux';
 import clubReducer from './clubReducer.js';
 import bagCountReducer from './bagCountReducer';
-import initialState from '../initialState.js';
-import {
-  ADD_NEW_CLUB,
-  DECREMENT_BAG_SIZE,
-  INCREMENT_BAG_SIZE,
-  REMOVE_CLUB,
-  SET_NEW_CLUB_VALUE } from '../constants/constants';
+
+const initialState = {
+  brands: ["", "TaylorMade", "Titleist", "Callaway", "Ping"],
+  clubTypeNumbers: {
+    driver: ["", "8.5", "9.5", "10.0", "10.5"],
+    hybrids: ["", "2", "3", "4", "5", "6"],
+    irons: ["", "3p", "4a", "4p", "5a", "5p"],
+    putter: ["", "33", "34", "35", "36", "37", "38"],
+    wedges: ["", "46", "48", "50", "52", "54", "56", "58", "60"],
+    woods: ["", "13.5", "15", "16.5", "19", "21"]
+  }
+};
 
 function rootReducer(state = initialState, action) {
   switch(action.type) {
-    case `${ADD_NEW_CLUB}`:
-      return clubReducer(state, action);
-    case `${DECREMENT_BAG_SIZE}`:
-      return bagCountReducer(state, action);
-    case `${INCREMENT_BAG_SIZE}`:
-      return bagCountReducer(state, action);
-    case `${REMOVE_CLUB}`:
-      return clubReducer(state, action);
-    case `${SET_NEW_CLUB_VALUE}`:
-      return clubReducer(state, action);
     default:
       return state
   }
 };
 
-export default rootReducer;
+export default combineReducers({
+  bagCountReducer,
+  clubReducer,
+  rootReducer
+});

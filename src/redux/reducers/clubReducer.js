@@ -4,7 +4,23 @@ import {
   SET_NEW_CLUB_VALUE
 } from '../constants/constants';
 
-function clubReducer(state = [], action) {
+const initialState = {
+  bag: {
+    driver: [],
+    woods: [],
+    hybrids: [],
+    irons: [],
+    wedges: [],
+    putter: []
+  },
+  newClub: {
+    category: '',
+    type: '',
+    brand: ''
+  }
+};
+
+function clubReducer(state = initialState, action) {
   const newState = {...state};
 
   switch(action.type) {
