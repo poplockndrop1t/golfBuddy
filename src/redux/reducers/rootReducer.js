@@ -11,7 +11,8 @@ const initialState = {
     putter: ["", "33", "34", "35", "36", "37", "38"],
     wedges: ["", "46", "48", "50", "52", "54", "56", "58", "60"],
     woods: ["", "13.5", "15", "16.5", "19", "21"]
-  }
+  },
+  flexOptions: ["", "Ladies", "Senior", "Regular", "Stiff", "Stiff+", "X"]
 };
 
 function rootReducer(state = initialState, action) {
