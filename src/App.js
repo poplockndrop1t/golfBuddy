@@ -17,8 +17,8 @@ function mapStateToProps(state) {
   return {
     bag: state.clubReducer.bag,
     bagSize: state.bagCountReducer.bagSize,
-    brands: state.clubReducer.brands,
-    clubTypeNumbers: state.clubReducer.clubTypeNumbers,
+    brands: state.rootReducer.brands,
+    clubTypeNumbers: state.rootReducer.clubTypeNumbers,
     newClub: state.clubReducer.newClub
   };
 };

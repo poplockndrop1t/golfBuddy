@@ -12,7 +12,7 @@ const initialState = {
     wedges: ["", "46", "48", "50", "52", "54", "56", "58", "60"],
     woods: ["", "13.5", "15", "16.5", "19", "21"]
   }
-}
+};
 
 function rootReducer(state = initialState, action) {
   switch(action.type) {
