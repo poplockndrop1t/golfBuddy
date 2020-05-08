@@ -7,7 +7,6 @@ const initialState = {
     wedges: [],
     putter: []
   },
-  bagSize: 0,
   newClub: {
     category: '',
     type: '',

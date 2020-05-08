@@ -13,6 +13,7 @@ import {
   setNewClubValue } from './redux/actions/actions';
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     bag: state.rootReducer.bag,
     bagSize: state.bagCountReducer.bagSize,
@@ -63,7 +64,7 @@ class App extends React.Component {
   };
 
   setNewClubValue(typeOrBrand, value, category) {
-    const newClub = store.getState().newClub;
+    const newClub = store.getState().rootReducer.newClub;
     newClub[typeOrBrand] = value;
     newClub['category'] = category;
     this.props.setNewClubValue(newClub);
