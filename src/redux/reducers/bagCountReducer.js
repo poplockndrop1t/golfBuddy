@@ -3,7 +3,11 @@ import {
   INCREMENT_BAG_SIZE
 } from '../constants/constants';
 
-function bagCountReducer(state = [], action) {
+const initialState = {
+  bagSize: 0
+};
+
+function bagCountReducer(state = initialState, action) {
   const newState = {...state};
 
   switch(action.type) {

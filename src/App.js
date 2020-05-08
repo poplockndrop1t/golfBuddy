@@ -14,11 +14,11 @@ import {
 
 function mapStateToProps(state) {
   return {
-    bag: state.bag,
-    bagSize: state.bagSize,
-    brands: state.brands,
-    clubTypeNumbers: state.clubTypeNumbers,
-    newClub: state.newClub
+    bag: state.rootReducer.bag,
+    bagSize: state.bagCountReducer.bagSize,
+    brands: state.rootReducer.brands,
+    clubTypeNumbers: state.rootReducer.clubTypeNumbers,
+    newClub: state.rootReducer.newClub
   };
 };
 

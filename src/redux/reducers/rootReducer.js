@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import clubReducer from './clubReducer.js';
 import bagCountReducer from './bagCountReducer';
 import initialState from '../initialState.js';
@@ -12,10 +13,10 @@ function rootReducer(state = initialState, action) {
   switch(action.type) {
     case `${ADD_NEW_CLUB}`:
       return clubReducer(state, action);
-    case `${DECREMENT_BAG_SIZE}`:
-      return bagCountReducer(state, action);
-    case `${INCREMENT_BAG_SIZE}`:
-      return bagCountReducer(state, action);
+    // case `${DECREMENT_BAG_SIZE}`:
+    //   return bagCountReducer(state, action);
+    // case `${INCREMENT_BAG_SIZE}`:
+    //   return bagCountReducer(state, action);
     case `${REMOVE_CLUB}`:
       return clubReducer(state, action);
     case `${SET_NEW_CLUB_VALUE}`:
@@ -25,4 +26,9 @@ function rootReducer(state = initialState, action) {
   }
 };
 
-export default rootReducer;
+// export default rootReducer;
+
+export default combineReducers({
+  bagCountReducer,
+  rootReducer
+});
