@@ -17,6 +17,7 @@ function mapStateToProps(state) {
     bagSize: state.bagCountReducer.bagSize,
     brands: state.rootReducer.brands,
     clubTypeNumbers: state.rootReducer.clubTypeNumbers,
+    flexOptions: state.rootReducer.flexOptions,
     newClub: state.clubReducer.newClub
   };
 };
@@ -78,6 +79,7 @@ class App extends React.Component {
           brands={this.props.brands}
           clubTypeNumbers={this.props.clubTypeNumbers}
           createNewClub={this.createNewClub}
+          flexOptions={this.props.flexOptions}
           newClub={this.props.newClub}
           removeClub={this.removeClub}
           setNewClubValue={this.setNewClubValue}
