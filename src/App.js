@@ -64,7 +64,7 @@ class App extends React.Component {
   };
 
   setNewClubValue(typeOrBrand, value, category) {
-    const newClub = store.getState().rootReducer.newClub;
+    const newClub = store.getState().clubReducer.newClub;
     newClub[typeOrBrand] = value;
     newClub['category'] = category;
     this.props.setNewClubValue(newClub);
