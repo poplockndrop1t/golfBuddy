@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
-        <Route path="/" component={App} />
+        <Route path="/:filter?" component={App} />
       </Router>
     </Provider>
   </React.StrictMode>,
