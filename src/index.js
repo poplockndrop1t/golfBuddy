@@ -10,7 +10,9 @@ import './index.css';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Router>
+        <Route path="/" component={App} />
+      </Router>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
