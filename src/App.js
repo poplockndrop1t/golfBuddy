@@ -76,7 +76,7 @@ class App extends React.Component {
       <div className="App">
         <Router>
           <Nav />
-          <Route path="/" component={Landing} />
+          <Route exact path="/" component={Landing} />
           <Route path="/bagCreator">
             <BagCreator
               bag={this.props.bag}
