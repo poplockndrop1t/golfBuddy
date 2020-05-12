@@ -2,11 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import store from './redux/store/store.js';
-import BagCreator from './BagCreator/BagCreator.js';
+
 import Footer from './Footer/Footer.js';
 import Nav from './Nav/Nav.js';
-import Landing from './Landing/Landing.js';
+
+import BagCreator from './Components/BagCreator/BagCreator.js';
+import Landing from './Components/Landing/Landing.js';
+
 import './App.css';
+
 import {
   addNewClub, decrementBagSize,incrementBagSize,
   removeClub, setNewClubValue
