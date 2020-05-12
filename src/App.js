@@ -76,25 +76,21 @@ class App extends React.Component {
       <div className="App">
         <Nav />
         <Router>
-          <Route path="/" component={Landing} />
-          <Route path="/bagCreator" component={
+          <Route exact path="/" component={Landing} />
+          <Route path="/bagCreator">
             <BagCreator
-                      bag={this.props.bag}
-                      bagSize={this.props.bagSize}
-                      brands={this.props.brands}
-                      clubTypeNumbers={this.props.clubTypeNumbers}
-                      createNewClub={this.createNewClub}
-                      flexOptions={this.props.flexOptions}
-                      newClub={this.props.newClub}
-                      removeClub={this.removeClub}
-                      setNewClubValue={this.setNewClubValue}
-                    />
-
-
-          }
-        />
+              bag={this.props.bag}
+              bagSize={this.props.bagSize}
+              brands={this.props.brands}
+              clubTypeNumbers={this.props.clubTypeNumbers}
+              createNewClub={this.createNewClub}
+              flexOptions={this.props.flexOptions}
+              newClub={this.props.newClub}
+              removeClub={this.removeClub}
+              setNewClubValue={this.setNewClubValue}
+            />
+          </Route>
         </Router>
-
         <Footer />
       </div>
     )
