@@ -74,9 +74,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Nav />
         <Router>
-          <Route exact path="/" component={Landing} />
+          <Nav />
+          <Route path="/" component={Landing} />
           <Route path="/bagCreator">
             <BagCreator
               bag={this.props.bag}
@@ -90,8 +90,8 @@ class App extends React.Component {
               setNewClubValue={this.setNewClubValue}
             />
           </Route>
+          <Footer />
         </Router>
-        <Footer />
       </div>
     )
   }
