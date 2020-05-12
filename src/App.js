@@ -10,6 +10,7 @@ import BagCreator from './Components/BagCreator/BagCreator.js';
 import Landing from './Components/Landing/Landing.js';
 
 import './App.css';
+
 import {
   addNewClub, decrementBagSize,incrementBagSize,
   removeClub, setNewClubValue
