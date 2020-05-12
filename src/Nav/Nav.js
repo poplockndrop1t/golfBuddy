@@ -7,10 +7,10 @@ function Nav() {
   return (
     <div className="navContainer">
       <Link to="/">
-        <h2>Landing</h2>
+        <p>Landing</p>
       </Link>
       <Link to="/bagCreator">
-        <h2>bagCreator</h2>
+        <p>Bag Creator</p>
       </Link>
     </div>
   )
