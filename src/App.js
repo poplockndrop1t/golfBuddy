@@ -5,6 +5,7 @@ import store from './redux/store/store.js';
 import BagCreator from './BagCreator/BagCreator.js';
 import Footer from './Footer/Footer.js';
 import Nav from './Nav/Nav.js';
+import Landing from './Landing/Landing.js';
 import './App.css';
 import {
   addNewClub, decrementBagSize,incrementBagSize,
@@ -74,17 +75,26 @@ class App extends React.Component {
     return (
       <div className="App">
         <Nav />
-        <BagCreator
-          bag={this.props.bag}
-          bagSize={this.props.bagSize}
-          brands={this.props.brands}
-          clubTypeNumbers={this.props.clubTypeNumbers}
-          createNewClub={this.createNewClub}
-          flexOptions={this.props.flexOptions}
-          newClub={this.props.newClub}
-          removeClub={this.removeClub}
-          setNewClubValue={this.setNewClubValue}
+        <Router>
+          <Route path="/" component={Landing} />
+          <Route path="/bagCreator" component={
+            <BagCreator
+                      bag={this.props.bag}
+                      bagSize={this.props.bagSize}
+                      brands={this.props.brands}
+                      clubTypeNumbers={this.props.clubTypeNumbers}
+                      createNewClub={this.createNewClub}
+                      flexOptions={this.props.flexOptions}
+                      newClub={this.props.newClub}
+                      removeClub={this.removeClub}
+                      setNewClubValue={this.setNewClubValue}
+                    />
+
+
+          }
         />
+        </Router>
+
         <Footer />
       </div>
     )
