@@ -11,8 +11,7 @@ import Landing from './Components/Landing/Landing.js';
 
 import './App.css';
 
-import {
-  addNewClub, decrementBagSize,incrementBagSize,
+import { addNewClub, decrementBagSize,incrementBagSize,
   resetClub, removeClub, setNewClubValue
 } from './redux/actions/actions';
 
