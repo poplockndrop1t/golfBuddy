@@ -1,5 +1,5 @@
 import {
-  ADD_NEW_CLUB, REMOVE_CLUB, SET_NEW_CLUB_VALUE
+  ADD_NEW_CLUB, REMOVE_CLUB, RESET_CLUB, SET_NEW_CLUB_VALUE
 } from '../constants/constants';
 
 const initialState = {
@@ -30,11 +30,14 @@ function clubReducer(state = initialState, action) {
     case `${REMOVE_CLUB}`:
       newState['bag'][action.payload.type].splice(action.payload.i, 1);
       return newState;
+    case `${RESET_CLUB}`:
+      newState.newClub = { category: '', type: '', brand: '' };
+      return newState;
     case `${SET_NEW_CLUB_VALUE}`:
       newState.newClub = action.payload;
       return newState;
     default:
-      return state;
+      return newState;
   }
 };
 

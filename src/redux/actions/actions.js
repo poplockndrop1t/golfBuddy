@@ -3,7 +3,7 @@ import {
   DECREMENT_BAG_SIZE,
   INCREMENT_BAG_SIZE,
   REMOVE_CLUB,
-  RESET_BAG,
+  RESET_CLUB,
   SET_NEW_CLUB_VALUE } from '../constants/constants';
 
 export function addNewClub(payload) {
@@ -22,8 +22,8 @@ export function removeClub(payload) {
   return { type: REMOVE_CLUB, payload };
 };
 
-export function resetBag(payload) {
-  return { type: RESET_BAG, payload };
+export function resetClub(payload) {
+  return { type: RESET_CLUB, payload };
 };
 
 export function setNewClubValue(payload) {
