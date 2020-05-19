@@ -48,9 +48,9 @@ class App extends React.Component {
     this.setNewClubValue = this.setNewClubValue.bind(this);
   };
 
-  createNewClub(clubType, clubBrand, numberOfClubs) {
-    this.props.addNewClub({ type: clubType, brand: clubBrand });
-    this.props.resetClub({ type: clubType, brand: clubBrand });
+  createNewClub(clubCategory, clubType, clubBrand, numberOfClubs) {
+    this.props.addNewClub({ category: clubCategory, type: clubType, brand: clubBrand });
+    this.props.resetClub({ category: clubCategory, type: clubType, brand: clubBrand });
     this.props.incrementBagSize(numberOfClubs);
   };
 

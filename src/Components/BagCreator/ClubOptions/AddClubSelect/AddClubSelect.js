@@ -6,7 +6,7 @@ function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newCl
   function addNewClub() {
     if (newClub.type && newClub.brand) {
       if (newClub.category !== "irons") {
-        return createNewClub(newClub.type, newClub.brand, 1);
+        return createNewClub(newClub.category, newClub.type, newClub.brand, 1);
       } else {
         if (newClub.type === "3p") return createNewClub(newClub.type, newClub.brand, 8);
         if (newClub.type === "4a") return createNewClub(newClub.type, newClub.brand, 8);
