@@ -13,7 +13,7 @@ import './App.css';
 
 import {
   addNewClub, decrementBagSize,incrementBagSize,
-  removeClub, setNewClubValue
+  resetClub, removeClub, setNewClubValue
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
@@ -34,6 +34,7 @@ function mapDispatchToProps(dispatch) {
     decrementBagSize: size => dispatch(decrementBagSize(size)),
     incrementBagSize: size => dispatch(incrementBagSize(size)),
     removeClub: club => dispatch(removeClub(club)),
+    resetClub: club => dispatch(resetClub(club)),
     setNewClubValue: value => dispatch(setNewClubValue(value))
   }
 };
@@ -49,6 +50,7 @@ class App extends React.Component {
 
   createNewClub(clubType, clubBrand, numberOfClubs) {
     this.props.addNewClub({ type: clubType, brand: clubBrand });
+    this.props.resetClub({ type: clubType, brand: clubBrand });
     this.props.incrementBagSize(numberOfClubs);
   };
 
