@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatClubTitle } from '../../../../Helpers/Helpers.js';
 import './AddClubSelect.css';
 
 function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newClub, flexOptions }) {
@@ -17,15 +18,9 @@ function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newCl
     }
   };
 
-  function formatClubType(string) {
-    let firstChar = string[0].toUpperCase();
-    let remainder = string.slice(1);
-    return `${firstChar}${remainder}`;
-  };
-
   return (
     <div className="addClubSelectContainer">
-      <label>{ formatClubType(clubType) }</label>
+      <label>{ formatClubTitle(clubType) }</label>
       <select className={clubType} name="brand">
         {
           brands.map((brand, key) => {
