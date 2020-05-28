@@ -36,13 +36,7 @@ function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newCl
         { displayOptions(clubTypeNumbers) }
       </select>
       <select className={clubType} name="flex">
-        {
-          flexOptions.map((flexOption, key) => {
-            return (
-              <option value={flexOption} key={key}>{flexOption}</option>
-            )
-          })
-        }
+        { displayOptions(flexOptions) }
       </select>
       <button onClick={addNewClub}>Add {clubType}</button>
     </div>
