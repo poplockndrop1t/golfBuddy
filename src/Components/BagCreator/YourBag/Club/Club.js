@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatClubTitle } from '../../../../Helpers/Helpers.js';
 import './Club.css';
 
 function Club(props) {
@@ -9,7 +10,7 @@ function Club(props) {
 
   return (
     <div className="club">
-      <h3>{props.clubType}</h3>
+      <h3>{ formatClubTitle(props.clubType) }</h3>
       {
         props.club.map((club, key) => {
           return (

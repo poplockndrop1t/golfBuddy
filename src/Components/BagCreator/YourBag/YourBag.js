@@ -29,7 +29,7 @@ function YourBag(props) {
     <div className="yourBagContainer">
       <h2>Your Bag</h2>
       <p>{props.bagSize} Clubs Total</p>
-      {displayBag(props)}
+      { displayBag(props) }
     </div>
   )
 };
