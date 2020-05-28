@@ -30,23 +30,10 @@ function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newCl
     <div className="addClubSelectContainer">
       <label>{ formatClubTitle(clubType) }</label>
       <select className={clubType} name="brand">
-        {
-          // brands.map((brand, key) => {
-          //   return (
-          //     <option value={brand} key={key}>{brand}</option>
-          //   )
-          // })
-          displayOptions(brands)
-        }
+        { displayOptions(brands) }
       </select>
       <select className={clubType} name="type">
-        {
-          clubTypeNumbers.map((number, key) => {
-            return (
-              <option value={number} key={key}>{number}</option>
-            )
-          })
-        }
+        { displayOptions(clubTypeNumbers) }
       </select>
       <select className={clubType} name="flex">
         {
