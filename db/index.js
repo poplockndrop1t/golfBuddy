@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/golfbuddy', { useNewUrlParser: true, useUnifiedTopology: true });
+const Schema = mongoose.Schema;
 
-const Bag = mongoose.model('Bag', {
-  Driver: String
-});
+const mongodb_uri = 'mongodb://localhost:27017/golfbuddy';
 
-const bag = new Bag({ Driver: 'Taylormade' });
+
+mongoose.connect(mongodb_uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
 
 const db = mongoose.connection;
 
