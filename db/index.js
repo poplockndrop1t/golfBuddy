@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
 const mongodb_uri = 'mongodb://localhost:27017/golfbuddy';
 const options = {
   useNewUrlParser: true,
