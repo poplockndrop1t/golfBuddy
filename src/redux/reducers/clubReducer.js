@@ -1,4 +1,4 @@
-import { ADD_NEW_CLUB, REMOVE_CLUB, RESET_CLUB, SET_NEW_CLUB_VALUE } from '../constants/constants';
+import { ADD_NEW_CLUB, FETCH_BAG, REMOVE_CLUB, RESET_CLUB, SET_NEW_CLUB_VALUE } from '../constants/constants';
 
 const initialState = {
   bag: {
