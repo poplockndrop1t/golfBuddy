@@ -46,6 +46,7 @@ class App extends React.Component {
     this.fetchBag = this.fetchBag.bind(this);
     this.removeClub = this.removeClub.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
+    this.postBag = this.postBag.bind(this);
   };
 
   componentDidMount() {
@@ -62,12 +63,20 @@ class App extends React.Component {
     fetch(`http://localhost:1337/api/bag`, {
         method: 'GET',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      },
+        headers: { 'Content-Type': 'application/json' }
+      }
     ).then(res => {
       console.log('res', res)
+    })
+  };
+
+  postBag() {
+    fetch(`http://localhost:1337/api/bag`, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'applicaton/json' }
+    }).then(res => {
+      console.log('response received', res);
     })
   }
 
