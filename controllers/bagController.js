@@ -38,7 +38,3 @@ module.exports = {
     });
   }
 };
-
-// {"driver":[],"woods":[],"hybrids":[],"irons":[],"wedges":[],"putter":[]}
-
-// {"driver":[{"category":"driver","brand":"Callaway","flex":"Regular","type":"8.5"}],"woods":[],"hybrids":[],"irons":[],"wedges":[],"putter":[]}
