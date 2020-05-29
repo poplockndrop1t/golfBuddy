@@ -60,7 +60,7 @@ class App extends React.Component {
   };
 
   fetchBag() {
-    fetch(`http://localhost:1337/api/bag`, {
+    fetch(`/api/bag`, {
         method: 'GET',
         mode: 'no-cors',
         // headers: { 'Content-Type': 'application/json' }
@@ -81,7 +81,7 @@ class App extends React.Component {
         "type":"8.5"
       }
     }
-    fetch(`http://localhost:1337/api/bag`, {
+    fetch(`/api/bag`, {
       method: 'POST',
       mode: 'same-origin',
       // headers: { 'Content-Type': 'applicaton/json' },

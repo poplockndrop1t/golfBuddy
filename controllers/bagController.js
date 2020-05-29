@@ -2,8 +2,9 @@ const Bag = require('../db/models/bag.js');
 
 module.exports = {
   get: function(req, res) {
-    Bag.find({}, (err, response) => {
+    Bag.findOne({}, (err, response) => {
       if (response) {
+        console.log('res', response);
         res.json(response);
       } else {
         res.json(err);
