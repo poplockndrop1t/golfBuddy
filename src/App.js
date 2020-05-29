@@ -63,18 +63,29 @@ class App extends React.Component {
     fetch(`http://localhost:1337/api/bag`, {
         method: 'GET',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' }
+        // headers: { 'Content-Type': 'application/json' }
       }
     ).then(res => {
       console.log('res', res)
     })
   };
 
-  postBag() {
+  postBag(body) {
+    // const test = JSON.stringify(body);
+    // console.log('test', test);
+    const test = {
+      "Driver": {
+        "category":"driver",
+        "brand":"Callaway",
+        "flex":"Regular",
+        "type":"8.5"
+      }
+    }
     fetch(`http://localhost:1337/api/bag`, {
       method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'applicaton/json' }
+      mode: 'same-origin',
+      // headers: { 'Content-Type': 'applicaton/json' },
+      body: JSON.stringify(test)
     }).then(res => {
       console.log('response received', res);
     })

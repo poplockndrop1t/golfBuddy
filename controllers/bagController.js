@@ -11,6 +11,22 @@ module.exports = {
     });
   },
   post: function(req, res) {
-    console.log('ran', req.body);
+    Bag.find({}, (err, response) => {
+      if (response) {
+        if (response.length === 0) {
+          var newBag = new Bag(req.body);
+          newBag.save((err, data) => {
+            if (err) return console.error(err);
+            res.json(response);
+          })
+        }
+      } else {
+        res.json(err);
+      }
+    });
   }
 };
+
+// {"driver":[],"woods":[],"hybrids":[],"irons":[],"wedges":[],"putter":[]}
+
+// {"driver":[{"category":"driver","brand":"Callaway","flex":"Regular","type":"8.5"}],"woods":[],"hybrids":[],"irons":[],"wedges":[],"putter":[]}
