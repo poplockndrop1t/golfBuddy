@@ -9,5 +9,8 @@ module.exports = {
         res.json(err);
       }
     });
+  },
+  post: function(req, res) {
+    console.log('ran', req.body);
   }
 };

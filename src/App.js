@@ -48,6 +48,10 @@ class App extends React.Component {
     this.setNewClubValue = this.setNewClubValue.bind(this);
   };
 
+  componentDidMount() {
+    this.fetchBag();
+  }
+
   createNewClub(clubCategory, clubType, clubBrand, numberOfClubs) {
     this.props.addNewClub({ category: clubCategory, type: clubType, brand: clubBrand });
     this.props.resetClub({ category: '', type: '', brand: '' });
@@ -55,11 +59,13 @@ class App extends React.Component {
   };
 
   fetchBag() {
-    fetch(
-      `localhost:3000/api/bag`,
-      {
-        method: 'GET'
-      }
+    fetch(`http://localhost:1337/api/bag`, {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      },
     ).then(res => {
       console.log('res', res)
     })
