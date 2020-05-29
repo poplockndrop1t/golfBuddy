@@ -13,7 +13,7 @@ const initialState = {
     category: '',
     brand: '',
     flex: '',
-    type: ''
+    clubType: ''
   }
 };
 
