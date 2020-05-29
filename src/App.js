@@ -43,6 +43,7 @@ class App extends React.Component {
     super(props);
 
     this.createNewClub = this.createNewClub.bind(this);
+    this.fetchBag = this.fetchBag.bind(this);
     this.removeClub = this.removeClub.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
   };
@@ -52,6 +53,17 @@ class App extends React.Component {
     this.props.resetClub({ category: '', type: '', brand: '' });
     this.props.incrementBagSize(numberOfClubs);
   };
+
+  fetchBag() {
+    fetch(
+      `localhost:3000/api/bag`,
+      {
+        method: 'GET'
+      }
+    ).then(res => {
+      console.log('res', res)
+    })
+  }
 
   removeClub(club, i) {
     if (this.props.bagSize > 0) {
