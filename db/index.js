@@ -6,4 +6,13 @@ const Bag = mongoose.model('Bag', {
 });
 
 const bag = new Bag({ name: 'Taylormade' });
-bag.save().then(() => console.log('save'));
+// bag.save().then(() => console.log('save'));
+
+var db = mongoose.connection;
+
+db.on('error', console.log('ERR', console))
+db.once('open', () => {
+  console.log('database connected');
+});
+
+module.exports = db;
