@@ -5,14 +5,12 @@ const Bag = mongoose.model('Bag', {
   Driver: String
 });
 
-const bag = new Bag({ name: 'Taylormade' });
-// bag.save().then(() => console.log('save'));
+const bag = new Bag({ Driver: 'Taylormade' });
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
-db.on('error', console.log('ERR', console))
 db.once('open', () => {
-  console.log('database connected');
+  console.log('connected to db');
 });
 
 module.exports = db;
