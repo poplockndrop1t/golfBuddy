@@ -9,7 +9,7 @@ const port = process.env.PORT || 1337;
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/build'));
 
-app.use('/bag', router);
+app.use('/api', router);
 
 app.get('*', (req, res) => {
   res.sendFile(__dirname + '/build/index.html');
