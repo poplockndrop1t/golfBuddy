@@ -46,7 +46,7 @@ class App extends React.Component {
     this.fetchBag = this.fetchBag.bind(this);
     this.removeClub = this.removeClub.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
-    this.postBag = this.postBag.bind(this);
+    // this.postBag = this.postBag.bind(this);
   };
 
   componentDidMount() {
@@ -59,35 +59,39 @@ class App extends React.Component {
     this.props.incrementBagSize(numberOfClubs);
   };
 
-  fetchBag() {
-    fetch(`/api/bag`, {
-        method: 'GET',
-        mode: 'no-cors',
-        // headers: { 'Content-Type': 'application/json' }
-      }
-    ).then(res => {
-      console.log('res', res)
-    })
-  };
+  // fetchBag() {
+  //   fetch(`/api/bag`, {
+  //       method: 'GET',
+  //       mode: 'no-cors',
+  //       headers: { 'Content-Type': 'application/json' }
+  //     }
+  //   ).then(res => {
+  //     res.json()
+  //       .then(data => {
+  //         console.log('data', data)
+  //       })
+  //   })
+  // };
 
-  postBag(body) {
-    // const test = JSON.stringify(body);
-    // console.log('test', test);
-    const test = {
-      "Driver": {
-        "category":"driver",
-        "brand":"Callaway",
-        "flex":"Regular",
-        "type":"8.5"
-      }
-    }
+  // postBag(body) {
+  //   fetch(`/api/bag`, {
+  //     method: 'POST',
+  //     mode: 'no-cors',
+  //     headers: { 'Content-Type': 'applicaton/json' },
+  //     body: JSON.stringify(test)
+  //   }).then(res => {
+  //     console.log('response received', res.json());
+  //   })
+  // }
+
+  fetchBag(callType, body = {}) {
     fetch(`/api/bag`, {
-      method: 'POST',
-      mode: 'same-origin',
-      // headers: { 'Content-Type': 'applicaton/json' },
-      body: JSON.stringify(test)
+      method: 'GET',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: body
     }).then(res => {
-      console.log('response received', res);
+      return res.json();
     })
   }
 
