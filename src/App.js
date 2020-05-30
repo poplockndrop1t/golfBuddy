@@ -57,10 +57,12 @@ class App extends React.Component {
   }
 
   createNewClub(clubCategory, clubType, clubBrand, numberOfClubs) {
-    this.props.addNewClub({ category: clubCategory, clubType: clubType, brand: clubBrand });
-    this.props.resetClub({ category: '', clubType: '', brand: '' });
-    this.props.incrementBagSize(numberOfClubs);
-    this.postBag(this.props.bag);
+    if (this.props.bagSize < 14) {
+      this.props.addNewClub({ category: clubCategory, clubType: clubType, brand: clubBrand });
+      this.props.resetClub({ category: '', clubType: '', brand: '' });
+      this.props.incrementBagSize(numberOfClubs);
+      this.postBag(this.props.bag);
+    }
   };
 
   fetchBag() {
