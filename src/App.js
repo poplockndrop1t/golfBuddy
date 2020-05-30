@@ -47,6 +47,8 @@ class App extends React.Component {
     this.fetchBag = this.fetchBag.bind(this);
     this.removeClub = this.removeClub.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
+    this.setBagStateFromMongo = this.setBagStateFromMongo.bind(this);
+    this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
     this.postBag = this.postBag.bind(this);
   };
 
@@ -68,7 +70,10 @@ class App extends React.Component {
     })
     .then(res => {
       res.json()
-        .then(data => this.setStateFromMongo(data));
+        .then(data => {
+          this.setBagStateFromMongo(data)
+          this.setBagSizeFromMongo(data);
+        });
     });
   };
 
@@ -96,14 +101,7 @@ class App extends React.Component {
     }
   };
 
-  setNewClubValue(item, value, category) {
-    const newClub = store.getState().clubReducer.newClub;
-    newClub[item] = value;
-    newClub['category'] = category;
-    this.props.setNewClubValue(newClub);
-  };
-
-  setStateFromMongo(dataFromServer) {
+  setBagSizeFromMongo(dataFromServer) {
     var bagLength = 0;
     for (var key in dataFromServer) {
       if (Array.isArray(dataFromServer[key])) {
@@ -116,6 +114,9 @@ class App extends React.Component {
       }
     };
     this.props.incrementBagSize(bagLength);
+  };
+
+  setBagStateFromMongo(dataFromServer) {
     this.props.setBag({
       driver: dataFromServer.driver,
       woods: dataFromServer.woods,
@@ -124,7 +125,15 @@ class App extends React.Component {
       wedges: dataFromServer.wedges,
       putter: dataFromServer.putter
     });
-  }
+  };
+
+  setNewClubValue(item, value, category) {
+    const newClub = store.getState().clubReducer.newClub;
+    newClub[item] = value;
+    newClub['category'] = category;
+    this.props.setNewClubValue(newClub);
+  };
+
 
   render() {
     return (
