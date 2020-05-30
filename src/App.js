@@ -15,8 +15,6 @@ import { addNewClub, decrementBagSize, incrementBagSize,
   resetClub, removeClub, setBag, setNewClubValue
 } from './redux/actions/actions';
 
-// const headers = { method: 'GET', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }};
-
 function mapStateToProps(state) {
   console.log(state);
   return {
@@ -70,28 +68,7 @@ class App extends React.Component {
     })
     .then(res => {
       res.json()
-        .then(data => {
-          var bagLength = 0;
-          for (var key in data) {
-            if (Array.isArray(data[key])) {
-              if (data[key][0].clubType === "3p") bagLength += 8;
-              if (data[key][0].clubType === "4a") bagLength += 8;
-              if (data[key][0].clubType === "4p") bagLength += 7;
-              if (data[key][0].clubType === "5a") bagLength += 7;
-              if (data[key][0].clubType === "5p") bagLength += 6;
-              if (key !== 'irons') bagLength += data[key].length;
-            }
-          };
-          this.props.incrementBagSize(bagLength);
-          this.props.setBag({
-            driver: data.driver,
-            woods: data.woods,
-            hybrids: data.hybrids,
-            irons: data.irons,
-            wedges: data.wedges,
-            putter: data.putter
-          });
-        });
+        .then(data => this.setStateFromMongo(data));
     });
   };
 
@@ -104,7 +81,7 @@ class App extends React.Component {
   }
 
   removeClub(club, i) {
-    // if (this.props.bagSize > 0) {
+    if (this.props.bagSize > 0) {
       this.props.removeClub({ clubType: club.category, i: i });
       this.postBag(this.props.bag);
       if (club.category !== 'irons') {
@@ -116,7 +93,7 @@ class App extends React.Component {
         if (club.clubType === "5a") return this.props.decrementBagSize(7);
         if (club.clubType === "5p") return this.props.decrementBagSize(6);
       }
-    // }
+    }
   };
 
   setNewClubValue(item, value, category) {
@@ -125,6 +102,29 @@ class App extends React.Component {
     newClub['category'] = category;
     this.props.setNewClubValue(newClub);
   };
+
+  setStateFromMongo(dataFromServer) {
+    var bagLength = 0;
+    for (var key in dataFromServer) {
+      if (Array.isArray(dataFromServer[key])) {
+        if (dataFromServer[key][0].clubType === "3p") bagLength += 8;
+        if (dataFromServer[key][0].clubType === "4a") bagLength += 8;
+        if (dataFromServer[key][0].clubType === "4p") bagLength += 7;
+        if (dataFromServer[key][0].clubType === "5a") bagLength += 7;
+        if (dataFromServer[key][0].clubType === "5p") bagLength += 6;
+        if (key !== 'irons') bagLength += dataFromServer[key].length;
+      }
+    };
+    this.props.incrementBagSize(bagLength);
+    this.props.setBag({
+      driver: dataFromServer.driver,
+      woods: dataFromServer.woods,
+      hybrids: dataFromServer.hybrids,
+      irons: dataFromServer.irons,
+      wedges: dataFromServer.wedges,
+      putter: dataFromServer.putter
+    });
+  }
 
   render() {
     return (
