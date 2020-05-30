@@ -71,6 +71,18 @@ class App extends React.Component {
     .then(res => {
       res.json()
         .then(data => {
+          var bagLength = 0;
+          for (var key in data) {
+            if (Array.isArray(data[key])) {
+              if (data[key][0].clubType === "3p") bagLength += 8;
+              if (data[key][0].clubType === "4a") bagLength += 8;
+              if (data[key][0].clubType === "4p") bagLength += 7;
+              if (data[key][0].clubType === "5a") bagLength += 7;
+              if (data[key][0].clubType === "5p") bagLength += 6;
+              if (key !== 'irons') bagLength += data[key].length;
+            }
+          };
+          this.props.incrementBagSize(bagLength);
           this.props.setBag({
             driver: data.driver,
             woods: data.woods,
@@ -93,16 +105,16 @@ class App extends React.Component {
 
   removeClub(club, i) {
     // if (this.props.bagSize > 0) {
+      this.props.removeClub({ clubType: club.category, i: i });
+      this.postBag(this.props.bag);
       if (club.category !== 'irons') {
-        this.props.removeClub({ clubType: club.category, i: i });
         this.props.decrementBagSize(1);
       } else {
-        this.props.removeClub({ clubType: club.category, i: i });
-        if (club.type === "3p") return this.props.decrementBagSize(8);
-        if (club.type === "4a") return this.props.decrementBagSize(8);
-        if (club.type === "4p") return this.props.decrementBagSize(7);
-        if (club.type === "5a") return this.props.decrementBagSize(7);
-        if (club.type === "5p") return this.props.decrementBagSize(6);
+        if (club.clubType === "3p") return this.props.decrementBagSize(8);
+        if (club.clubType === "4a") return this.props.decrementBagSize(8);
+        if (club.clubType === "4p") return this.props.decrementBagSize(7);
+        if (club.clubType === "5a") return this.props.decrementBagSize(7);
+        if (club.clubType === "5p") return this.props.decrementBagSize(6);
       }
     // }
   };
