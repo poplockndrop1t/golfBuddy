@@ -60,12 +60,12 @@ class App extends React.Component {
     this.props.addNewClub({ category: clubCategory, clubType: clubType, brand: clubBrand });
     this.props.resetClub({ category: '', clubType: '', brand: '' });
     this.props.incrementBagSize(numberOfClubs);
+    this.postBag(this.props.bag);
   };
 
   fetchBag() {
     fetch(`/api/bag`, {
       method: 'GET',
-      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' }
     })
     .then(res => {
@@ -84,28 +84,20 @@ class App extends React.Component {
   };
 
   postBag(body) {
-    const test = JSON.stringify(body);
-    console.log(test);
-
     fetch(`/api/bag`, {
       method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'applicaton/json' },
-      body: JSON.stringify(test)
-    }).then(res => {
-      this.fetchBag();
-    })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
   }
 
   removeClub(club, i) {
     // if (this.props.bagSize > 0) {
       if (club.category !== 'irons') {
         this.props.removeClub({ clubType: club.category, i: i });
-        this.postBag(this.props.bag);
         this.props.decrementBagSize(1);
       } else {
         this.props.removeClub({ clubType: club.category, i: i });
-        this.postBag(this.props.bag);
         if (club.type === "3p") return this.props.decrementBagSize(8);
         if (club.type === "4a") return this.props.decrementBagSize(8);
         if (club.type === "4p") return this.props.decrementBagSize(7);
