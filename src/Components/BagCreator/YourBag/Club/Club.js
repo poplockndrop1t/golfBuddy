@@ -15,7 +15,7 @@ function Club(props) {
         props.club.map((club, key) => {
           return (
             <p key={key}>
-              {club.type} {club.brand} {club.flex}
+              {club.clubType} {club.brand} {club.flex}
               <br/>
               <button onClick={() => handleClick(club, key)} >Remove Club</button>
             </p>

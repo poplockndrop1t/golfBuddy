@@ -4,6 +4,7 @@ import {
   INCREMENT_BAG_SIZE,
   REMOVE_CLUB,
   RESET_CLUB,
+  SET_BAG,
   SET_NEW_CLUB_VALUE } from '../constants/constants';
 
 export function addNewClub(payload) {
@@ -24,6 +25,10 @@ export function removeClub(payload) {
 
 export function resetClub(payload) {
   return { type: RESET_CLUB, payload };
+};
+
+export function setBag(payload) {
+  return { type: SET_BAG, payload };
 };
 
 export function setNewClubValue(payload) {

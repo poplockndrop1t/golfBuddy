@@ -5,15 +5,15 @@ import './AddClubSelect.css';
 function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newClub, flexOptions }) {
 
   function addNewClub() {
-    if (newClub.type && newClub.brand) {
+    if (newClub.clubType && newClub.brand) {
       if (newClub.category !== "irons") {
-        return createNewClub(newClub.category, newClub.type, newClub.brand, 1);
+        return createNewClub(newClub.category, newClub.clubType, newClub.brand, 1);
       } else {
-        if (newClub.type === "3p") return createNewClub(newClub.category, newClub.type, newClub.brand, 8);
-        if (newClub.type === "4a") return createNewClub(newClub.category, newClub.type, newClub.brand, 8);
-        if (newClub.type === "4p") return createNewClub(newClub.category, newClub.type, newClub.brand, 7);
-        if (newClub.type === "5a") return createNewClub(newClub.category, newClub.type, newClub.brand, 7);
-        if (newClub.type === "5p") return createNewClub(newClub.category, newClub.type, newClub.brand, 6);
+        if (newClub.clubType === "3p") return createNewClub(newClub.category, newClub.clubType, newClub.brand, 8);
+        if (newClub.clubType === "4a") return createNewClub(newClub.category, newClub.clubType, newClub.brand, 8);
+        if (newClub.clubType === "4p") return createNewClub(newClub.category, newClub.clubType, newClub.brand, 7);
+        if (newClub.clubType === "5a") return createNewClub(newClub.category, newClub.clubType, newClub.brand, 7);
+        if (newClub.clubType === "5p") return createNewClub(newClub.category, newClub.clubType, newClub.brand, 6);
       }
     }
   };
@@ -32,7 +32,7 @@ function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newCl
       <select className={clubType} name="brand">
         { displayOptions(brands) }
       </select>
-      <select className={clubType} name="type">
+      <select className={clubType} name="clubType">
         { displayOptions(clubTypeNumbers) }
       </select>
       <select className={clubType} name="flex">

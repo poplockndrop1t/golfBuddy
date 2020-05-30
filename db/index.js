@@ -10,6 +10,8 @@ mongoose.connect(mongodb_uri, options);
 
 const db = mongoose.connection;
 
-db.once('open', () => console.log('connected to db'));
+db.once('open', () => {
+  console.log('connected to db');
+});
 
 module.exports = db;

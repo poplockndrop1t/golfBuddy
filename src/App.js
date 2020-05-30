@@ -11,8 +11,8 @@ import Landing from './Components/Landing/Landing.js';
 
 import './App.css';
 
-import { addNewClub, decrementBagSize,incrementBagSize,
-  resetClub, removeClub, setNewClubValue
+import { addNewClub, decrementBagSize, incrementBagSize,
+  resetClub, removeClub, setBag, setNewClubValue
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
@@ -34,6 +34,7 @@ function mapDispatchToProps(dispatch) {
     incrementBagSize: size => dispatch(incrementBagSize(size)),
     removeClub: club => dispatch(removeClub(club)),
     resetClub: club => dispatch(resetClub(club)),
+    setBag: bag => dispatch(setBag(bag)),
     setNewClubValue: value => dispatch(setNewClubValue(value))
   }
 };
@@ -43,30 +44,89 @@ class App extends React.Component {
     super(props);
 
     this.createNewClub = this.createNewClub.bind(this);
+    this.fetchBag = this.fetchBag.bind(this);
     this.removeClub = this.removeClub.bind(this);
+    this.postBag = this.postBag.bind(this);
+    this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
+    this.setBagStateFromMongo = this.setBagStateFromMongo.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
   };
 
+  componentDidMount() {
+    this.fetchBag();
+  }
+
   createNewClub(clubCategory, clubType, clubBrand, numberOfClubs) {
-    this.props.addNewClub({ category: clubCategory, type: clubType, brand: clubBrand });
-    this.props.resetClub({ category: '', type: '', brand: '' });
-    this.props.incrementBagSize(numberOfClubs);
+    if (this.props.bagSize < 14) {
+      this.props.addNewClub({ category: clubCategory, clubType: clubType, brand: clubBrand });
+      this.props.resetClub({ category: '', clubType: '', brand: '' });
+      this.props.incrementBagSize(numberOfClubs);
+      this.postBag(this.props.bag);
+    }
   };
+
+  fetchBag() {
+    fetch(`/api/bag`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(res => {
+      res.json()
+        .then(data => {
+          this.setBagStateFromMongo(data)
+          this.setBagSizeFromMongo(data);
+        });
+    });
+  };
+
+  postBag(body) {
+    fetch(`/api/bag`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+  }
 
   removeClub(club, i) {
     if (this.props.bagSize > 0) {
+      this.props.removeClub({ clubType: club.category, i: i });
+      this.postBag(this.props.bag);
       if (club.category !== 'irons') {
-        this.props.removeClub({ type: club.category, i: i });
         this.props.decrementBagSize(1);
       } else {
-        this.props.removeClub({ type: club.category, i: i });
-        if (club.type === "3p") return this.props.decrementBagSize(8);
-        if (club.type === "4a") return this.props.decrementBagSize(8);
-        if (club.type === "4p") return this.props.decrementBagSize(7);
-        if (club.type === "5a") return this.props.decrementBagSize(7);
-        if (club.type === "5p") return this.props.decrementBagSize(6);
+        if (club.clubType === "3p") return this.props.decrementBagSize(8);
+        if (club.clubType === "4a") return this.props.decrementBagSize(8);
+        if (club.clubType === "4p") return this.props.decrementBagSize(7);
+        if (club.clubType === "5a") return this.props.decrementBagSize(7);
+        if (club.clubType === "5p") return this.props.decrementBagSize(6);
       }
     }
+  };
+
+  setBagSizeFromMongo(dataFromServer) {
+    var bagLength = 0;
+    for (var key in dataFromServer) {
+      if (Array.isArray(dataFromServer[key])) {
+        if (dataFromServer[key][0].clubType === "3p") bagLength += 8;
+        if (dataFromServer[key][0].clubType === "4a") bagLength += 8;
+        if (dataFromServer[key][0].clubType === "4p") bagLength += 7;
+        if (dataFromServer[key][0].clubType === "5a") bagLength += 7;
+        if (dataFromServer[key][0].clubType === "5p") bagLength += 6;
+        if (key !== 'irons') bagLength += dataFromServer[key].length;
+      }
+    };
+    this.props.incrementBagSize(bagLength);
+  };
+
+  setBagStateFromMongo(dataFromServer) {
+    this.props.setBag({
+      driver: dataFromServer.driver,
+      woods: dataFromServer.woods,
+      hybrids: dataFromServer.hybrids,
+      irons: dataFromServer.irons,
+      wedges: dataFromServer.wedges,
+      putter: dataFromServer.putter
+    });
   };
 
   setNewClubValue(item, value, category) {
@@ -75,6 +135,7 @@ class App extends React.Component {
     newClub['category'] = category;
     this.props.setNewClubValue(newClub);
   };
+
 
   render() {
     return (
