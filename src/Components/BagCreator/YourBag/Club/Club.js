@@ -5,7 +5,6 @@ import './Club.css';
 function Club(props) {
 
   function handleClick(club, key) {
-    console.log('key', club, key)
     return props.removeClub(club, key);
   };
 

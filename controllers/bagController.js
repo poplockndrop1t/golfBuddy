@@ -8,6 +8,7 @@ module.exports = {
     });
   },
   post: function(req, res) {
+    console.log('here', req.body)
     Bag.findOne({}, (err, response) => {
       if (err) return console.error(err);
       if (response) {
