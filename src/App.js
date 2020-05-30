@@ -50,7 +50,6 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.fetchBag();
   }
 
   createNewClub(clubCategory, clubType, clubBrand, numberOfClubs) {
@@ -60,17 +59,18 @@ class App extends React.Component {
   };
 
   fetchBag() {
-    fetch(`/api/bag`, {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' }
-      }
-    ).then(res => {
-      res.json()
-        .then(data => {
-          console.log('data', data)
-        })
-    })
+    // this.props.fetchBag();
+    // fetch(`/api/bag`, {
+    //     method: 'GET',
+    //     mode: 'no-cors',
+    //     headers: { 'Content-Type': 'application/json' }
+    //   }
+    // ).then(res => {
+    //   res.json()
+    //     .then(data => {
+    //       console.log('data', data)
+    //     })
+    // })
   };
 
   postBag(body) {

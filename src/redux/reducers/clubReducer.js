@@ -1,4 +1,4 @@
-import { ADD_NEW_CLUB, FETCH_BAG, REMOVE_CLUB, RESET_CLUB, SET_NEW_CLUB_VALUE } from '../constants/constants';
+import { ADD_NEW_CLUB, REMOVE_CLUB, RESET_CLUB, SET_BAG, SET_NEW_CLUB_VALUE } from '../constants/constants';
 
 const initialState = {
   bag: {
@@ -23,6 +23,9 @@ function clubReducer(state = initialState, action) {
   switch(action.type) {
     case `${ADD_NEW_CLUB}`:
       newState['bag'][action.payload.category].push(newState.newClub);
+      return newState;
+    case `${SET_BAG}`:
+      console.log('fetchBag', newState, action);
       return newState;
     case `${REMOVE_CLUB}`:
       newState['bag'][action.payload.type].splice(action.payload.i, 1);
