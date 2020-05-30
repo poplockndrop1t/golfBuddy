@@ -11,8 +11,8 @@ import Landing from './Components/Landing/Landing.js';
 
 import './App.css';
 
-import { addNewClub, decrementBagSize,incrementBagSize,
-  resetClub, removeClub, setNewClubValue
+import { addNewClub, decrementBagSize, incrementBagSize,
+  resetClub, removeClub, setBag, setNewClubValue
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
@@ -34,6 +34,7 @@ function mapDispatchToProps(dispatch) {
     incrementBagSize: size => dispatch(incrementBagSize(size)),
     removeClub: club => dispatch(removeClub(club)),
     resetClub: club => dispatch(resetClub(club)),
+    setBag: bag => dispatch(setBag(bag)),
     setNewClubValue: value => dispatch(setNewClubValue(value))
   }
 };
@@ -50,6 +51,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
+    this.fetchBag();
   }
 
   createNewClub(clubCategory, clubType, clubBrand, numberOfClubs) {
@@ -59,18 +61,24 @@ class App extends React.Component {
   };
 
   fetchBag() {
-    // this.props.fetchBag();
-    // fetch(`/api/bag`, {
-    //     method: 'GET',
-    //     mode: 'no-cors',
-    //     headers: { 'Content-Type': 'application/json' }
-    //   }
-    // ).then(res => {
-    //   res.json()
-    //     .then(data => {
-    //       console.log('data', data)
-    //     })
-    // })
+    fetch(`/api/bag`, {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' }
+      }
+    ).then(res => {
+      res.json()
+        .then(data => {
+          this.props.setBag({
+            driver: data.driver,
+            woods: data.woods,
+            hybrids: data.hybrids,
+            irons: data.irons,
+            wedges: data.wedges,
+            putter: data.putter
+          });
+        })
+    })
   };
 
   postBag(body) {
