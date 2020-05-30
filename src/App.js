@@ -46,10 +46,10 @@ class App extends React.Component {
     this.createNewClub = this.createNewClub.bind(this);
     this.fetchBag = this.fetchBag.bind(this);
     this.removeClub = this.removeClub.bind(this);
-    this.setNewClubValue = this.setNewClubValue.bind(this);
-    this.setBagStateFromMongo = this.setBagStateFromMongo.bind(this);
-    this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
     this.postBag = this.postBag.bind(this);
+    this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
+    this.setBagStateFromMongo = this.setBagStateFromMongo.bind(this);
+    this.setNewClubValue = this.setNewClubValue.bind(this);
   };
 
   componentDidMount() {
