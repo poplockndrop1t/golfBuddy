@@ -4,9 +4,16 @@ import './Landing.css';
 function Landing() {
   return (
     <div className="landingContainer">
-      <h2>
-        Welcome to Golf Buddy <span role="img" aria-label="golf buddy">⛳️</span>
-      </h2>
+      <div className="topContainer">
+        <h1>
+          Welcome to Golf Buddy <span role="img" aria-label="golf buddy">⛳️</span>
+        </h1>
+      </div>
+      <div>
+        <h1>
+          Green Section
+        </h1>
+      </div>
     </div>
   )
 };
