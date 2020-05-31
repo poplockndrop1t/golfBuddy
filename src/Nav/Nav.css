@@ -9,6 +9,14 @@ a {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
   margin: .5em;
+  border-style: solid;
+  border-color: grey;
+}
+
+.golfBuddyLogoContainer {
+  margin-left: 1em;
+  border-right: solid;
+  border-color: grey;
+  padding-right: 1em;
 }

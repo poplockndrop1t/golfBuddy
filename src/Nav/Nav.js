@@ -5,13 +5,13 @@ import './Nav.css';
 function Nav() {
   return (
     <div className="navContainer">
-      <div>
-        <button>
-          <span role="img" aria-label="golf buddy">⛳️</span>
-        </button>
+      <div className="golfBuddyLogoContainer">
+        <Link to="/">
+          <span role="img" aria-label="golf buddy"><p>Golf Buddy ⛳️</p></span>
+        </Link>
       </div>
       <Link to="/">
-        <p>Landing</p>
+        <p>Golf Buddy</p>
       </Link>
       <Link to="/bagCreator">
         <p>Bag Creator</p>
