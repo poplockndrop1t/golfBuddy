@@ -1,3 +1,8 @@
+label {
+  margin: .5em 0 0 0;
+  text-decoration: underline;
+}
+
 .addClubSelectContainer {
   display: flex;
   flex-direction: column;
