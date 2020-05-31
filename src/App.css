@@ -2,4 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-weight: 200;
+  line-height: .9em;
+  font-family: 'proxima-nova light','Helvetica Neue',Arial,Helvetica,sans-serif !important;
 }
