@@ -9,7 +9,7 @@ function Landing() {
           Welcome to Golf Buddy <span role="img" aria-label="golf buddy">⛳️</span>
         </h1>
       </div>
-      <div>
+      <div className="midleContainer">
         <h1>
           Green Section
         </h1>
