@@ -1,11 +1,9 @@
 .bagCreatorContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
 .container {
   width: 55%;
-  margin-bottom: 1em;
+  margin: 1em 0 1em 0;
 };
