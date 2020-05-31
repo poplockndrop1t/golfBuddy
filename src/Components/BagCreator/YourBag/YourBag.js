@@ -27,7 +27,7 @@ function displayBag(props) {
 function YourBag(props) {
   return (
     <div className="yourBagContainer">
-      <h2>Your Bag</h2>
+      <h2><u>Your Bag</u></h2>
       <p>{props.bagSize} Clubs Total</p>
       { displayBag(props) }
     </div>

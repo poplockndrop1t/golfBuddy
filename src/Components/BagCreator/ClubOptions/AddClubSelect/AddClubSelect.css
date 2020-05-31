@@ -1,9 +1,10 @@
 label {
-  margin: .5em 0 0 0;
   text-decoration: underline;
+  margin: 0 0 .5em 0;
 }
 
 .addClubSelectContainer {
   display: flex;
   flex-direction: column;
+  margin: .5em 0 0 0;
 };

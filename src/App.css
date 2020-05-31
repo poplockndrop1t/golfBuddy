@@ -1,3 +1,7 @@
+h3 {
+  margin: unset;
+}
+
 .App {
   display: flex;
   flex-direction: column;
