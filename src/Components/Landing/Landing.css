@@ -1,8 +1,7 @@
 h1 {
   font-weight: 200;
-    line-height: .9em;
-    /* font-family: Helvitca; */
-    font-family: 'proxima-nova light','Helvetica Neue',Arial,Helvetica,sans-serif !important;
+  line-height: .9em;
+  font-family: 'proxima-nova light','Helvetica Neue',Arial,Helvetica,sans-serif !important;
 }
 
 .landingContainer {
@@ -22,6 +21,6 @@ h1 {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: #4baf50;
+  background-color: #69CA4D;
   min-height: 50vh
 }

@@ -5,7 +5,7 @@ a {
 }
 
 .navContainer {
-  background-color: #4caf50;
+  background-color: #69CA4D;
   width: 100%;
   display: flex;
   align-items: center;
@@ -14,9 +14,15 @@ a {
   border-color: grey;
 }
 
+.golfBuddy {
+  font-weight: 900;
+}
+
 .golfBuddyLogoContainer {
   margin-left: 1em;
   border-right: solid;
   border-color: grey;
   padding-right: 1em;
+  border-width: thin;
+  font-weight: 900;
 }

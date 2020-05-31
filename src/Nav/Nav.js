@@ -11,7 +11,7 @@ function Nav() {
         </Link>
       </div>
       <Link to="/">
-        <p>Golf Buddy</p>
+        <p className="golfBuddy">Golf Buddy</p>
       </Link>
       <Link to="/bagCreator">
         <p>Bag Creator</p>
