@@ -28,7 +28,7 @@ function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newCl
 
   return (
     <div className="addClubSelectContainer">
-      <label>{ formatClubTitle(clubType) }</label>
+      <label><h3>{ formatClubTitle(clubType) }</h3></label>
       <select className={clubType} name="brand">
         { displayOptions(brands) }
       </select>

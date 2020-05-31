@@ -1,9 +1,11 @@
-button {
-  margin-top: 1em;
-}
-
 li {
   list-style: none;
+}
+
+.removeClub {
+  margin: 0 0 0 .5em;
+  background-color: #68ca4d;
+  border: none;
 }
 
 .yourBagContainer {
