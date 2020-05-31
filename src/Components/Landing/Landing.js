@@ -11,7 +11,7 @@ function Landing() {
       </div>
       <div className="middleContainer">
         <h1>
-          Green Section
+          Coming soon...
         </h1>
       </div>
     </div>

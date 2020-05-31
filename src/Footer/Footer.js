@@ -4,9 +4,10 @@ import './Footer.css';
 function Footer() {
   return (
     <div className="footerContainer">
-      <h2>
+      <h6>
+        Golf Buddy
         <span role="img" aria-label="golf buddy">⛳️</span>
-      </h2>
+      </h6>
     </div>
   )
 };
