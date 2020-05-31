@@ -106,7 +106,7 @@ class App extends React.Component {
   setBagSizeFromMongo(dataFromServer) {
     var bagLength = 0;
     for (var key in dataFromServer) {
-      if (Array.isArray(dataFromServer[key]) && Array.isArray(dataFromServer[key].length > 0)) {
+      if (Array.isArray(dataFromServer[key]) && dataFromServer[key].length > 0) {
         if (dataFromServer[key][0].clubType === "3p") bagLength += 8;
         if (dataFromServer[key][0].clubType === "4a") bagLength += 8;
         if (dataFromServer[key][0].clubType === "4p") bagLength += 7;
