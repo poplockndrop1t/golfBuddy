@@ -68,12 +68,12 @@ class App extends React.Component {
     if (this.props.bagSize > 0) {
       this.props.removeClub({ clubType: club.category, i: i });
       this.updateBag('POST', this.props.bag);
-      if (club.category !== 'irons') return this.props.decrementBagSize(1);
       if (club.clubType === '3p') return this.props.decrementBagSize(8);
       if (club.clubType === '4a') return this.props.decrementBagSize(8);
       if (club.clubType === '4p') return this.props.decrementBagSize(7);
       if (club.clubType === '5a') return this.props.decrementBagSize(7);
       if (club.clubType === '5p') return this.props.decrementBagSize(6);
+      if (club.category !== 'irons') return this.props.decrementBagSize(1);
     }
   };
 
@@ -82,11 +82,11 @@ class App extends React.Component {
     for (var key in dataFromServer) {
       let clubArray = dataFromServer[key];
       if (Array.isArray(clubArray) && clubArray.length > 0) {
-        if (clubArray[0].clubType === "3p") bagLength += 8;
-        if (clubArray[0].clubType === "4a") bagLength += 8;
-        if (clubArray[0].clubType === "4p") bagLength += 7;
-        if (clubArray[0].clubType === "5a") bagLength += 7;
-        if (clubArray[0].clubType === "5p") bagLength += 6;
+        if (clubArray[0].clubType === '3p') bagLength += 8;
+        if (clubArray[0].clubType === '4a') bagLength += 8;
+        if (clubArray[0].clubType === '4p') bagLength += 7;
+        if (clubArray[0].clubType === '5a') bagLength += 7;
+        if (clubArray[0].clubType === '5p') bagLength += 6;
         if (key !== 'irons') bagLength += clubArray.length;
       }
     };
