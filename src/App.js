@@ -20,9 +20,7 @@ function mapStateToProps(state) {
   return {
     bag: state.clubReducer.bag,
     bagSize: state.bagCountReducer.bagSize,
-    brands: state.rootReducer.brands,
-    clubTypeNumbers: state.rootReducer.clubTypeNumbers,
-    flexOptions: state.rootReducer.flexOptions,
+    clubOptions: state.rootReducer,
     newClub: state.clubReducer.newClub
   };
 };
@@ -135,10 +133,10 @@ class App extends React.Component {
             <BagCreator
               bag={this.props.bag}
               bagSize={this.props.bagSize}
-              brands={this.props.brands}
-              clubTypeNumbers={this.props.clubTypeNumbers}
+              brands={this.props.clubOptions.brands}
+              clubTypeNumbers={this.props.clubOptions.clubTypeNumbers}
               createNewClub={this.createNewClub}
-              flexOptions={this.props.flexOptions}
+              flexOptions={this.props.clubOptions.flexOptions}
               newClub={this.props.newClub}
               removeClub={this.removeClub}
               setNewClubValue={this.setNewClubValue}
