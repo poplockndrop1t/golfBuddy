@@ -16,7 +16,7 @@ import { addNewClub, decrementBagSize, incrementBagSize,
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
-  console.log(state);
+  // console.log(state);
   return {
     bag: state.clubReducer.bag,
     bagSize: state.bagCountReducer.bagSize,
@@ -58,7 +58,7 @@ class App extends React.Component {
   createNewClub(category, clubType, brand, numberOfClubs, flex) {
     if (this.props.bagSize < 14) {
       this.props.addNewClub({ category, clubType, brand, flex });
-      this.props.resetClub({ category: '', clubType: '', brand: '' });
+      this.props.resetClub({ category: '', clubType: '', brand: '', flex: '' });
       this.props.incrementBagSize(numberOfClubs);
       this.updateBag('POST', this.props.bag);
     }
