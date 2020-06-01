@@ -45,7 +45,6 @@ class App extends React.Component {
 
     this.createNewClub = this.createNewClub.bind(this);
     this.removeClub = this.removeClub.bind(this);
-    this.postBag = this.postBag.bind(this);
     this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
     this.setBagStateFromMongo = this.setBagStateFromMongo.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
@@ -65,57 +64,16 @@ class App extends React.Component {
     }
   };
 
-  // fetchBag() {
-  //   fetch(`/api/bag`, {
-  //     method: 'GET',
-  //     headers: { 'Content-Type': 'application/json' }
-  //   })
-  //   .then(res => {
-  //     res.json()
-  //       .then(data => {
-  //         this.setBagStateFromMongo(data)
-  //         this.setBagSizeFromMongo(data);
-  //       });
-  //   });
-  // };
-
-  postBag(body) {
-    fetch(`/api/bag`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    });
-  }
-
-  updateBag(requestType, body) {
-    const request = { method: requestType, headers: { 'Content-Type': 'application/json' }};
-    if (body) request.body = JSON.stringify(body);
-    fetch('/api/bag', request)
-      .then(res => {
-        res.json()
-          .then(data => {
-            if (requestType === 'GET') {
-              this.setBagStateFromMongo(data)
-              this.setBagSizeFromMongo(data);
-            }
-            return data;
-          });
-      });
-  }
-
   removeClub(club, i) {
     if (this.props.bagSize > 0) {
       this.props.removeClub({ clubType: club.category, i: i });
       this.updateBag('POST', this.props.bag);
-      if (club.category !== 'irons') {
-        this.props.decrementBagSize(1);
-      } else {
-        if (club.clubType === "3p") return this.props.decrementBagSize(8);
-        if (club.clubType === "4a") return this.props.decrementBagSize(8);
-        if (club.clubType === "4p") return this.props.decrementBagSize(7);
-        if (club.clubType === "5a") return this.props.decrementBagSize(7);
-        if (club.clubType === "5p") return this.props.decrementBagSize(6);
-      }
+      if (club.category !== 'irons') return this.props.decrementBagSize(1);
+      if (club.clubType === '3p') return this.props.decrementBagSize(8);
+      if (club.clubType === '4a') return this.props.decrementBagSize(8);
+      if (club.clubType === '4p') return this.props.decrementBagSize(7);
+      if (club.clubType === '5a') return this.props.decrementBagSize(7);
+      if (club.clubType === '5p') return this.props.decrementBagSize(6);
     }
   };
 
@@ -153,6 +111,21 @@ class App extends React.Component {
     this.props.setNewClubValue(newClub);
   };
 
+  updateBag(requestType, body) {
+    const request = { method: requestType, headers: { 'Content-Type': 'application/json' }};
+    if (body) request.body = JSON.stringify(body);
+    fetch('/api/bag', request)
+      .then(res => {
+        res.json()
+          .then(data => {
+            if (requestType === 'GET') {
+              this.setBagStateFromMongo(data)
+              this.setBagSizeFromMongo(data);
+            }
+            return data;
+          });
+      });
+  };
 
   render() {
     return (
