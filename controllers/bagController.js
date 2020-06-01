@@ -16,7 +16,7 @@ module.exports = {
           newBag.save((err, data) => {
             if (err) return console.error(err);
             res.json(response);
-          })
+          });
         } else {
           var currentBag = response;
           currentBag.driver = req.body.driver;
