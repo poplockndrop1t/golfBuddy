@@ -1,9 +1,9 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Golf Buddy",
+  "name": "Golf Buddy",
   "icons": [
     {
-      "src": "ping.png",
+      "src": "pin.png",
       "type": "image/png",
       "sizes": "256x256"
     }
