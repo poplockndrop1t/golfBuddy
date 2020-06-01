@@ -54,13 +54,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.fetchBag();
-    // this.updateBag.call(this, 'GET')
-    //   .then(res => {
-    //     console.log(res);
-    //   })
-    // // console.log('this', this)
-    this.updateBag('GET')
+    this.updateBag('GET');
   }
 
   createNewClub(category, clubType, brand, numberOfClubs, flex) {
@@ -94,17 +88,20 @@ class App extends React.Component {
     });
   }
 
-  updateBag(requestType, body = null) {
-    // const fetch = window.fetch.bind(window);
-    // const fetch = unfetch.bind();
-    console.log(this, requestType, body)
-    fetch('/api/bag', {
-      method: requestType,
-      headers: { 'Content-Type': 'application/json' },
-    })
-    // console.log(this);
-    // return fetch.call(this, '/api/bag', { method: requestType, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
-    // })
+  updateBag(requestType, body) {
+    const request = { method: requestType, headers: { 'Content-Type': 'application/json' } }
+    if (body) request.body = body;
+    fetch('/api/bag', request)
+      .then(res => {
+        res.json()
+          .then(data => {
+            if (requestType === 'GET') {
+              this.setBagStateFromMongo(data)
+              this.setBagSizeFromMongo(data);
+            }
+            return data;
+          });
+      });
   }
 
   removeClub(club, i) {
