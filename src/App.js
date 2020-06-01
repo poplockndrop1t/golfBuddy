@@ -61,7 +61,6 @@ class App extends React.Component {
       this.props.addNewClub({ category, clubType, brand, flex });
       this.props.resetClub({ category: '', clubType: '', brand: '' });
       this.props.incrementBagSize(numberOfClubs);
-      // this.postBag(this.props.bag);
       this.updateBag('POST', this.props.bag);
     }
   };
@@ -107,7 +106,7 @@ class App extends React.Component {
   removeClub(club, i) {
     if (this.props.bagSize > 0) {
       this.props.removeClub({ clubType: club.category, i: i });
-      this.postBag(this.props.bag);
+      this.updateBag('POST', this.props.bag);
       if (club.category !== 'irons') {
         this.props.decrementBagSize(1);
       } else {
