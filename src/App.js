@@ -44,7 +44,6 @@ class App extends React.Component {
     super(props);
 
     this.createNewClub = this.createNewClub.bind(this);
-    this.fetchBag = this.fetchBag.bind(this);
     this.removeClub = this.removeClub.bind(this);
     this.postBag = this.postBag.bind(this);
     this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
@@ -55,30 +54,31 @@ class App extends React.Component {
 
   componentDidMount() {
     this.updateBag('GET');
-  }
+  };
 
   createNewClub(category, clubType, brand, numberOfClubs, flex) {
     if (this.props.bagSize < 14) {
       this.props.addNewClub({ category, clubType, brand, flex });
       this.props.resetClub({ category: '', clubType: '', brand: '' });
       this.props.incrementBagSize(numberOfClubs);
-      this.postBag(this.props.bag);
+      // this.postBag(this.props.bag);
+      this.updateBag('POST', this.props.bag);
     }
   };
 
-  fetchBag() {
-    fetch(`/api/bag`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' }
-    })
-    .then(res => {
-      res.json()
-        .then(data => {
-          this.setBagStateFromMongo(data)
-          this.setBagSizeFromMongo(data);
-        });
-    });
-  };
+  // fetchBag() {
+  //   fetch(`/api/bag`, {
+  //     method: 'GET',
+  //     headers: { 'Content-Type': 'application/json' }
+  //   })
+  //   .then(res => {
+  //     res.json()
+  //       .then(data => {
+  //         this.setBagStateFromMongo(data)
+  //         this.setBagSizeFromMongo(data);
+  //       });
+  //   });
+  // };
 
   postBag(body) {
     fetch(`/api/bag`, {
@@ -89,8 +89,8 @@ class App extends React.Component {
   }
 
   updateBag(requestType, body) {
-    const request = { method: requestType, headers: { 'Content-Type': 'application/json' } }
-    if (body) request.body = body;
+    const request = { method: requestType, headers: { 'Content-Type': 'application/json' }};
+    if (body) request.body = JSON.stringify(body);
     fetch('/api/bag', request)
       .then(res => {
         res.json()
