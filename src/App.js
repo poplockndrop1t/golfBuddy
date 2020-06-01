@@ -34,7 +34,7 @@ function mapDispatchToProps(dispatch) {
     incrementBagSize: size => dispatch(incrementBagSize(size)),
     removeClub: club => dispatch(removeClub(club)),
     resetClub: club => dispatch(resetClub(club)),
-    resetSelectOptions: options => dispatch(resetSelectOptions),
+    resetSelectOptions: options => dispatch(resetSelectOptions(options)),
     setBag: bag => dispatch(setBag(bag)),
     setNewClubValue: value => dispatch(setNewClubValue(value))
   }
@@ -59,8 +59,8 @@ class App extends React.Component {
   createNewClub(category, clubType, brand, numberOfClubs, flex) {
     if (this.props.bagSize < 14) {
       this.props.addNewClub({ category, clubType, brand, flex });
+      this.props.resetSelectOptions('');
       this.props.resetClub({ category: '', clubType: '', brand: '', flex: '' });
-      this.props.resetSelectOptions();
       this.props.incrementBagSize(numberOfClubs);
       this.updateBag('POST', this.props.bag);
     }

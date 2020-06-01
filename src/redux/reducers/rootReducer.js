@@ -17,17 +17,17 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
-  console.log('root', state);
   switch(action.type) {
-  //   case `${RESET_CLUB}`:
-  //     const newState = {...state};
+    case `${RESET_SELECT_OPTIONS}`:
+      const newState = {...state};
+      console.log(newState);
   //     newState.brands.concat('1');
-  //     // newState.brands.pop();
-  //     // newState.flexOptions.push('')
-  //     // .pop();
-  //     // console.log(newState);
-  //     newState.newClub = action.payload;
-  //     return newState;
+  // //     // newState.brands.pop();
+  // //     // newState.flexOptions.push('')
+  // //     // .pop();
+  // //     // console.log(newState);
+  // //     newState.newClub = action.payload;
+      return newState;
     default:
       return state
   }

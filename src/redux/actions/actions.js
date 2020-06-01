@@ -29,6 +29,7 @@ export function resetClub(payload) {
 };
 
 export function resetSelectOptions(payload) {
+  console.log('ran', payload);
   return { type: RESET_SELECT_OPTIONS, payload };
 }
 
