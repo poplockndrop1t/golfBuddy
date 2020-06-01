@@ -1,5 +1,6 @@
 import { ADD_NEW_CLUB, REMOVE_CLUB, RESET_CLUB, SET_BAG, SET_NEW_CLUB_VALUE } from '../constants/constants';
 
+
 const initialState = {
   bag: {
     driver: [],
@@ -29,6 +30,9 @@ function clubReducer(state = initialState, action) {
       return newState;
     case `${REMOVE_CLUB}`:
       newState['bag'][action.payload.clubType].splice(action.payload.i, 1);
+      return newState;
+    case `${RESET_CLUB}`:
+      newState.newClub = action.payload;
       return newState;
     case `${SET_NEW_CLUB_VALUE}`:
       newState.newClub = action.payload;

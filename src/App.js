@@ -12,7 +12,7 @@ import Landing from './Components/Landing/Landing.js';
 import './App.css';
 
 import { addNewClub, decrementBagSize, incrementBagSize,
-  resetClub, removeClub, setBag, setNewClubValue
+  resetClub, resetSelectOptions, removeClub, setBag, setNewClubValue
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
@@ -34,6 +34,7 @@ function mapDispatchToProps(dispatch) {
     incrementBagSize: size => dispatch(incrementBagSize(size)),
     removeClub: club => dispatch(removeClub(club)),
     resetClub: club => dispatch(resetClub(club)),
+    resetSelectOptions: options => dispatch(resetSelectOptions),
     setBag: bag => dispatch(setBag(bag)),
     setNewClubValue: value => dispatch(setNewClubValue(value))
   }
@@ -59,6 +60,7 @@ class App extends React.Component {
     if (this.props.bagSize < 14) {
       this.props.addNewClub({ category, clubType, brand, flex });
       this.props.resetClub({ category: '', clubType: '', brand: '', flex: '' });
+      this.props.resetSelectOptions();
       this.props.incrementBagSize(numberOfClubs);
       this.updateBag('POST', this.props.bag);
     }
