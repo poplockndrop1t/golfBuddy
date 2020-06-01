@@ -52,7 +52,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.updateBag('GET');
+    setTimeout(() => this.updateBag('GET'), '3000');
   };
 
   createNewClub(category, clubType, brand, numberOfClubs, flex) {
@@ -124,7 +124,10 @@ class App extends React.Component {
             }
             return data;
           });
-      });
+      })
+      .catch(err => {
+        console.error('errDSFASDFSDF', err)
+      })
   };
 
   render() {
