@@ -55,6 +55,12 @@ class App extends React.Component {
 
   componentDidMount() {
     this.fetchBag();
+    // this.updateBag.call(this, 'GET')
+    //   .then(res => {
+    //     console.log(res);
+    //   })
+    // // console.log('this', this)
+    this.updateBag('GET')
   }
 
   createNewClub(category, clubType, brand, numberOfClubs, flex) {
@@ -88,12 +94,17 @@ class App extends React.Component {
     });
   }
 
-  updateBag(requestType, body = []) {
+  updateBag(requestType, body = null) {
+    // const fetch = window.fetch.bind(window);
+    // const fetch = unfetch.bind();
+    console.log(this, requestType, body)
     fetch('/api/bag', {
       method: requestType,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    }).then(res => res.json());
+    })
+    // console.log(this);
+    // return fetch.call(this, '/api/bag', { method: requestType, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+    // })
   }
 
   removeClub(club, i) {
