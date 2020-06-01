@@ -6,14 +6,15 @@ function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newCl
 
   function addNewClub() {
     if (newClub.clubType && newClub.brand && newClub.flex) {
+      const { category, clubType, brand, flex } = newClub;
       if (newClub.category !== "irons") {
-        return createNewClub(newClub.category, newClub.clubType, newClub.brand, 1, newClub.Flex);
+        return createNewClub(category, clubType, brand, 1, flex);
       } else {
-        if (newClub.clubType === "3p") return createNewClub(newClub.category, newClub.clubType, newClub.brand, 8, newClub.Flex);
-        if (newClub.clubType === "4a") return createNewClub(newClub.category, newClub.clubType, newClub.brand, 8, newClub.Flex);
-        if (newClub.clubType === "4p") return createNewClub(newClub.category, newClub.clubType, newClub.brand, 7, newClub.Flex);
-        if (newClub.clubType === "5a") return createNewClub(newClub.category, newClub.clubType, newClub.brand, 7, newClub.Flex);
-        if (newClub.clubType === "5p") return createNewClub(newClub.category, newClub.clubType, newClub.brand, 6, newClub.Flex);
+        if (clubType === "3p") return createNewClub(category, clubType, brand, 8, flex);
+        if (clubType === "4a") return createNewClub(category, clubType, brand, 8, flex);
+        if (clubType === "4p") return createNewClub(category, clubType, brand, 7, flex);
+        if (clubType === "5a") return createNewClub(category, clubType, brand, 7, flex);
+        if (clubType === "5p") return createNewClub(category, clubType, brand, 6, flex);
       }
     }
   };

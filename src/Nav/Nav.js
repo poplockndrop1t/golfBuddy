@@ -7,7 +7,7 @@ function Nav() {
     <div className="navContainer">
       <div className="golfBuddyLogoContainer">
         <Link to="/">
-          <span role="img" aria-label="golf buddy"><p>Golf Buddy ⛳️</p></span>
+          <p>Golf Buddy<span role="img" aria-label="golf buddy"> ⛳️</span></p>
         </Link>
       </div>
       <Link to="/">

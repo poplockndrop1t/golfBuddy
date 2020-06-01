@@ -50,15 +50,16 @@ class App extends React.Component {
     this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
     this.setBagStateFromMongo = this.setBagStateFromMongo.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
+    this.updateBag = this.updateBag.bind(this);
   };
 
   componentDidMount() {
     this.fetchBag();
   }
 
-  createNewClub(clubCategory, clubType, clubBrand, numberOfClubs, flex) {
+  createNewClub(category, clubType, brand, numberOfClubs, flex) {
     if (this.props.bagSize < 14) {
-      this.props.addNewClub({ category: clubCategory, clubType: clubType, brand: clubBrand, flex: flex });
+      this.props.addNewClub({ category, clubType, brand, flex });
       this.props.resetClub({ category: '', clubType: '', brand: '' });
       this.props.incrementBagSize(numberOfClubs);
       this.postBag(this.props.bag);
@@ -87,6 +88,14 @@ class App extends React.Component {
     });
   }
 
+  updateBag(requestType, body = []) {
+    fetch('/api/bag', {
+      method: requestType,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    }).then(res => res.json());
+  }
+
   removeClub(club, i) {
     if (this.props.bagSize > 0) {
       this.props.removeClub({ clubType: club.category, i: i });
@@ -106,13 +115,14 @@ class App extends React.Component {
   setBagSizeFromMongo(dataFromServer) {
     var bagLength = 0;
     for (var key in dataFromServer) {
-      if (Array.isArray(dataFromServer[key]) && dataFromServer[key].length > 0) {
-        if (dataFromServer[key][0].clubType === "3p") bagLength += 8;
-        if (dataFromServer[key][0].clubType === "4a") bagLength += 8;
-        if (dataFromServer[key][0].clubType === "4p") bagLength += 7;
-        if (dataFromServer[key][0].clubType === "5a") bagLength += 7;
-        if (dataFromServer[key][0].clubType === "5p") bagLength += 6;
-        if (key !== 'irons') bagLength += dataFromServer[key].length;
+      let clubArray = dataFromServer[key];
+      if (Array.isArray(clubArray) && clubArray.length > 0) {
+        if (clubArray[0].clubType === "3p") bagLength += 8;
+        if (clubArray[0].clubType === "4a") bagLength += 8;
+        if (clubArray[0].clubType === "4p") bagLength += 7;
+        if (clubArray[0].clubType === "5a") bagLength += 7;
+        if (clubArray[0].clubType === "5p") bagLength += 6;
+        if (key !== 'irons') bagLength += clubArray.length;
       }
     };
     this.props.incrementBagSize(bagLength);
