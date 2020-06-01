@@ -114,8 +114,8 @@ class App extends React.Component {
   updateBag(requestType, body) {
     const request = { method: requestType, headers: { 'Content-Type': 'application/json' }};
     if (body) request.body = JSON.stringify(body);
-    fetch('/api/bag', request)
-      .then(res => {
+    return fetch('/api/bag', request)
+      .then(res =>
         res.json()
           .then(data => {
             if (requestType === 'GET') {
@@ -123,11 +123,7 @@ class App extends React.Component {
               this.setBagSizeFromMongo(data);
             }
             return data;
-          });
-      })
-      .catch(err => {
-        console.error('errDSFASDFSDF', err)
-      })
+          }));
   };
 
   render() {
