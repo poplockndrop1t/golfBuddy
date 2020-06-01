@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import { RESET_SELECT_OPTIONS } from '../constants/constants';
 import clubReducer from './clubReducer.js';
 import bagCountReducer from './bagCountReducer';
 
@@ -18,16 +17,6 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch(action.type) {
-    case `${RESET_SELECT_OPTIONS}`:
-      const newState = {...state};
-      console.log(newState);
-  //     newState.brands.concat('1');
-  // //     // newState.brands.pop();
-  // //     // newState.flexOptions.push('')
-  // //     // .pop();
-  // //     // console.log(newState);
-  // //     newState.newClub = action.payload;
-      return newState;
     default:
       return state
   }
