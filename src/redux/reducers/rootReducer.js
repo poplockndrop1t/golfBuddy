@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { RESET_CLUB } from '../constants/constants';
 import clubReducer from './clubReducer.js';
 import bagCountReducer from './bagCountReducer';
 
@@ -17,6 +18,10 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch(action.type) {
+    case `${RESET_CLUB}`:
+      const newState = {...state};
+      newState.newClub = action.payload;
+      return newState;
     default:
       return state
   }

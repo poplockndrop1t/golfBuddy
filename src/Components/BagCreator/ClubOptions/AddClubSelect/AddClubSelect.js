@@ -5,7 +5,6 @@ import './AddClubSelect.css';
 function AddClubSelect({ brands, clubTypeNumbers, clubType, createNewClub, newClub, flexOptions }) {
 
   function addNewClub(event) {
-    console.log('event', event.target.name, event.target.value);
     if (newClub.clubType && newClub.brand && newClub.flex) {
       const { category, clubType, brand, flex } = newClub;
       if (clubType === '3p') return createNewClub(category, clubType, brand, 8, flex);
