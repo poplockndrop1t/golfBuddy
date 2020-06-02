@@ -26,15 +26,15 @@ app.set('trust proxy', 1)
 
 app.use('/api', router);
 
-app.get('/', function(req, res, next) {
-  bagController.retrieveBag(req, res, (request, response, dbResponse) => {
-    console.log(dbResponse);
-  });
-});
-
-// app.get('*', (req, res) => {
-//   res.sendFile(__dirname + '/build/index.html');
+// app.get('/', function(req, res) {
+//   bagController.retrieveBag(req, res, (request, response, dbResponse) => {
+//     console.log(dbResponse);
+//   });
 // });
+
+app.get('*', (req, res) => {
+  res.sendFile(__dirname + '/build/index.html');
+});
 
 app.listen(port, () => {
   console.log(`|2 U ${port}`);

@@ -34,7 +34,7 @@ module.exports = {
     });
   },
   retrieveBag: function(req, res, cb) {
-    Bag.findOne({}, (err, response) => {
+    Bag.findById({ '_id': req.session._id }, (err, response) => {
       if (err) return console.error(err);
       req.session._id = response._id
       return cb(req, res, JSON.stringify(response))
