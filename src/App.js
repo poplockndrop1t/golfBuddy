@@ -116,6 +116,7 @@ class App extends React.Component {
       .then(res => res.json()
         .then(data => {
           if (requestType === 'GET') {
+            console.log('data', data);
             this.setBagStateFromMongo(data)
             this.setBagSizeFromMongo(data);
           }

@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const db = require('./db/index.js');
 const router = require('./router.js');
+const bagController = require('./controllers/bagController.js');
 
 const app = express();
 const port = process.env.PORT || 1337;
@@ -26,7 +27,9 @@ app.set('trust proxy', 1)
 app.use('/api', router);
 
 app.get('/', function(req, res, next) {
-    console.log(req.session);
+  bagController.retrieveBag(req, res, (request, response, dbResponse) => {
+    console.log(dbResponse);
+  });
 });
 
 // app.get('*', (req, res) => {
