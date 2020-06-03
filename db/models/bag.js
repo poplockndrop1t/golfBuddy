@@ -4,6 +4,7 @@ const Scheme = mongoose.Schema;
 mongoose.Promise = global.Promise;
 
 const bagSchema = mongoose.Schema({
+  username: String,
   driver: [{
     category: String,
     clubType: String,
