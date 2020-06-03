@@ -1,6 +1,15 @@
 const Bag = require('../db/models/bag.js');
 
 module.exports = {
+  delete: function(req, res) {
+    Bag.findOne({}, (err, response) => {
+      Bag.deleteOne(response, (e, r) => {
+        console.log('req.body', response);
+        if (e) console.log(e)
+        return `Deleted`;
+      })
+    });
+  },
   get: function(req, res) {
     Bag.findOne({}, (err, response) => {
       if (err) return console.error(err);
