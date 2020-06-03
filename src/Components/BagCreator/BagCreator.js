@@ -4,16 +4,22 @@ import YourBag from './YourBag/YourBag.js';
 import './BagCreator.css';
 
 function BagCreator(props) {
+  var username;
+
+  function handleSubmit(event) {
+    console.log('clicked', event.target.name, event.target.value, username);
+  };
+
   return (
     <div className="container">
       <div>
         <h2>Bag Creator</h2>
         <h6>Add your clubs and create your own pdf</h6>
       </div>
-      <div>
-        <input />
-        <button>Enter username:</button>
-      </div>
+      <form>
+        <input name="username" onChange={(event) => username = event.target.value} />
+        <button onClick={handleSubmit} value="submit">Enter username:</button>
+      </form>
       <div className="bagCreatorContainer">
         <ClubOptions
           bag={props.bag}
