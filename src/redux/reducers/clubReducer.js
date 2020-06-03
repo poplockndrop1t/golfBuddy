@@ -1,4 +1,4 @@
-import { ADD_NEW_CLUB, REMOVE_CLUB, RESET_CLUB, SET_BAG, SET_NEW_CLUB_VALUE } from '../constants/constants';
+import { ADD_NEW_CLUB, REMOVE_CLUB, RESET_CLUB, SET_BAG, SET_NEW_CLUB_VALUE, SET_USERNAME } from '../constants/constants';
 
 const initialState = {
   username: '',
@@ -36,6 +36,9 @@ function clubReducer(state = initialState, action) {
       return newState;
     case `${SET_NEW_CLUB_VALUE}`:
       newState.newClub = action.payload;
+      return newState;
+    case `${SET_USERNAME}`:
+      console.log('here');
       return newState;
     default:
       return newState;

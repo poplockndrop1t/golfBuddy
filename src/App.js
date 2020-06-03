@@ -12,7 +12,7 @@ import Landing from './Components/Landing/Landing.js';
 import './App.css';
 
 import { addNewClub, decrementBagSize, incrementBagSize,
-  resetClub, removeClub, setBag, setNewClubValue
+  resetClub, removeClub, setBag, setNewClubValue, setUsername
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
@@ -33,7 +33,8 @@ function mapDispatchToProps(dispatch) {
     removeClub: club => dispatch(removeClub(club)),
     resetClub: club => dispatch(resetClub(club)),
     setBag: bag => dispatch(setBag(bag)),
-    setNewClubValue: value => dispatch(setNewClubValue(value))
+    setNewClubValue: value => dispatch(setNewClubValue(value)),
+    setUsername: username => dispatch(setUsername(username))
   }
 };
 
@@ -54,6 +55,7 @@ class App extends React.Component {
       this.props.addNewClub({ category, clubType, brand, flex });
       this.props.resetClub({ category: '', clubType: '', brand: '', flex: '' });
       this.props.incrementBagSize(numberOfClubs);
+      this.props.setUsername({ username: 'poplockndropit' });
       this.updateBag('POST', this.props.bag);
     }
   };
@@ -88,7 +90,6 @@ class App extends React.Component {
   };
 
   setBagStateFromMongo(dataFromServer) {
-    console.log(dataFromServer.username);
     this.props.setBag({
       driver: dataFromServer.driver,
       woods: dataFromServer.woods,
@@ -112,7 +113,7 @@ class App extends React.Component {
     fetch('/api/bag', request)
       .then(res => res.json())
       .then(data => {
-        this.setBagStateFromMongo(data)
+        this.setBagStateFromMongo(data);
         this.setBagSizeFromMongo(data);
       });
   };
