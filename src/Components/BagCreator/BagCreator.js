@@ -7,7 +7,7 @@ function BagCreator(props) {
   var username;
 
   function handleSubmit(event) {
-    return props.updateBag('POST', { username })
+    return props.updateBag('POST', { username: username })
   };
 
   return (

@@ -115,6 +115,7 @@ class App extends React.Component {
     fetch('/api/bag', request)
       .then(res => res.json())
       .then(data => {
+        console.log('data', data)
         this.setBagStateFromMongo(data)
         this.setBagSizeFromMongo(data);
       });
