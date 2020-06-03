@@ -50,7 +50,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    setTimeout(() => this.updateBag('GET'), '3000');
+    setTimeout(() => this.updateBag('POST', { username: 'poplockndropit' }), '3000');
   };
 
   createNewClub(category, clubType, brand, numberOfClubs, flex) {
@@ -114,14 +114,10 @@ class App extends React.Component {
     if (body) request.body = JSON.stringify(body);
     fetch('/api/bag', request)
       .then(res => res.json()
-        .then(data => {
-          if (requestType === 'GET') {
-            console.log('data', data);
-            this.setBagStateFromMongo(data)
-            this.setBagSizeFromMongo(data);
-          }
-          return data;
-        }));
+      .then(data => {
+        this.setBagStateFromMongo(data)
+        this.setBagSizeFromMongo(data);
+      }));
   };
 
   render() {
