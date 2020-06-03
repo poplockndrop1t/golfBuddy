@@ -2,17 +2,17 @@ const Bag = require('../db/models/bag.js');
 
 module.exports = {
   delete: function(req, res) {
-    Bag.findOne({}, (err, response) => {
+    Bag.findOne({ _id: '5ed7d1a5e7445509119e2d7d' }, (err, response) => {
       Bag.deleteOne(response, (e, r) => {
-        console.log('req.body', response);
         if (e) console.log(e)
-        return `Deleted`;
+        res.send(r);
       })
     });
   },
   get: function(req, res) {
-    Bag.findOne({}, (err, response) => {
+    Bag.find({}, (err, response) => {
       if (err) return console.error(err);
+      console.log('here', response);
       res.send(JSON.stringify(response));
     });
   },
@@ -22,33 +22,27 @@ module.exports = {
       if (response === null) {
         var newBag = new Bag()
         newBag.username = req.body.username;
-        console.log(newBag, req.body);
         newBag.save((e, data) => {
           if (e) return console.error(e);
           res.json(data);
         });
       }
-
-      // if (response) {
-      //   if (response.length === 0) {
-      //     var newBag = new Bag(req.body);
-      //     newBag.save((err, data) => {
-      //       if (err) return console.error(err);
-      //       res.json(response);
-      //     });
-      //   } else {
-      //     var currentBag = response;
-      //     currentBag.driver = req.body.driver;
-      //     currentBag.woods = req.body.woods;
-      //     currentBag.hybrids = req.body.hybrids;
-      //     currentBag.irons = req.body.irons;
-      //     currentBag.wedges = req.body.wedges;
-      //     currentBag.putter = req.body.putter;
-      //     currentBag.save((err, data) => {
-      //       if (err) return console.error(err);
-      //       res.json(response);
-      //     });
-      //   }
+      if (response) {
+        console.log('here', response);
+      }
+      // else {
+        // console.log('test,', response);
+        // var currentBag = response;
+        // currentBag.driver = req.body.driver;
+        // currentBag.woods = req.body.woods;
+        // currentBag.hybrids = req.body.hybrids;
+        // currentBag.irons = req.body.irons;
+        // currentBag.wedges = req.body.wedges;
+        // currentBag.putter = req.body.putter;
+        // currentBag.save((err, data) => {
+        //   if (err) return console.error(err);
+        //   res.json(response);
+        // });
       // };
     });
   },
