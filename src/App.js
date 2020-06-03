@@ -21,7 +21,8 @@ function mapStateToProps(state) {
     bag: state.clubReducer.bag,
     bagSize: state.bagCountReducer.bagSize,
     clubOptions: state.rootReducer,
-    newClub: state.clubReducer.newClub
+    newClub: state.clubReducer.newClub,
+    username: state.clubReducer.username
   };
 };
 
@@ -115,7 +116,7 @@ class App extends React.Component {
       .then(data => {
         this.setBagStateFromMongo(data);
         this.setBagSizeFromMongo(data);
-        this.setUsername(data.username);
+        this.props.setUsername(data.username);
       });
   };
 

@@ -38,7 +38,7 @@ function clubReducer(state = initialState, action) {
       newState.newClub = action.payload;
       return newState;
     case `${SET_USERNAME}`:
-      console.log('here');
+      newState['username'] = action.payload;
       return newState;
     default:
       return newState;
