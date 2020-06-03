@@ -16,7 +16,6 @@ function Club(props) {
           return (
             <p key={key}>
               {club.clubType} {club.brand} {club.flex}
-
               <button className="removeClub" onClick={() => handleClick(club, key)} >X</button>
             </p>
           )

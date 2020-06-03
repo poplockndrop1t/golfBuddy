@@ -49,10 +49,6 @@ class App extends React.Component {
     this.updateBag = this.updateBag.bind(this);
   };
 
-  componentDidMount() {
-    // setTimeout(() => this.updateBag('POST', { username: 'poplockndropit' }), '3000');
-  };
-
   createNewClub(category, clubType, brand, numberOfClubs, flex) {
     if (this.props.bagSize < 14) {
       this.props.addNewClub({ category, clubType, brand, flex });
@@ -92,6 +88,7 @@ class App extends React.Component {
   };
 
   setBagStateFromMongo(dataFromServer) {
+    console.log(dataFromServer.username);
     this.props.setBag({
       driver: dataFromServer.driver,
       woods: dataFromServer.woods,
@@ -115,7 +112,6 @@ class App extends React.Component {
     fetch('/api/bag', request)
       .then(res => res.json())
       .then(data => {
-        console.log('data', data)
         this.setBagStateFromMongo(data)
         this.setBagSizeFromMongo(data);
       });

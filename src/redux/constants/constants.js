@@ -5,3 +5,4 @@ export const REMOVE_CLUB = 'REMOVE_CLUB';
 export const RESET_CLUB = 'RESET_CLUB';
 export const SET_BAG = 'SET_BAG';
 export const SET_NEW_CLUB_VALUE = 'SET_NEW_CLUB_VALUE';
+export const SET_USERNAME = 'SET_USERNAME';
