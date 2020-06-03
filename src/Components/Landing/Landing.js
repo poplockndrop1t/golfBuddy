@@ -7,7 +7,6 @@ function Landing() {
       <div className="topContainer">
         <h1>
           Welcome to Golf Buddy <span role="img" aria-label="golf buddy">⛳️</span>
-          { alert('Test') }
         </h1>
       </div>
       <div className="middleContainer">
