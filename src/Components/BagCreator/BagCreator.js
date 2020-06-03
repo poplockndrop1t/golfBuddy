@@ -16,10 +16,10 @@ function BagCreator(props) {
         <h2>Bag Creator</h2>
         <h6>Add your clubs and create your own pdf</h6>
       </div>
-      <form>
+      <div>
         <input name="username" onChange={(event) => username = event.target.value} />
-        <button onClick={handleSubmit} value="submit">Enter username:</button>
-      </form>
+        <button onClick={handleSubmit}>Enter username:</button>
+      </div>
       <div className="bagCreatorContainer">
         <ClubOptions
           bag={props.bag}

@@ -115,6 +115,7 @@ class App extends React.Component {
       .then(data => {
         this.setBagStateFromMongo(data);
         this.setBagSizeFromMongo(data);
+        this.setUsername(data.username);
       });
   };
 
