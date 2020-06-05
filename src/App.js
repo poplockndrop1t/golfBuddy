@@ -62,7 +62,9 @@ class App extends React.Component {
   };
 
   handleBagResponseFromServer(dataObject) {
-    console.log('dataObj', dataObject);
+    this.setBagStateFromMongo(dataObject);
+    this.props.setUsername({ username: dataObject.username });
+    this.setBagSizeFromMongo(dataObject);
   };
 
   removeClub(club, i) {
