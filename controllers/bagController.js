@@ -16,7 +16,8 @@ module.exports = {
     });
   },
   post: function(req, res) {
-    Bag.findOne({ username: req.body.username }, (error, response) => {
+        console.log('response', req.body);
+    Bag.findOne({ username: req.body.username.username }, (error, response) => {
       if (error) return console.error(error);
       if (response === null && req.body.username) {
         var newBag = new Bag()
@@ -26,19 +27,19 @@ module.exports = {
           res.json(data);
         });
       }
-      if (response) {
-        var currentBag = response;
-        currentBag.driver = req.body.driver ? req.body.driver : currentBag.driver;
-        currentBag.woods = req.body.woods ? req.body.woods : currentBag.woods;
-        currentBag.hybrids = req.body.hybrids ? req.body.hybrids : currentBag.hybrids;
-        currentBag.irons = req.body.irons ? req.body.irons : currentBag.irons;
-        currentBag.wedges = req.body.wedges ? req.body.wedges : currentBag.wedges;
-        currentBag.putter = req.body.putter ? req.body.putter : currentBag.putter;
-        currentBag.save((err, data) => {
-          if (err) return console.error(err);
-          res.json(currentBag);
-        });
-      }
+      // if (response) {
+      //   var currentBag = response;
+      //   currentBag.driver = req.body.driver ? req.body.driver : currentBag.driver;
+      //   currentBag.woods = req.body.woods ? req.body.woods : currentBag.woods;
+      //   currentBag.hybrids = req.body.hybrids ? req.body.hybrids : currentBag.hybrids;
+      //   currentBag.irons = req.body.irons ? req.body.irons : currentBag.irons;
+      //   currentBag.wedges = req.body.wedges ? req.body.wedges : currentBag.wedges;
+      //   currentBag.putter = req.body.putter ? req.body.putter : currentBag.putter;
+      //   currentBag.save((err, data) => {
+      //     if (err) return console.error(err);
+      //     res.json(currentBag);
+      //   });
+      // }
     });
   }
 };

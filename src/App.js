@@ -64,7 +64,7 @@ class App extends React.Component {
   handleBagResponseFromServer(dataObject) {
     this.setBagStateFromMongo(dataObject);
     this.props.setUsername({ username: dataObject.username });
-    this.setBagSizeFromMongo(dataObject);
+    // this.setBagSizeFromMongo(dataObject);
   };
 
   removeClub(club, i) {
@@ -96,6 +96,7 @@ class App extends React.Component {
   };
 
   setBagStateFromMongo(dataFromServer) {
+    console.log('yay', Array.isArray(dataFromServer.driver))
     this.props.setBag({
       driver: dataFromServer.driver,
       woods: dataFromServer.woods,
@@ -115,8 +116,17 @@ class App extends React.Component {
 
   saveBag(requestType, body, actionType) {
     const request = { method: requestType, headers: { 'Content-Type': 'application/json' }};
-    if (body) request.body = JSON.stringify(body);
-    console.log(body);
+    const reqBody = {
+      username: this.props.username,
+      driver: body.driver,
+      woods: body.woods,
+      hybrids: body.hybrids,
+      irons: body.irons,
+      wedges: body.wedges,
+      putter: body.putter
+    }
+    if (body) request.body = JSON.stringify(reqBody);
+
     fetch('/api/bag', request)
       .then(res => res.json())
       .then(data => {
@@ -147,6 +157,7 @@ class App extends React.Component {
               setNewClubValue={this.setNewClubValue}
               saveBag={this.saveBag}
               setUsername={this.props.setUsername}
+              username={this.props.username}
             />
           </Route>
           <Footer />

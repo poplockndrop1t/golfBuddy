@@ -4,26 +4,18 @@ import YourBag from './YourBag/YourBag.js';
 import './BagCreator.css';
 
 function BagCreator(props) {
-  var username = '';
 
   function handleChange(event) {
-    props.setUsername({ username: event.target.value })
-  }
+    props.setUsername({ username: event.target.value });
+  };
 
   function handleSubmit(event) {
-    if (username.length > 0) {
-      const bagModel = props.bag;
-      bagModel.username = username;
-      if (event.target.name === 'save') {
-        console.log('ran', bagModel);
-        return props.saveBag('POST', bagModel, 'save');
-      }
-      if (event.target.name === 'fetch') {
-        return props.saveBag('POST', bagModel, 'fetch');
-      }
+    if (props.username.username.length > 0) {
+      if (event.target.name === 'save') props.saveBag('POST', props.bag, 'save');
+      if (event.target.name === 'fetch') props.saveBag('POST', props.bag, 'fetch');
     }
   };
-// <input name="username" onChange={(event) => username = event.target.value} />
+
   return (
     <div className="container">
       <div>
