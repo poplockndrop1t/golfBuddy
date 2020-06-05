@@ -113,12 +113,7 @@ class App extends React.Component {
     if (body) request.body = JSON.stringify(body);
     fetch('/api/bag', request)
       .then(res => res.json())
-      .then(data => {
-        // this.setBagStateFromMongo(data);
-        // this.setBagSizeFromMongo(data);
-        // this.props.setUsername(data.username);
-        console.log('data', data);
-      });
+      .then(data => console.log('data', data));
   };
 
   render() {

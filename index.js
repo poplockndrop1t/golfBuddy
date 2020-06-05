@@ -14,8 +14,9 @@ app.use(express.static(__dirname + '/build'));
 
 app.use(session({
   secret: 'golfbuddy',
-  resave: false,
-  saveUninitialized: true,
+  resave: true,
+  saveUninitialized: false,
+  username: '',
   cookie: {
     maxAge: 60000,
     secure: false
@@ -26,7 +27,7 @@ app.set('trust proxy', 1)
 
 app.use('/api', router);
 
-// app.get('/', function(req, res) {
+// app.get('/session', function(req, res) {
 //   bagController.retrieveBag(req, res, (request, response, dbResponse) => {
 //     console.log(dbResponse);
 //   });
