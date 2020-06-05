@@ -57,14 +57,14 @@ class App extends React.Component {
       this.props.resetClub({ category: '', clubType: '', brand: '', flex: '' });
       this.props.incrementBagSize(numberOfClubs);
       this.props.setUsername({ username: 'poplockndropit' });
-      this.updateBag('POST', this.props.bag);
+      // this.updateBag('POST', this.props.bag);
     }
   };
 
   removeClub(club, i) {
     if (this.props.bagSize > 0) {
       this.props.removeClub({ clubType: club.category, i: i });
-      this.updateBag('POST', this.props.bag);
+      // this.updateBag('POST', this.props.bag);
       if (club.clubType === '3p') return this.props.decrementBagSize(8);
       if (club.clubType === '4a') return this.props.decrementBagSize(8);
       if (club.clubType === '4p') return this.props.decrementBagSize(7);
