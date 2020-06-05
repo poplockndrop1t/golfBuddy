@@ -48,7 +48,7 @@ class App extends React.Component {
     this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
     this.setBagStateFromMongo = this.setBagStateFromMongo.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
-    this.updateBag = this.updateBag.bind(this);
+    this.saveBag = this.saveBag.bind(this);
   };
 
   createNewClub(category, clubType, brand, numberOfClubs, flex) {
@@ -57,14 +57,14 @@ class App extends React.Component {
       this.props.resetClub({ category: '', clubType: '', brand: '', flex: '' });
       this.props.incrementBagSize(numberOfClubs);
       this.props.setUsername({ username: 'poplockndropit' });
-      // this.updateBag('POST', this.props.bag);
+      // this.saveBag('POST', this.props.bag);
     }
   };
 
   removeClub(club, i) {
     if (this.props.bagSize > 0) {
       this.props.removeClub({ clubType: club.category, i: i });
-      // this.updateBag('POST', this.props.bag);
+      // this.saveBag('POST', this.props.bag);
       if (club.clubType === '3p') return this.props.decrementBagSize(8);
       if (club.clubType === '4a') return this.props.decrementBagSize(8);
       if (club.clubType === '4p') return this.props.decrementBagSize(7);
@@ -108,15 +108,16 @@ class App extends React.Component {
     this.props.setNewClubValue(newClub);
   };
 
-  updateBag(requestType, body) {
+  saveBag(requestType, body) {
     const request = { method: requestType, headers: { 'Content-Type': 'application/json' }};
     if (body) request.body = JSON.stringify(body);
     fetch('/api/bag', request)
       .then(res => res.json())
       .then(data => {
-        this.setBagStateFromMongo(data);
-        this.setBagSizeFromMongo(data);
-        this.props.setUsername(data.username);
+        // this.setBagStateFromMongo(data);
+        // this.setBagSizeFromMongo(data);
+        // this.props.setUsername(data.username);
+        console.log('data', data);
       });
   };
 
@@ -137,7 +138,7 @@ class App extends React.Component {
               newClub={this.props.newClub}
               removeClub={this.removeClub}
               setNewClubValue={this.setNewClubValue}
-              updateBag={this.updateBag}
+              saveBag={this.saveBag}
             />
           </Route>
           <Footer />
