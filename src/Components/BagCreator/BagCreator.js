@@ -21,7 +21,7 @@ function BagCreator(props) {
           wedges: props.bag.wedges,
           putter: props.bag.putter
         }
-        props.saveBag('POST', props.bag, 'save');
+        props.saveBag('POST', reqBody, 'save');
       }
       if (event.target.name === 'fetch') props.saveBag('POST', props.username, 'fetch');
     }

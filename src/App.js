@@ -114,25 +114,14 @@ class App extends React.Component {
 
   saveBag(requestType, body, actionType) {
     const request = { method: requestType, headers: { 'Content-Type': 'application/json' }};
-    // const reqBody = {
-    //   username: this.props.username,
-    //   driver: body.driver,
-    //   woods: body.woods,
-    //   hybrids: body.hybrids,
-    //   irons: body.irons,
-    //   wedges: body.wedges,
-    //   putter: body.putter
-    // }
-    console.log('body', body)
-    // if (body) request.body = JSON.stringify(body);
-
-    // fetch('/api/bag', request)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     if (actionType === 'fetch') {
-    //       return this.handleBagResponseFromServer(data)
-    //     }
-    //   });
+    if (body) request.body = JSON.stringify(body);
+    fetch('/api/bag', request)
+      .then(res => res.json())
+      .then(data => {
+        if (actionType === 'fetch') {
+          return this.handleBagResponseFromServer(data)
+        }
+      });
   };
 
   render() {

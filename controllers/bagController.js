@@ -2,7 +2,7 @@ const Bag = require('../db/models/bag.js');
 
 module.exports = {
   delete: function(req, res) {
-    Bag.findOne({ _id: '5ed7d10177a8c708d6279137' }, (err, response) => {
+    Bag.findOne({ _id: '5eda7174c7d3ac1776256fb9' }, (err, response) => {
       Bag.deleteOne(response, (e, r) => {
         if (e) console.log(e)
         res.send(r);
@@ -18,9 +18,9 @@ module.exports = {
   post: function(req, res) {
     Bag.findOne({ username: req.body.username.username }, (error, response) => {
       if (error) return console.error(error);
-      if (response === null && req.body.username) {
+      if (response === null && req.body.username.username) {
         var newBag = new Bag()
-        newBag.username = req.body.username;
+        newBag.username = req.body.username.username;
         newBag.save((err, data) => {
           if (err) return console.error(err);
           res.json(data);
