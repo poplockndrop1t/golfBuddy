@@ -57,14 +57,13 @@ class App extends React.Component {
       this.props.addNewClub({ category, clubType, brand, flex });
       this.props.resetClub({ category: '', clubType: '', brand: '', flex: '' });
       this.props.incrementBagSize(numberOfClubs);
-      // this.props.setUsername({ username: 'poplockndropit' });
     }
   };
 
   handleBagResponseFromServer(dataObject) {
     this.setBagStateFromMongo(dataObject);
     this.props.setUsername({ username: dataObject.username });
-    // this.setBagSizeFromMongo(dataObject);
+    this.setBagSizeFromMongo(dataObject);
   };
 
   removeClub(club, i) {
@@ -96,7 +95,6 @@ class App extends React.Component {
   };
 
   setBagStateFromMongo(dataFromServer) {
-    console.log('yay', Array.isArray(dataFromServer.driver))
     this.props.setBag({
       driver: dataFromServer.driver,
       woods: dataFromServer.woods,
@@ -132,8 +130,6 @@ class App extends React.Component {
       .then(data => {
         if (actionType === 'fetch') {
           return this.handleBagResponseFromServer(data)
-        } else {
-          return console.log('returned', data);
         }
       });
   };
