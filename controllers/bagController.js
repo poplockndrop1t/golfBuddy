@@ -2,7 +2,7 @@ const Bag = require('../db/models/bag.js');
 
 module.exports = {
   delete: function(req, res) {
-    Bag.findOne({ _id: '5eda7174c7d3ac1776256fb9' }, (err, response) => {
+    Bag.findOne({ _id: req.body._id }, (err, response) => {
       Bag.deleteOne(response, (e, r) => {
         if (e) console.log(e)
         res.send(r);

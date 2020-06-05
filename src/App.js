@@ -16,7 +16,7 @@ import { addNewClub, decrementBagSize, incrementBagSize,
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
-  console.log(state);
+  // console.log(state);
   return {
     bag: state.clubReducer.bag,
     bagSize: state.bagCountReducer.bagSize,

@@ -6,7 +6,7 @@ import './BagCreator.css';
 function BagCreator(props) {
 
   function handleChange(event) {
-    props.setUsername({ username: event.target.value });
+    return props.setUsername({ username: event.target.value });
   };
 
   function handleSubmit(event) {
@@ -21,9 +21,11 @@ function BagCreator(props) {
           wedges: props.bag.wedges,
           putter: props.bag.putter
         }
-        props.saveBag('POST', reqBody, 'save');
+        return props.saveBag('POST', reqBody, 'save');
       }
-      if (event.target.name === 'fetch') props.saveBag('POST', props.username, 'fetch');
+      if (event.target.name === 'fetch') {
+        return props.saveBag('POST', { username: props.username } , 'fetch');
+      }
     }
   };
 
