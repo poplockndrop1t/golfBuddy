@@ -12,26 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/build'));
 
-app.use(session({
-  secret: 'golfbuddy',
-  resave: true,
-  saveUninitialized: false,
-  username: '',
-  cookie: {
-    maxAge: 60000,
-    secure: false
-  }
-}));
-
-app.set('trust proxy', 1)
-
 app.use('/api', router);
-
-// app.get('/session', function(req, res) {
-//   bagController.retrieveBag(req, res, (request, response, dbResponse) => {
-//     console.log(dbResponse);
-//   });
-// });
 
 app.get('*', (req, res) => {
   res.sendFile(__dirname + '/build/index.html');

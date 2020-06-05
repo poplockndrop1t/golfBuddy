@@ -16,6 +16,8 @@ function Nav() {
       <Link to="/bagCreator">
         <p>Bag Creator</p>
       </Link>
+      <label>Enter username:</label>
+      <input/>
     </div>
   )
 };

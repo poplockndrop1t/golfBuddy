@@ -43,12 +43,4 @@ module.exports = {
       }
     });
   }
-  // retrieveBag: function(req, res, cb) {
-  //   console.log(req.session);
-    // Bag.findOne({ username: req.session.username }, (err, response) => {
-    //   if (err) return console.error(err);
-    //   req.session._id = response._id
-    //   return cb(req, res, JSON.stringify(response))
-    // });
-  // }
 };
