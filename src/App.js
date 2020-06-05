@@ -16,7 +16,7 @@ import { addNewClub, decrementBagSize, incrementBagSize,
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
-  // console.log(state);
+  console.log(state);
   return {
     bag: state.clubReducer.bag,
     bagSize: state.bagCountReducer.bagSize,
@@ -33,9 +33,9 @@ function mapDispatchToProps(dispatch) {
     incrementBagSize: size => dispatch(incrementBagSize(size)),
     removeClub: club => dispatch(removeClub(club)),
     resetClub: club => dispatch(resetClub(club)),
-    setBag: bag => dispatch(setBag(bag)),
+    setBag: bagObject => dispatch(setBag(bagObject)),
     setNewClubValue: value => dispatch(setNewClubValue(value)),
-    setUsername: username => dispatch(setUsername(username))
+    setUsername: usernameObject => dispatch(setUsername(usernameObject))
   }
 };
 
@@ -57,7 +57,7 @@ class App extends React.Component {
       this.props.addNewClub({ category, clubType, brand, flex });
       this.props.resetClub({ category: '', clubType: '', brand: '', flex: '' });
       this.props.incrementBagSize(numberOfClubs);
-      this.props.setUsername({ username: 'poplockndropit' });
+      // this.props.setUsername({ username: 'poplockndropit' });
     }
   };
 
@@ -116,6 +116,7 @@ class App extends React.Component {
   saveBag(requestType, body, actionType) {
     const request = { method: requestType, headers: { 'Content-Type': 'application/json' }};
     if (body) request.body = JSON.stringify(body);
+    console.log(body);
     fetch('/api/bag', request)
       .then(res => res.json())
       .then(data => {
@@ -145,6 +146,7 @@ class App extends React.Component {
               removeClub={this.removeClub}
               setNewClubValue={this.setNewClubValue}
               saveBag={this.saveBag}
+              setUsername={this.props.setUsername}
             />
           </Route>
           <Footer />

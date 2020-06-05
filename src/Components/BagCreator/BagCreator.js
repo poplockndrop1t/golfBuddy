@@ -6,11 +6,16 @@ import './BagCreator.css';
 function BagCreator(props) {
   var username = '';
 
+  function handleChange(event) {
+    props.setUsername({ username: event.target.value })
+  }
+
   function handleSubmit(event) {
     if (username.length > 0) {
       const bagModel = props.bag;
       bagModel.username = username;
       if (event.target.name === 'save') {
+        console.log('ran', bagModel);
         return props.saveBag('POST', bagModel, 'save');
       }
       if (event.target.name === 'fetch') {
@@ -18,7 +23,7 @@ function BagCreator(props) {
       }
     }
   };
-
+// <input name="username" onChange={(event) => username = event.target.value} />
   return (
     <div className="container">
       <div>
@@ -27,7 +32,7 @@ function BagCreator(props) {
       </div>
       <div>
         <label>Enter username:</label>
-        <input name="username" onChange={(event) => username = event.target.value} />
+        <input name="username" onChange={handleChange} />
         <button name="save" onClick={handleSubmit}>Save Bag</button>
         <button name="fetch" onClick={handleSubmit}>Fetch Bag</button>
       </div>
