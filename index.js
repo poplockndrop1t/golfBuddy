@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const session = require('express-session');
 const db = require('./db/index.js');
 const router = require('./router.js');
 const bagController = require('./controllers/bagController.js');

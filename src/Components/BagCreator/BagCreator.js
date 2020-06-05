@@ -4,12 +4,19 @@ import YourBag from './YourBag/YourBag.js';
 import './BagCreator.css';
 
 function BagCreator(props) {
-  var username;
+  var username = '';
 
   function handleSubmit(event) {
-    const bagModel = props.bag;
-    bagModel.username = username;
-    return props.saveBag('POST', bagModel);
+    if (username.length > 0) {
+      const bagModel = props.bag;
+      bagModel.username = username;
+      if (event.target.name === 'save') {
+        return props.saveBag('POST', bagModel);
+      }
+      if (event.target.name === 'fetch') {
+        return props.saveBag('POST', bagModel);
+      }
+    }
   };
 
   return (
@@ -21,7 +28,8 @@ function BagCreator(props) {
       <div>
         <label>Enter username:</label>
         <input name="username" onChange={(event) => username = event.target.value} />
-        <button onClick={handleSubmit}>Save Bag</button>
+        <button name="save" onClick={handleSubmit}>Save Bag</button>
+        <button name="fetch" onClick={handleSubmit}>Fetch Bag</button>
       </div>
       <div className="bagCreatorContainer">
         <ClubOptions

@@ -34,8 +34,6 @@ module.exports = {
         currentBag.irons = req.body.irons ? req.body.irons : currentBag.irons;
         currentBag.wedges = req.body.wedges ? req.body.wedges : currentBag.wedges;
         currentBag.putter = req.body.putter ? req.body.putter : currentBag.putter;
-        req.session.username = response.username;
-        req.session.cookie.username = response.username;
         currentBag.save((err, data) => {
           if (err) return console.error(err);
           res.json(currentBag);
