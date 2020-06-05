@@ -31,15 +31,17 @@ function BagCreator(props) {
 
   return (
     <div className="container">
-      <div>
-        <h2>Bag Creator</h2>
-        <h6>Add your clubs and create your own pdf</h6>
-      </div>
-      <div>
-        <label>Enter username:</label>
-        <input name="username" onChange={handleChange} />
-        <button name="fetch" onClick={handleSubmit}>Fetch Bag</button>
-        <button name="save" onClick={handleSubmit}>Save Bag</button>
+      <div className="bagCreatorTopContainer">
+        <div>
+          <h2>Bag Creator</h2>
+          <h6>Add your clubs and create your own pdf</h6>
+        </div>
+        <div className="usernameContainer">
+          <label>Enter username:</label>
+          <input name="username" onChange={handleChange} />
+          <button name="fetch" onClick={handleSubmit}>Fetch Bag</button>
+          <button name="save" onClick={handleSubmit}>Save Bag</button>
+        </div>
       </div>
       <div className="bagCreatorContainer">
         <ClubOptions
