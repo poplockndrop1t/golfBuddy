@@ -11,10 +11,10 @@ function BagCreator(props) {
       const bagModel = props.bag;
       bagModel.username = username;
       if (event.target.name === 'save') {
-        return props.saveBag('POST', bagModel);
+        return props.saveBag('POST', bagModel, 'save');
       }
       if (event.target.name === 'fetch') {
-        return props.saveBag('POST', bagModel);
+        return props.saveBag('POST', bagModel, 'fetch');
       }
     }
   };

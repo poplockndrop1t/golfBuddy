@@ -44,6 +44,7 @@ class App extends React.Component {
     super(props);
 
     this.createNewClub = this.createNewClub.bind(this);
+    this.handleBagResponseFromServer = this.handleBagResponseFromServer.bind(this);
     this.removeClub = this.removeClub.bind(this);
     this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
     this.setBagStateFromMongo = this.setBagStateFromMongo.bind(this);
@@ -57,14 +58,16 @@ class App extends React.Component {
       this.props.resetClub({ category: '', clubType: '', brand: '', flex: '' });
       this.props.incrementBagSize(numberOfClubs);
       this.props.setUsername({ username: 'poplockndropit' });
-      // this.saveBag('POST', this.props.bag);
     }
+  };
+
+  handleBagResponseFromServer(dataObject) {
+    console.log('dataObj', dataObject);
   };
 
   removeClub(club, i) {
     if (this.props.bagSize > 0) {
       this.props.removeClub({ clubType: club.category, i: i });
-      // this.saveBag('POST', this.props.bag);
       if (club.clubType === '3p') return this.props.decrementBagSize(8);
       if (club.clubType === '4a') return this.props.decrementBagSize(8);
       if (club.clubType === '4p') return this.props.decrementBagSize(7);
@@ -108,13 +111,17 @@ class App extends React.Component {
     this.props.setNewClubValue(newClub);
   };
 
-  saveBag(requestType, body) {
+  saveBag(requestType, body, actionType) {
     const request = { method: requestType, headers: { 'Content-Type': 'application/json' }};
     if (body) request.body = JSON.stringify(body);
     fetch('/api/bag', request)
       .then(res => res.json())
       .then(data => {
-        console.log('data', data)
+        if (actionType === 'fetch') {
+          return this.handleBagResponseFromServer(data)
+        } else {
+          return console.log('returned', data);
+        }
       });
   };
 
