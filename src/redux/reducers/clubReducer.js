@@ -1,7 +1,7 @@
 import { ADD_NEW_CLUB, REMOVE_CLUB, RESET_CLUB, SET_BAG, SET_NEW_CLUB_VALUE, SET_USERNAME } from '../constants/constants';
 
 const initialState = {
-  username: '',
+  username: { username: '' },
   bag: {
     driver: [],
     woods: [],
