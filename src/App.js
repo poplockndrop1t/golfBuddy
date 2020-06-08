@@ -16,7 +16,7 @@ import { addNewClub, decrementBagSize, incrementBagSize,
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
-  console.log(state);
+  // console.log(state);
   return {
     bag: state.clubReducer.bag,
     bagSize: state.bagCountReducer.bagSize,
@@ -126,7 +126,7 @@ class App extends React.Component {
     if (body) request.body = JSON.stringify(body);
     fetch('/api/bag', request)
       .then(res => res.json())
-      .then(data => console.log('data', data));
+      .then(data => data);
   };
 
   render() {

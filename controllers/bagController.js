@@ -18,7 +18,7 @@ module.exports = {
   post: function(req, res) {
     Bag.findOne({ username: req.body.username.username }, (error, response) => {
       if (error) return console.error(error);
-      if (response.length > 0) {
+      if (response) {
         var currentBag = response;
         currentBag.driver = req.body.driver ? req.body.driver : currentBag.driver;
         currentBag.woods = req.body.woods ? req.body.woods : currentBag.woods;
@@ -28,7 +28,7 @@ module.exports = {
         currentBag.putter = req.body.putter ? req.body.putter : currentBag.putter;
         currentBag.save((err, data) => {
           if (err) return console.error(err);
-          res.json(currentBag);
+          res.json('Bag Saved');
         });
       }
     });
