@@ -5,6 +5,7 @@ mongoose.Promise = global.Promise;
 
 const bagSchema = mongoose.Schema({
   username: String,
+  password: String,
   driver: [{
     category: String,
     clubType: String,
