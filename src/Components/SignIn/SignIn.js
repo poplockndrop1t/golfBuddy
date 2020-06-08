@@ -1,7 +1,9 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import './SignIn.css';
 
 function SignIn(props) {
+  const history = useHistory();
   var username = '';
   var password = '';
 
@@ -29,6 +31,7 @@ function SignIn(props) {
 
   function handleClick() {
     if (username.length > 0 && password.length > 0) {
+      history.push('/bagCreator');
       return props.loginUser({ username, password });
     }
   };
