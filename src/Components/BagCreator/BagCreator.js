@@ -21,19 +21,26 @@ function BagCreator(props) {
   };
 
   function isLoggedIn(username) {
-    console.log('props', username);
-    return (
-      <div className="usernameContainer">
-        <h4>{props.username.username}</h4>
-        <button name="save" onClick={handleSubmit}>Save Bag</button>
-      </div>
-    )
+    if (username.length === 0) {
+      return (
+        <div className="usernameContainer">
+          <h5>Want to save your bag?  Login my dude!</h5>
+        </div>
+      )
+    } else {
+      return (
+        <div className="usernameContainer">
+          <h4>{props.username.username}</h4>
+          <button name="save" onClick={handleSubmit}>Save Bag</button>
+        </div>
+      )
+    }
   }
 
   return (
     <div className="container">
       <div className="bagCreatorTopContainer">
-        <div>
+        <div className="bagCreatorTitleContainer">
           <h2>Bag Creator</h2>
           <h6>Add your clubs and create your own pdf</h6>
         </div>
