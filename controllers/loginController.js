@@ -14,6 +14,7 @@ module.exports = {
           newBag.password = hash;
           newBag.save((err, data) => {
             if (err) return console.error(err);
+            data.password = '';
             res.json(data);
           });
         });
