@@ -27,13 +27,19 @@ function SignIn() {
     }
   };
 
+  function handleClick() {
+    if (username.length > 0 && password.length > 0) {
+      console.log('ran');
+    }
+  }
+
   return (
     <div className="signInContainer">
       <div className="inputContainer">
         <h2>Sign In</h2>
         <input placeholder="username" name="username" onChange={handleChange} />
         <input placeholder="password" type="password" name="password" onChange={handleChange} />
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit" onClick={handleClick} />
       </div>
     </div>
   )
