@@ -45,6 +45,7 @@ class App extends React.Component {
 
     this.createNewClub = this.createNewClub.bind(this);
     this.handleBagResponseFromServer = this.handleBagResponseFromServer.bind(this);
+    this.loginUser = this.loginUser.bind(this);
     this.removeClub = this.removeClub.bind(this);
     this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
     this.setBagStateFromMongo = this.setBagStateFromMongo.bind(this);
@@ -64,6 +65,10 @@ class App extends React.Component {
     this.setBagStateFromMongo(dataObject);
     this.props.setUsername({ username: dataObject.username });
     this.setBagSizeFromMongo(dataObject);
+  };
+
+  loginUser(userObject) {
+    console.log('userObject', userObject);
   };
 
   removeClub(club, i) {
@@ -146,7 +151,11 @@ class App extends React.Component {
               username={this.props.username}
             />
           </Route>
-          <Route path="/signIn" component={SignIn} />
+          <Route path="/signIn">
+            <SignIn
+              loginUser={this.loginUser}
+            />
+          </Route>
           <Footer />
         </Router>
       </div>

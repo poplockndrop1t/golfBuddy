@@ -1,7 +1,7 @@
 import React from 'react';
 import './SignIn.css';
 
-function SignIn() {
+function SignIn(props) {
   var username = '';
   var password = '';
 
@@ -29,9 +29,9 @@ function SignIn() {
 
   function handleClick() {
     if (username.length > 0 && password.length > 0) {
-      console.log('ran');
+      return props.loginUser({ username, password });
     }
-  }
+  };
 
   return (
     <div className="signInContainer">
