@@ -1,7 +1,14 @@
+input {
+  margin-top: 1em;
+}
+
 .signInContainer {
+  min-width: 20em;
+  min-height: 20em;
 }
 
 .inputContainer {
   display: flex;
   flex-direction: column;
+  margin-top: 1em;
 }

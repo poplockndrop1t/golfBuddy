@@ -6,8 +6,9 @@ function SignIn() {
     <div className="signInContainer">
       <div className="inputContainer">
         <h2>Sign In</h2>
-        <input placeholder="username" name="username"/>
-        <input placeholder="password" type="password" password="password"/>
+        <input placeholder="username" name="username" />
+        <input placeholder="password" type="password" password="password" />
+        <input type="submit" value="submit" />
       </div>
     </div>
   )
