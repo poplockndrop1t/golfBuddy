@@ -16,6 +16,9 @@ function Nav() {
       <Link to="/bagCreator">
         <p>Bag Creator</p>
       </Link>
+      <Link to="/signIn">
+        <p>Sign In</p>
+      </Link>
     </div>
   )
 };

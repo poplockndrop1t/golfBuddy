@@ -4,7 +4,11 @@ import './SignIn.css';
 function SignIn() {
   return (
     <div className="signInContainer">
-      <h6>Sign In</h6>
+      <div className="inputContainer">
+        <h2>Sign In</h2>
+        <input placeholder="username" name="username"/>
+        <input placeholder="password" type="password" password="password"/>
+      </div>
     </div>
   )
 };
