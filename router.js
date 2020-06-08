@@ -8,6 +8,7 @@ router.post('/bag', bagController.post);
 router.delete('/bag', bagController.delete);
 
 // Login Routes
+router.post('/createUser', loginController.createUser);
 router.post('/login', loginController.login);
 
 module.exports = router;
