@@ -18,15 +18,7 @@ module.exports = {
   post: function(req, res) {
     Bag.findOne({ username: req.body.username.username }, (error, response) => {
       if (error) return console.error(error);
-      if (response === null && req.body.username.username) {
-        var newBag = new Bag()
-        newBag.username = req.body.username.username;
-        newBag.save((err, data) => {
-          if (err) return console.error(err);
-          res.json(data);
-        });
-      }
-      if (response) {
+      if (response.length > 0) {
         var currentBag = response;
         currentBag.driver = req.body.driver ? req.body.driver : currentBag.driver;
         currentBag.woods = req.body.woods ? req.body.woods : currentBag.woods;
