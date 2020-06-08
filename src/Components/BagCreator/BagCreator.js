@@ -28,7 +28,7 @@ function BagCreator(props) {
           <h6>Add your clubs and create your own pdf</h6>
         </div>
         <div className="usernameContainer">
-          <label>props.username</label>
+          <h4>{props.username.username}</h4>
           <button name="save" onClick={handleSubmit}>Save Bag</button>
         </div>
       </div>
