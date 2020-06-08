@@ -16,7 +16,7 @@ import { addNewClub, decrementBagSize, incrementBagSize,
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
-  // console.log(state);
+  console.log(state);
   return {
     bag: state.clubReducer.bag,
     bagSize: state.bagCountReducer.bagSize,
@@ -68,7 +68,11 @@ class App extends React.Component {
   };
 
   loginUser(userObject) {
-    console.log('userObject', userObject);
+    const request = { method: 'POST', headers: { 'Content-Type': 'application/json' }};
+    request.body = JSON.stringify(userObject);
+    fetch('/api/login', request)
+      .then(res => res.json())
+      .then(data => this.handleBagResponseFromServer(data));
   };
 
   removeClub(club, i) {
@@ -122,11 +126,7 @@ class App extends React.Component {
     if (body) request.body = JSON.stringify(body);
     fetch('/api/bag', request)
       .then(res => res.json())
-      .then(data => {
-        if (actionType === 'fetch') {
-          return this.handleBagResponseFromServer(data)
-        }
-      });
+      .then(data => console.log('data', data));
   };
 
   render() {

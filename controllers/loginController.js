@@ -29,7 +29,7 @@ module.exports = {
         if (!passwordMatch) return res.send('PASSWORDS DID NOT MATCH - Please re enter your password.')
         if (passwordMatch) {
           response[0].password = '';
-          return res.json(response);
+          return res.json(response[0]);
         }
       });
     });
