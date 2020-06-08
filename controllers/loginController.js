@@ -12,11 +12,10 @@ module.exports = {
           var newBag = new Bag();
           newBag.username = req.body.username;
           newBag.password = hash;
-          console.log(newBag);
-          // newBag.save((err, data) => {
-          //   if (err) return console.error(err);
-          //   res.json(data);
-          // });
+          newBag.save((err, data) => {
+            if (err) return console.error(err);
+            res.json(data);
+          });
         });
       });
     });
