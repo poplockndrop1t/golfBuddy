@@ -5,10 +5,6 @@ import './BagCreator.css';
 
 function BagCreator(props) {
 
-  function handleChange(event) {
-    return props.setUsername({ username: event.target.value });
-  };
-
   function handleSubmit(event) {
     if (props.username.username.length > 0) {
       const reqBody = {
@@ -32,8 +28,7 @@ function BagCreator(props) {
           <h6>Add your clubs and create your own pdf</h6>
         </div>
         <div className="usernameContainer">
-          <label>Enter username:</label>
-          <input name="username" onChange={handleChange} />
+          <label>props.username</label>
           <button name="save" onClick={handleSubmit}>Save Bag</button>
         </div>
       </div>
