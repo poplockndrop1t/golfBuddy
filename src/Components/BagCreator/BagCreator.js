@@ -11,21 +11,16 @@ function BagCreator(props) {
 
   function handleSubmit(event) {
     if (props.username.username.length > 0) {
-      if (event.target.name === 'save') {
-        const reqBody = {
-          username: props.username,
-          driver: props.bag.driver,
-          woods: props.bag.woods,
-          hybrids: props.bag.hybrids,
-          irons: props.bag.irons,
-          wedges: props.bag.wedges,
-          putter: props.bag.putter
-        }
-        return props.saveBag('POST', reqBody, 'save');
+      const reqBody = {
+        username: props.username,
+        driver: props.bag.driver,
+        woods: props.bag.woods,
+        hybrids: props.bag.hybrids,
+        irons: props.bag.irons,
+        wedges: props.bag.wedges,
+        putter: props.bag.putter
       }
-      if (event.target.name === 'fetch') {
-        return props.saveBag('POST', { username: props.username } , 'fetch');
-      }
+      return props.saveBag('POST', reqBody, 'save');
     }
   };
 
@@ -39,7 +34,6 @@ function BagCreator(props) {
         <div className="usernameContainer">
           <label>Enter username:</label>
           <input name="username" onChange={handleChange} />
-          <button name="fetch" onClick={handleSubmit}>Fetch Bag</button>
           <button name="save" onClick={handleSubmit}>Save Bag</button>
         </div>
       </div>
