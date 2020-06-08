@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import store from './redux/store/store.js';
 
-import Footer from './Footer/Footer.js';
-import Nav from './Nav/Nav.js';
-
 import BagCreator from './Components/BagCreator/BagCreator.js';
+import Footer from './Footer/Footer.js';
 import Landing from './Components/Landing/Landing.js';
+import Nav from './Nav/Nav.js';
+import SignIn from './Components/SignIn/SignIn.js';
 
 import './App.css';
 
@@ -146,6 +146,7 @@ class App extends React.Component {
               username={this.props.username}
             />
           </Route>
+          <Route path="/signIn" component={SignIn} />
           <Footer />
         </Router>
       </div>
