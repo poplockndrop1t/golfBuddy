@@ -2,8 +2,8 @@ import React from 'react';
 import './SignIn.css';
 
 function SignIn() {
-  var username;
-  var password;
+  var username = '';
+  var password = '';
 
   function verifyString(string) {
     var result = true;
@@ -16,7 +16,15 @@ function SignIn() {
   };
 
   function handleChange(event) {
-    console.log('event', event.target.name, event.target.value, test);
+    if (event.target.name === 'username') {
+      if (verifyString(event.target.value)) {
+        username = event.target.value;
+      }
+    } else {
+      if (verifyString(event.target.value)) {
+        password = event.target.value;
+      }
+    }
   };
 
   return (
