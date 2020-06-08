@@ -6,7 +6,7 @@ module.exports = {
   createUser: function(req, res) {
     Bag.find({ username: req.body.username }, (err, response) => {
       if (err) return console.error(err);
-      if (response.length > 0) return res.send(JSON.stringify(`USER EXISTS`));
+      if (response.length > 0) return res.send(JSON.stringify('USER EXISTS - Please choose a different username.'));
       bcrypt.genSalt(saltRounds.saltRounds, function(err, salt) {
         bcrypt.hash(req.body.password, salt, function(err, hash) {
           var newBag = new Bag();
@@ -21,6 +21,9 @@ module.exports = {
     });
   },
   login: function(req, res) {
-
+    Bag.find({ username: req.body.username }, (err, response) => {
+      if (err) return console.error(err);
+      if (response.length === 0) return res.send(JSON.stringify('USER DOES NOT EXIST - Create a new account.'));
+    });
   }
 };
