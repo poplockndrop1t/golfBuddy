@@ -48,7 +48,6 @@ class App extends React.Component {
     this.loginUser = this.loginUser.bind(this);
     this.removeClub = this.removeClub.bind(this);
     this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
-    this.setBagStateFromMongo = this.setBagStateFromMongo.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
     this.saveBag = this.saveBag.bind(this);
   };
@@ -62,7 +61,14 @@ class App extends React.Component {
   };
 
   handleBagResponseFromServer(dataObject) {
-    this.setBagStateFromMongo(dataObject);
+    this.props.setBag({
+      driver: dataObject.driver,
+      woods: dataObject.woods,
+      hybrids: dataObject.hybrids,
+      irons: dataObject.irons,
+      wedges: dataObject.wedges,
+      putter: dataObject.putter
+    });
     this.props.setUsername({ username: dataObject.username });
     this.setBagSizeFromMongo(dataObject);
   };
@@ -105,17 +111,6 @@ class App extends React.Component {
       }
     };
     this.props.incrementBagSize(bagLength);
-  };
-
-  setBagStateFromMongo(dataFromServer) {
-    this.props.setBag({
-      driver: dataFromServer.driver,
-      woods: dataFromServer.woods,
-      hybrids: dataFromServer.hybrids,
-      irons: dataFromServer.irons,
-      wedges: dataFromServer.wedges,
-      putter: dataFromServer.putter
-    });
   };
 
   setNewClubValue(item, value, category) {
