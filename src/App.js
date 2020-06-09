@@ -73,8 +73,8 @@ class App extends React.Component {
     fetch(path, request)
       .then(res => res.json())
       .then(data => {
-        console.log('data', data);
-        this.handleBagResponseFromServer(data)
+        if (typeof data === 'object') this.handleBagResponseFromServer(data)
+        else console.log('USER EXISTS', data);
       })
       .catch(err => console.error('err', err));
   };

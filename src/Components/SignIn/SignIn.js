@@ -1,4 +1,5 @@
 import React from 'react';
+import { verifyString } from '../../Helpers/Helpers.js';
 import { useHistory } from 'react-router-dom';
 import './SignIn.css';
 
@@ -6,16 +7,6 @@ function SignIn(props) {
   const history = useHistory();
   var username = '';
   var password = '';
-
-  function verifyString(string) {
-    var result = true;
-    for (var i = 0; i < string.length; i++) {
-      if (/[a-z]/gi.test(string[i]) === false) {
-        result = false;
-      }
-    }
-    return result;
-  };
 
   function handleChange(event) {
     if (event.target.name === 'username') {
