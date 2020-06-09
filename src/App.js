@@ -67,10 +67,10 @@ class App extends React.Component {
     this.setBagSizeFromMongo(dataObject);
   };
 
-  loginUser(userObject) {
+  loginUser(userObject, path) {
     const request = { method: 'POST', headers: { 'Content-Type': 'application/json' }};
     request.body = JSON.stringify(userObject);
-    fetch('/api/login', request)
+    fetch(path, request)
       .then(res => res.json())
       .then(data => this.handleBagResponseFromServer(data));
   };

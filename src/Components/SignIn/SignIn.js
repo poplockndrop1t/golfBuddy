@@ -32,7 +32,7 @@ function SignIn(props) {
   function handleClick() {
     if (username.length > 0 && password.length > 0) {
       history.push('/bagCreator');
-      return props.loginUser({ username, password });
+      return props.loginUser({ username, password }, '/api/login');
     }
   };
 
