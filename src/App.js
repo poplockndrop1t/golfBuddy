@@ -61,16 +61,10 @@ class App extends React.Component {
   };
 
   handleBagResponseFromServer(dataObject) {
-    this.props.setBag({
-      driver: dataObject.driver,
-      woods: dataObject.woods,
-      hybrids: dataObject.hybrids,
-      irons: dataObject.irons,
-      wedges: dataObject.wedges,
-      putter: dataObject.putter
-    });
-    this.props.setUsername({ username: dataObject.username });
-    this.setBagSizeFromMongo(dataObject);
+    const { driver, woods, hybrids, irons, wedges, putter, username } = dataObject;
+    this.props.setBag({ driver, woods, hybrids, irons, wedges, putter });
+    this.props.setUsername({ username });
+    this.setBagSizeFromMongo({ driver, woods, hybrids, irons, wedges, putter });
   };
 
   loginUser(userObject, path) {
@@ -97,10 +91,10 @@ class App extends React.Component {
     }
   };
 
-  setBagSizeFromMongo(dataFromServer) {
+  setBagSizeFromMongo(userBag) {
     var bagLength = 0;
-    for (var key in dataFromServer) {
-      let clubArray = dataFromServer[key];
+    for (var key in userBag) {
+      let clubArray = userBag[key];
       if (Array.isArray(clubArray) && clubArray.length > 0) {
         if (clubArray[0].clubType === '3p') bagLength += 8;
         if (clubArray[0].clubType === '4a') bagLength += 8;
