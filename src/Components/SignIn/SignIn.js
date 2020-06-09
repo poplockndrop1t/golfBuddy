@@ -29,10 +29,14 @@ function SignIn(props) {
     }
   };
 
-  function handleClick() {
+  function handleClick(event) {
     if (username.length > 0 && password.length > 0) {
-      history.push('/bagCreator');
-      return props.loginUser({ username, password }, '/api/login');
+      if (event.target.value === 'Log In') {
+        history.push('/bagCreator');
+        return props.loginUser({ username, password }, '/api/login');
+      } else {
+        return props.loginUser({ username, password }, '/api/createUser');
+      }
     }
   };
 
@@ -42,7 +46,8 @@ function SignIn(props) {
         <h2>Sign In</h2>
         <input placeholder="username" name="username" onChange={handleChange} />
         <input placeholder="password" type="password" name="password" onChange={handleChange} />
-        <input type="submit" value="submit" onClick={handleClick} />
+        <input type="submit" value="Log In" onClick={handleClick}/>
+        <input type="submit" value="Create New Account" onClick={handleClick}/>
       </div>
     </div>
   )

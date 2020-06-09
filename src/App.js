@@ -72,7 +72,11 @@ class App extends React.Component {
     request.body = JSON.stringify(userObject);
     fetch(path, request)
       .then(res => res.json())
-      .then(data => this.handleBagResponseFromServer(data));
+      .then(data => {
+        console.log('data', data);
+        this.handleBagResponseFromServer(data)
+      })
+      .catch(err => console.error('err', err));
   };
 
   removeClub(club, i) {
