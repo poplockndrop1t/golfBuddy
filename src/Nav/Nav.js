@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
 
-function Nav() {
+function Nav(props) {
 
   function isLoggedIn(username) {
     console.log('username', username);
+    return (
+      <p>Sign In</p>
+    )
   }
 
   return (
@@ -22,7 +25,7 @@ function Nav() {
         <p>Bag Creator</p>
       </Link>
       <Link to="/signIn">
-        <p>Sign In</p>
+        { isLoggedIn(props.username) }
       </Link>
     </div>
   )
