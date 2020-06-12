@@ -46,6 +46,7 @@ class App extends React.Component {
     this.createNewClub = this.createNewClub.bind(this);
     this.handleBagResponseFromServer = this.handleBagResponseFromServer.bind(this);
     this.loginUser = this.loginUser.bind(this);
+    this.logoutUser = this.logoutUser.bind(this);
     this.removeClub = this.removeClub.bind(this);
     this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
@@ -77,6 +78,10 @@ class App extends React.Component {
         else console.log('USER EXISTS', data);
       })
       .catch(err => console.error('err', err));
+  };
+
+  logoutUser(user) {
+
   };
 
   removeClub(club, i) {
@@ -126,7 +131,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Nav username={this.props.username} />
+          <Nav username={this.props.username} logoutUser={this.logoutUser} />
           <Route exact path="/" component={Landing} />
           <Route path="/bagCreator">
             <BagCreator
@@ -145,9 +150,7 @@ class App extends React.Component {
             />
           </Route>
           <Route path="/signIn">
-            <SignIn
-              loginUser={this.loginUser}
-            />
+            <SignIn loginUser={this.loginUser}/>
           </Route>
           <Footer />
         </Router>

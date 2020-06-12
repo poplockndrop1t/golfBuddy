@@ -11,11 +11,15 @@ function Nav(props) {
   function isLoggedIn({ username }) {
     if (username.length === 0) {
       return (
-        <p>Sign In</p>
+        <Link to="/signIn">
+          <p>Sign In</p>
+        </Link>
       )
     } else {
       return (
-        <p onClick={logout}>Sign Out</p>
+        <Link to="/signIn">
+          <p onClick={logout}>Sign Out</p>
+        </Link>
       )
     }
   };
@@ -33,9 +37,7 @@ function Nav(props) {
       <Link to="/bagCreator">
         <p>Bag Creator</p>
       </Link>
-      <Link to="/signIn">
-        { isLoggedIn(props.username) }
-      </Link>
+      { isLoggedIn(props.username) }
     </div>
   )
 };
