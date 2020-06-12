@@ -4,12 +4,17 @@ import './Nav.css';
 
 function Nav(props) {
 
-  function isLoggedIn(username) {
-    console.log('username', username);
-    return (
-      <p>Sign In</p>
-    )
-  }
+  function isLoggedIn({ username }) {
+    if (username.length === 0) {
+      return (
+        <p>Sign In</p>
+      )
+    } else {
+      return (
+        <p>Signed In</p>
+      )
+    }
+  };
 
   return (
     <div className="navContainer">
