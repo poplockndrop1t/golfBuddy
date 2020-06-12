@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import './Nav.css';
 
 function Nav() {
+
+  function isLoggedIn(username) {
+    console.log('username', username);
+  }
+
   return (
     <div className="navContainer">
       <div className="golfBuddyLogoContainer">

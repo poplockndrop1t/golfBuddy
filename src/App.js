@@ -126,7 +126,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Nav />
+          <Nav username={this.props.username} />
           <Route exact path="/" component={Landing} />
           <Route path="/bagCreator">
             <BagCreator
