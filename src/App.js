@@ -80,8 +80,8 @@ class App extends React.Component {
       .catch(err => console.error('err', err));
   };
 
-  logoutUser(user) {
-
+  logoutUser() {
+    return setTimeout(() => window.location.reload(), 1000);
   };
 
   removeClub(club, i) {
