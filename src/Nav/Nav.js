@@ -4,6 +4,10 @@ import './Nav.css';
 
 function Nav(props) {
 
+  function logout() {
+    return window.location.reload();
+  }
+
   function isLoggedIn({ username }) {
     if (username.length === 0) {
       return (
@@ -11,7 +15,7 @@ function Nav(props) {
       )
     } else {
       return (
-        <p>Signed In</p>
+        <p onClick={logout}>Sign Out</p>
       )
     }
   };
