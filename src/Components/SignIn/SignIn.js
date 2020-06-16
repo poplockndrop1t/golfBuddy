@@ -27,7 +27,9 @@ function SignIn(props) {
           history.push('/bagCreator');
         });
       } else {
-        return props.loginUser({ username, password }, '/api/createUser');
+        return props.loginUser({ username, password }, '/api/createUser', (data) => {
+          history.push('/bagCreator');
+        });
       }
     }
   };
