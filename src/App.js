@@ -49,7 +49,6 @@ class App extends React.Component {
     this.loginUser = this.loginUser.bind(this);
     this.logoutUser = this.logoutUser.bind(this);
     this.removeClub = this.removeClub.bind(this);
-    this.setBagSizeFromMongo = this.setBagSizeFromMongo.bind(this);
     this.setNewClubValue = this.setNewClubValue.bind(this);
     this.saveBag = this.saveBag.bind(this);
   };
@@ -66,7 +65,7 @@ class App extends React.Component {
     const { driver, woods, hybrids, irons, wedges, putter, username } = dataObject;
     this.props.setBag({ driver, woods, hybrids, irons, wedges, putter });
     this.props.setUsername({ username });
-    this.setBagSizeFromMongo({ driver, woods, hybrids, irons, wedges, putter });
+    this.props.setBagSize({ driver, woods, hybrids, irons, wedges, putter });
   };
 
   loginUser(userObject, path, cb) {
@@ -96,24 +95,6 @@ class App extends React.Component {
       if (club.clubType === '5p') return this.props.decrementBagSize(6);
       if (club.category !== 'irons') return this.props.decrementBagSize(1);
     }
-  };
-
-  setBagSizeFromMongo(userBag) {
-    console.log('userbag', userBag);
-    this.props.setBagSize(userBag);
-    // var bagLength = 0;
-    // for (var key in userBag) {
-    //   let clubArray = userBag[key];
-    //   if (Array.isArray(clubArray) && clubArray.length > 0) {
-    //     if (clubArray[0].clubType === '3p') bagLength += 8;
-    //     if (clubArray[0].clubType === '4a') bagLength += 8;
-    //     if (clubArray[0].clubType === '4p') bagLength += 7;
-    //     if (clubArray[0].clubType === '5a') bagLength += 7;
-    //     if (clubArray[0].clubType === '5p') bagLength += 6;
-    //     if (key !== 'irons') bagLength += clubArray.length;
-    //   }
-    // };
-    // this.props.incrementBagSize(bagLength);
   };
 
   setNewClubValue(item, value, category) {
