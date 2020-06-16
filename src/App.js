@@ -102,7 +102,8 @@ class App extends React.Component {
     // newClub[item] = value;
     // newClub['category'] = category;
     // this.props.setNewClubValue(newClub);
-    this.props.setNewClubValue({ item, value, category });
+    // console.log('item', item, 'val', value, 'cat', category)
+    // this.props.setNewClubValue({ item, value, category });
   };
 
   saveBag(requestType, body, actionType) {
@@ -129,7 +130,7 @@ class App extends React.Component {
               flexOptions={this.props.clubOptions.flexOptions}
               newClub={this.props.newClub}
               removeClub={this.removeClub}
-              setNewClubValue={this.setNewClubValue}
+              setNewClubValue={this.props.setNewClubValue}
               saveBag={this.saveBag}
               setUsername={this.props.setUsername}
               username={this.props.username}

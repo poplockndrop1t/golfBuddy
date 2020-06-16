@@ -44,7 +44,7 @@ function BagCreator(props) {
           <h2>Bag Creator</h2>
           <h6>Add your clubs and create your own pdf</h6>
         </div>
-        {isLoggedIn(props.username.username)}
+        { isLoggedIn(props.username.username) }
       </div>
       <div className="bagCreatorContainer">
         <ClubOptions

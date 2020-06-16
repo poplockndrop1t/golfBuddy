@@ -5,7 +5,8 @@ import './ClubOptions.css';
 function ClubOptions(props) {
 
   function handleClubChange(event) {
-    return props.setNewClubValue(event.target.name, event.target.value, event.target.classList[0]);
+    const newClubObject = { item: event.target.name, value: event.target.value, category: event.target.classList[0] };
+    return props.setNewClubValue(newClubObject);
   };
 
   return (
