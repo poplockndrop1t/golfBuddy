@@ -12,7 +12,7 @@ import SignIn from './Components/SignIn/SignIn.js';
 import './App.css';
 
 import { addNewClub, decrementBagSize, incrementBagSize,
-  resetClub, removeClub, setBag, setNewClubValue, setUsername
+  resetClub, removeClub, setBag, setBagSize, setNewClubValue, setUsername
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
@@ -34,6 +34,7 @@ function mapDispatchToProps(dispatch) {
     removeClub: club => dispatch(removeClub(club)),
     resetClub: club => dispatch(resetClub(club)),
     setBag: bagObject => dispatch(setBag(bagObject)),
+    setBagSize: bagObject => dispatch(setBagSize(bagObject)),
     setNewClubValue: value => dispatch(setNewClubValue(value)),
     setUsername: usernameObject => dispatch(setUsername(usernameObject))
   }
@@ -98,6 +99,8 @@ class App extends React.Component {
   };
 
   setBagSizeFromMongo(userBag) {
+    console.log('userbag', userBag);
+    this.props.setBagSize(userBag);
     var bagLength = 0;
     for (var key in userBag) {
       let clubArray = userBag[key];
