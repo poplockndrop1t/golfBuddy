@@ -32,7 +32,7 @@ function bagCountReducer(state = initialState, action) {
           if (key !== 'irons') bagLength += clubArray.length;
         }
       };
-      console.log('newstate', newState, bagLength);
+      newState.bagSize += bagLength
       return newState;
     default:
       return state;
