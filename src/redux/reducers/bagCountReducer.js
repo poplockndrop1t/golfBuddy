@@ -20,7 +20,6 @@ function bagCountReducer(state = initialState, action) {
       return newState;
     case `${SET_BAG_SIZE}`:
       var bagLength = 0;
-
       for (var key in action.payload) {
         let clubArray = action.payload[key];
         if (Array.isArray(clubArray) && clubArray.length > 0) {

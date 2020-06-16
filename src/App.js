@@ -98,10 +98,11 @@ class App extends React.Component {
   };
 
   setNewClubValue(item, value, category) {
-    const newClub = store.getState().clubReducer.newClub;
-    newClub[item] = value;
-    newClub['category'] = category;
-    this.props.setNewClubValue(newClub);
+    // const newClub = store.getState().clubReducer.newClub;
+    // newClub[item] = value;
+    // newClub['category'] = category;
+    // this.props.setNewClubValue(newClub);
+    this.props.setNewClubValue({ item, value, category });
   };
 
   saveBag(requestType, body, actionType) {
