@@ -23,8 +23,9 @@ function SignIn(props) {
   function handleClick(event) {
     if (username.length > 0 && password.length > 0) {
       if (event.target.value === 'Log In') {
-        history.push('/bagCreator');
-        return props.loginUser({ username, password }, '/api/login');
+        return props.loginUser({ username, password }, '/api/login', (data) => {
+          history.push('/bagCreator');
+        });
       } else {
         return props.loginUser({ username, password }, '/api/createUser');
       }

@@ -43,6 +43,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+
     this.createNewClub = this.createNewClub.bind(this);
     this.handleBagResponseFromServer = this.handleBagResponseFromServer.bind(this);
     this.loginUser = this.loginUser.bind(this);
@@ -68,14 +69,18 @@ class App extends React.Component {
     this.setBagSizeFromMongo({ driver, woods, hybrids, irons, wedges, putter });
   };
 
-  loginUser(userObject, path) {
+  loginUser(userObject, path, cb) {
     const request = { method: 'POST', headers: { 'Content-Type': 'application/json' }};
     request.body = JSON.stringify(userObject);
     fetch(path, request)
       .then(res => res.json())
       .then(data => {
-        if (typeof data === 'object') this.handleBagResponseFromServer(data)
-        else console.log('USER EXISTS', data);
+        if (typeof data === 'object') {
+          this.handleBagResponseFromServer(data);
+          cb(data);
+        } else {
+          console.log('USER EXISTS', data);
+        }
       })
       .catch(err => console.error('err', err));
   };
