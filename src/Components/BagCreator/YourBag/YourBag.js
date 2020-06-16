@@ -13,6 +13,7 @@ function displayBag(props) {
             <Club
               club={clubValuesArray[key]}
               clubType={club}
+              decrementBagSize={props.decrementBagSize}
               removeClub={props.removeClub}
               i={key}
               key={key}
@@ -28,7 +29,7 @@ function YourBag(props) {
   return (
     <div className="yourBagContainer">
       <h2><u>Your Bag</u></h2>
-      <p>{props.bagSize} Clubs Total</p>
+      <p>{ props.bagSize } Clubs Total</p>
       { displayBag(props) }
     </div>
   )

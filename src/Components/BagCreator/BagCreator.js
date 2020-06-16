@@ -59,6 +59,7 @@ function BagCreator(props) {
         <YourBag
           bag={props.bag}
           bagSize={props.bagSize}
+          decrementBagSize={props.decrementBagSize}
           removeClub={props.removeClub}
         />
       </div>

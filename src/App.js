@@ -85,15 +85,15 @@ class App extends React.Component {
   };
 
   removeClub(club, i) {
-    if (this.props.bagSize > 0) {
-      this.props.removeClub({ clubType: club.category, i: i });
-      if (club.clubType === '3p') return this.props.decrementBagSize(8);
-      if (club.clubType === '4a') return this.props.decrementBagSize(8);
-      if (club.clubType === '4p') return this.props.decrementBagSize(7);
-      if (club.clubType === '5a') return this.props.decrementBagSize(7);
-      if (club.clubType === '5p') return this.props.decrementBagSize(6);
-      if (club.category !== 'irons') return this.props.decrementBagSize(1);
-    }
+    // if (this.props.bagSize > 0) {
+    //   this.props.removeClub({ clubType: club.category, i: i });
+    //   if (club.clubType === '3p') return this.props.decrementBagSize(8);
+    //   if (club.clubType === '4a') return this.props.decrementBagSize(8);
+    //   if (club.clubType === '4p') return this.props.decrementBagSize(7);
+    //   if (club.clubType === '5a') return this.props.decrementBagSize(7);
+    //   if (club.clubType === '5p') return this.props.decrementBagSize(6);
+    //   if (club.category !== 'irons') return this.props.decrementBagSize(1);
+    // }
   };
 
   saveBag(requestType, body, actionType) {
@@ -117,9 +117,10 @@ class App extends React.Component {
               brands={this.props.clubOptions.brands}
               clubTypeNumbers={this.props.clubOptions.clubTypeNumbers}
               createNewClub={this.createNewClub}
+              decrementBagSize={this.props.decrementBagSize}
               flexOptions={this.props.clubOptions.flexOptions}
               newClub={this.props.newClub}
-              removeClub={this.removeClub}
+              removeClub={this.props.removeClub}
               setNewClubValue={this.props.setNewClubValue}
               saveBag={this.saveBag}
               setUsername={this.props.setUsername}

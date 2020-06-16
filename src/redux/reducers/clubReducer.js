@@ -35,7 +35,6 @@ function clubReducer(state = initialState, action) {
       newState.newClub = action.payload;
       return newState;
     case `${SET_NEW_CLUB_VALUE}`:
-      console.log('ran',action);
       newState['newClub'][action.payload.item] = action.payload.value;
       newState['newClub']['category'] = action.payload.category;
       return newState;
