@@ -43,7 +43,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-
     this.createNewClub = this.createNewClub.bind(this);
     this.handleBagResponseFromServer = this.handleBagResponseFromServer.bind(this);
     this.loginUser = this.loginUser.bind(this);
