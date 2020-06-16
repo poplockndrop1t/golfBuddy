@@ -1,16 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import store from './redux/store/store.js';
-
 import BagCreator from './Components/BagCreator/BagCreator.js';
 import Footer from './Footer/Footer.js';
 import Landing from './Components/Landing/Landing.js';
 import Nav from './Nav/Nav.js';
 import SignIn from './Components/SignIn/SignIn.js';
-
 import './App.css';
-
 import { addNewClub, decrementBagSize, incrementBagSize,
   resetClub, removeClub, setBag, setBagSize, setNewClubValue, setUsername
 } from './redux/actions/actions';
@@ -48,7 +44,6 @@ class App extends React.Component {
     this.handleBagResponseFromServer = this.handleBagResponseFromServer.bind(this);
     this.loginUser = this.loginUser.bind(this);
     this.logoutUser = this.logoutUser.bind(this);
-    this.removeClub = this.removeClub.bind(this);
     this.saveBag = this.saveBag.bind(this);
   };
 
@@ -82,18 +77,6 @@ class App extends React.Component {
 
   logoutUser() {
     return setTimeout(() => window.location.reload(), 1000);
-  };
-
-  removeClub(club, i) {
-    // if (this.props.bagSize > 0) {
-    //   this.props.removeClub({ clubType: club.category, i: i });
-    //   if (club.clubType === '3p') return this.props.decrementBagSize(8);
-    //   if (club.clubType === '4a') return this.props.decrementBagSize(8);
-    //   if (club.clubType === '4p') return this.props.decrementBagSize(7);
-    //   if (club.clubType === '5a') return this.props.decrementBagSize(7);
-    //   if (club.clubType === '5p') return this.props.decrementBagSize(6);
-    //   if (club.category !== 'irons') return this.props.decrementBagSize(1);
-    // }
   };
 
   saveBag(requestType, body, actionType) {

@@ -11,6 +11,7 @@ function displayBag(props) {
         Object.keys(props.bag).map((club, key) => {
           return (
             <Club
+              bagSize={props.bagSize}
               club={clubValuesArray[key]}
               clubType={club}
               decrementBagSize={props.decrementBagSize}

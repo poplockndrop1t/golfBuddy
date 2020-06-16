@@ -5,9 +5,7 @@ import './Club.css';
 function Club(props) {
 
   function handleClick(club, key) {
-    console.log('club', club);
-    // return props.removeClub(club, key);
-    // if (this.props.bagSize > 0) {
+    if (props.bagSize > 0) {
       props.removeClub({ clubType: club.category, i: key });
       if (club.clubType === '3p') return props.decrementBagSize(8);
       if (club.clubType === '4a') return props.decrementBagSize(8);
@@ -15,7 +13,7 @@ function Club(props) {
       if (club.clubType === '5a') return props.decrementBagSize(7);
       if (club.clubType === '5p') return props.decrementBagSize(6);
       if (club.category !== 'irons') return props.decrementBagSize(1);
-    // }
+    }
   };
 
   return (
