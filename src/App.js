@@ -49,7 +49,6 @@ class App extends React.Component {
     this.loginUser = this.loginUser.bind(this);
     this.logoutUser = this.logoutUser.bind(this);
     this.removeClub = this.removeClub.bind(this);
-    this.setNewClubValue = this.setNewClubValue.bind(this);
     this.saveBag = this.saveBag.bind(this);
   };
 
@@ -95,15 +94,6 @@ class App extends React.Component {
       if (club.clubType === '5p') return this.props.decrementBagSize(6);
       if (club.category !== 'irons') return this.props.decrementBagSize(1);
     }
-  };
-
-  setNewClubValue(item, value, category) {
-    // const newClub = store.getState().clubReducer.newClub;
-    // newClub[item] = value;
-    // newClub['category'] = category;
-    // this.props.setNewClubValue(newClub);
-    // console.log('item', item, 'val', value, 'cat', category)
-    // this.props.setNewClubValue({ item, value, category });
   };
 
   saveBag(requestType, body, actionType) {
