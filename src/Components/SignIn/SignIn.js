@@ -34,8 +34,8 @@ function SignIn(props) {
   };
 
   function handleClick(event) {
-    if (username.length > 0 && password.length > 0) {
       props.setLogoDisplay({ boolean: true });
+    if (username.length > 0 && password.length > 0) {
       if (event.target.value === 'Log In') {
         return props.loginUser({ username, password }, '/api/login', (data) => {
           props.setLogoDisplay({ boolean: false });

@@ -22,7 +22,7 @@ input {
 
 @media (prefers-reduced-motion: no-preference) {
   .golfBuddyLogo {
-    animation: golfBuddyLogoSpin infinite 5s linear;
+    animation: golfBuddyLogoSpin infinite 3s linear;
   }
 }
 
