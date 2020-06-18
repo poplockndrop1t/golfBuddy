@@ -8,6 +8,19 @@ function SignIn(props) {
   var username = '';
   var password = '';
 
+  function displayLogo(val) {
+    return (
+      <div>
+        <img
+          className="golfBuddyLogo"
+          alt="Logo Spinner"
+          src={require('../../Assets/pin.png')}
+          style={{ display: 'none' }}
+        />
+      </div>
+    )
+  }
+
   function handleChange(event) {
     if (event.target.name === 'username') {
       if (verifyString(event.target.value)) {
@@ -21,6 +34,7 @@ function SignIn(props) {
   };
 
   function handleClick(event) {
+    console.log('event', event.target.style)
     if (username.length > 0 && password.length > 0) {
       if (event.target.value === 'Log In') {
         return props.loginUser({ username, password }, '/api/login', (data) => {
@@ -36,9 +50,7 @@ function SignIn(props) {
 
   return (
     <div className="signInContainer">
-      <div>
-        <img className="golfBuddyLogo" src={require('../../Assets/pin.png')} alt="Logo Spinner"></img>
-      </div>
+      { displayLogo() }
       <div className="inputContainer">
         <h2>Sign In</h2>
         <input placeholder="username" name="username" onChange={handleChange} />
