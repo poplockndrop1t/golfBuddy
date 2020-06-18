@@ -1,6 +1,9 @@
-img {
-  display: none;
+.golfBuddyLogo {
+  /*display: none;*/
   position: absolute;
+  height: 30vmin;
+  pointer-events: none;
+  border-radius: 9em;
 }
 
 input {
@@ -16,4 +19,19 @@ input {
   display: flex;
   flex-direction: column;
   margin-top: 1em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .golfBuddyLogo {
+    animation: golfBuddyLogoSpin infinite 20s linear;
+  }
+}
+
+@keyframes golfBuddyLogoSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

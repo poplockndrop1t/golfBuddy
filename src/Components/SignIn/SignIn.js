@@ -37,7 +37,7 @@ function SignIn(props) {
   return (
     <div className="signInContainer">
       <div>
-        <img src={require('../../Assets/pin.png')} alt="Logo Spinner"></img>
+        <img className="golfBuddyLogo" src={require('../../Assets/pin.png')} alt="Logo Spinner"></img>
       </div>
       <div className="inputContainer">
         <h2>Sign In</h2>
