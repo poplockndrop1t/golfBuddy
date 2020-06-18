@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { DISPLAY_LOGO } from '../constants/constants.js';
 import clubReducer from './clubReducer.js';
 import bagCountReducer from './bagCountReducer';
 
@@ -12,11 +13,15 @@ const initialState = {
     wedges: ["", "46", "48", "50", "52", "54", "56", "58", "60"],
     woods: ["", "13.5", "15", "16.5", "19", "21"]
   },
+  displayLogo: false,
   flexOptions: ["", "Regular", "Stiff", "Stiff+", "X", "Ladies", "Senior"]
 };
 
 function rootReducer(state = initialState, action) {
   switch(action.type) {
+    case `${DISPLAY_LOGO}`:
+      const newState = [...state];
+      return newState;
     default:
       return state
   }
