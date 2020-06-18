@@ -1,6 +1,7 @@
 import {
   ADD_NEW_CLUB,
   DECREMENT_BAG_SIZE,
+  DISPLAY_LOGO,
   INCREMENT_BAG_SIZE,
   REMOVE_CLUB,
   RESET_CLUB,
@@ -11,10 +12,14 @@ import {
 
 export function addNewClub(payload) {
   return { type: ADD_NEW_CLUB, payload };
-}
+};
 
 export function decrementBagSize(payload) {
   return { type: DECREMENT_BAG_SIZE, payload };
+};
+
+export function displayLogo(payload) {
+  return { type: DISPLAY_LOGO, payload };
 };
 
 export function incrementBagSize(payload) {

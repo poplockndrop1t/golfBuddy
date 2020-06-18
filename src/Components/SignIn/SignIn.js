@@ -34,7 +34,6 @@ function SignIn(props) {
   };
 
   function handleClick(event) {
-    console.log('event', event.target.style)
     if (username.length > 0 && password.length > 0) {
       if (event.target.value === 'Log In') {
         return props.loginUser({ username, password }, '/api/login', (data) => {
@@ -50,7 +49,7 @@ function SignIn(props) {
 
   return (
     <div className="signInContainer">
-      { displayLogo() }
+      { displayLogo('none') }
       <div className="inputContainer">
         <h2>Sign In</h2>
         <input placeholder="username" name="username" onChange={handleChange} />
