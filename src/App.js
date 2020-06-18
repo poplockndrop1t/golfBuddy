@@ -16,8 +16,8 @@ function mapStateToProps(state) {
   return {
     bag: state.clubReducer.bag,
     bagSize: state.bagCountReducer.bagSize,
-    displayLogo: state.rootReducer.displayLogo,
     clubOptions: state.rootReducer,
+    logoDisplay: state.rootReducer.logoDisplay,
     newClub: state.clubReducer.newClub,
     username: state.clubReducer.username
   };

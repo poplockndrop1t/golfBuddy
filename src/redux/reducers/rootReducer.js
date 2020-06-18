@@ -13,7 +13,7 @@ const initialState = {
     wedges: ["", "46", "48", "50", "52", "54", "56", "58", "60"],
     woods: ["", "13.5", "15", "16.5", "19", "21"]
   },
-  displayLogo: false,
+  logoDisplay: false,
   flexOptions: ["", "Regular", "Stiff", "Stiff+", "X", "Ladies", "Senior"]
 };
 
