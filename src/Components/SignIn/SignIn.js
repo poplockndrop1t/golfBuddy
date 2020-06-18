@@ -8,14 +8,14 @@ function SignIn(props) {
   var username = '';
   var password = '';
 
-  function displayLogo(val) {
+  function displayLogo(boolean) {
     return (
       <div>
         <img
           className="golfBuddyLogo"
           alt="Logo Spinner"
           src={require('../../Assets/pin.png')}
-          style={{ display: 'none' }}
+          style={{ display: boolean === false ? 'none' : 'block' }}
         />
       </div>
     )
@@ -49,7 +49,7 @@ function SignIn(props) {
 
   return (
     <div className="signInContainer">
-      { displayLogo('none') }
+      { displayLogo(props.logoDisplay) }
       <div className="inputContainer">
         <h2>Sign In</h2>
         <input placeholder="username" name="username" onChange={handleChange} />
