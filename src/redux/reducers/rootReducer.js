@@ -20,7 +20,8 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch(action.type) {
     case `${SET_LOGO_DISPLAY}`:
-      const newState = [...state];
+      const newState = {...state};
+      newState['logoDisplay'] = action.payload.boolean;
       return newState;
     default:
       return state
