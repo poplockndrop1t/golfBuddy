@@ -1,5 +1,5 @@
 .golfBuddyLogo {
-  /*display: none;*/
+  display: none;
   position: absolute;
   height: 30vmin;
   pointer-events: none;
@@ -23,7 +23,7 @@ input {
 
 @media (prefers-reduced-motion: no-preference) {
   .golfBuddyLogo {
-    animation: golfBuddyLogoSpin infinite 20s linear;
+    animation: golfBuddyLogoSpin infinite 5s linear;
   }
 }
 
