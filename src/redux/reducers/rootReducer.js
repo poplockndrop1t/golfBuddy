@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { DISPLAY_LOGO } from '../constants/constants.js';
+import { SET_LOGO_DISPLAY } from '../constants/constants.js';
 import clubReducer from './clubReducer.js';
 import bagCountReducer from './bagCountReducer';
 
@@ -19,7 +19,7 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch(action.type) {
-    case `${DISPLAY_LOGO}`:
+    case `${SET_LOGO_DISPLAY}`:
       const newState = [...state];
       return newState;
     default:

@@ -7,8 +7,8 @@ import Landing from './Components/Landing/Landing.js';
 import Nav from './Nav/Nav.js';
 import SignIn from './Components/SignIn/SignIn.js';
 import './App.css';
-import { addNewClub, decrementBagSize, displayLogo, incrementBagSize,
-  resetClub, removeClub, setBag, setBagSize, setNewClubValue, setUsername
+import { addNewClub, decrementBagSize, incrementBagSize,
+  resetClub, removeClub, setBag, setBagSize, setLogoDisplay, setNewClubValue, setUsername
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
@@ -16,6 +16,7 @@ function mapStateToProps(state) {
   return {
     bag: state.clubReducer.bag,
     bagSize: state.bagCountReducer.bagSize,
+    displayLogo: state.rootReducer.displayLogo,
     clubOptions: state.rootReducer,
     newClub: state.clubReducer.newClub,
     username: state.clubReducer.username
@@ -26,12 +27,12 @@ function mapDispatchToProps(dispatch) {
   return {
     addNewClub: club => dispatch(addNewClub(club)),
     decrementBagSize: size => dispatch(decrementBagSize(size)),
-    displayLogo: boolean => dispatch(displayLogo(boolean)),
     incrementBagSize: size => dispatch(incrementBagSize(size)),
     removeClub: club => dispatch(removeClub(club)),
     resetClub: club => dispatch(resetClub(club)),
     setBag: bagObject => dispatch(setBag(bagObject)),
     setBagSize: bagObject => dispatch(setBagSize(bagObject)),
+    setLogoDisplay: boolean => dispatch(setLogoDisplay(boolean)),
     setNewClubValue: value => dispatch(setNewClubValue(value)),
     setUsername: usernameObject => dispatch(setUsername(usernameObject))
   }
@@ -112,7 +113,11 @@ class App extends React.Component {
             />
           </Route>
           <Route path="/signIn">
-            <SignIn loginUser={this.loginUser}/>
+            <SignIn
+              loginUser={this.loginUser}
+              setLogoDisplay={this.props.setLogoDisplay}
+              logoDisplay={this.props.logoDisplay}
+            />
           </Route>
           <Footer />
         </Router>

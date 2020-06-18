@@ -1,12 +1,12 @@
 import {
   ADD_NEW_CLUB,
   DECREMENT_BAG_SIZE,
-  DISPLAY_LOGO,
   INCREMENT_BAG_SIZE,
   REMOVE_CLUB,
   RESET_CLUB,
   SET_BAG,
   SET_BAG_SIZE,
+  SET_LOGO_DISPLAY,
   SET_NEW_CLUB_VALUE,
   SET_USERNAME } from '../constants/constants';
 
@@ -16,10 +16,6 @@ export function addNewClub(payload) {
 
 export function decrementBagSize(payload) {
   return { type: DECREMENT_BAG_SIZE, payload };
-};
-
-export function displayLogo(payload) {
-  return { type: DISPLAY_LOGO, payload };
 };
 
 export function incrementBagSize(payload) {
@@ -40,6 +36,10 @@ export function setBag(payload) {
 
 export function setBagSize(payload) {
   return { type: SET_BAG_SIZE, payload };
+};
+
+export function setLogoDisplay(payload) {
+  return { type: SET_LOGO_DISPLAY, payload };
 };
 
 export function setNewClubValue(payload) {
