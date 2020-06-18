@@ -34,14 +34,16 @@ function SignIn(props) {
   };
 
   function handleClick(event) {
-    props.setLogoDisplay({ boolean: true });
     if (username.length > 0 && password.length > 0) {
+      props.setLogoDisplay({ boolean: true });
       if (event.target.value === 'Log In') {
         return props.loginUser({ username, password }, '/api/login', (data) => {
+          props.setLogoDisplay({ boolean: false });
           history.push('/bagCreator');
         });
       } else {
         return props.loginUser({ username, password }, '/api/createUser', (data) => {
+          props.setLogoDisplay({ boolean: false });
           history.push('/bagCreator');
         });
       }
