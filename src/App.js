@@ -7,8 +7,7 @@ import Landing from './Components/Landing/Landing.js';
 import Nav from './Nav/Nav.js';
 import SignIn from './Components/SignIn/SignIn.js';
 import './App.css';
-import { addNewClub, decrementBagSize, incrementBagSize,
-  resetClub, removeClub, setBag, setBagSize, setLogoDisplay, setNewClubValue, setUsername
+import { addNewClub, decrementBagSize, incrementBagSize, resetClub, removeClub, setBag, setBagSize, setLogoDisplay, setNewClubValue, setUsername
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {

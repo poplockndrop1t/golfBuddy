@@ -1,3 +1,7 @@
+input {
+  margin-top: 1em;
+}
+
 .golfBuddyLogo {
   position: absolute;
   height: 30vmin;
@@ -5,7 +9,9 @@
   border-radius: 9em;
 }
 
-input {
+.inputContainer {
+  display: flex;
+  flex-direction: column;
   margin-top: 1em;
 }
 
@@ -14,11 +20,6 @@ input {
   min-height: 20em;
 }
 
-.inputContainer {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1em;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .golfBuddyLogo {
