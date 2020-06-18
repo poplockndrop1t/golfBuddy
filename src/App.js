@@ -7,7 +7,7 @@ import Landing from './Components/Landing/Landing.js';
 import Nav from './Nav/Nav.js';
 import SignIn from './Components/SignIn/SignIn.js';
 import './App.css';
-import { addNewClub, decrementBagSize, incrementBagSize,
+import { addNewClub, decrementBagSize, displayLogo, incrementBagSize,
   resetClub, removeClub, setBag, setBagSize, setNewClubValue, setUsername
 } from './redux/actions/actions';
 
@@ -26,6 +26,7 @@ function mapDispatchToProps(dispatch) {
   return {
     addNewClub: club => dispatch(addNewClub(club)),
     decrementBagSize: size => dispatch(decrementBagSize(size)),
+    displayLogo: boolean => dispatch(displayLogo(boolean)),
     incrementBagSize: size => dispatch(incrementBagSize(size)),
     removeClub: club => dispatch(removeClub(club)),
     resetClub: club => dispatch(resetClub(club)),
