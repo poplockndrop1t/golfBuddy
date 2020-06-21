@@ -42,6 +42,7 @@ class App extends React.Component {
     super(props);
 
     this.createNewClub = this.createNewClub.bind(this);
+    this.getStats = this.getStats.bind(this);
     this.handleBagResponseFromServer = this.handleBagResponseFromServer.bind(this);
     this.loginUser = this.loginUser.bind(this);
     this.logoutUser = this.logoutUser.bind(this);
@@ -69,6 +70,7 @@ class App extends React.Component {
     this.props.setBag({ driver, woods, hybrids, irons, wedges, putter });
     this.props.setUsername({ username });
     this.props.setBagSize({ driver, woods, hybrids, irons, wedges, putter });
+    this.getStats(username);
   };
 
   loginUser(userObject, path, cb) {
