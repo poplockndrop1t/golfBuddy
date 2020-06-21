@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const Bag = require('../db/models/bag.js');
+const statsController = require('../controllers/statsController.js');
 const saltRounds = require('../secret/secret.js');
 
 module.exports = {
@@ -29,7 +30,11 @@ module.exports = {
         if (!passwordMatch) return res.send('PASSWORDS DID NOT MATCH - Please re enter your password.')
         if (passwordMatch) {
           response[0].password = '';
-          return res.json(response[0]);
+          statsController.getStats(req.body.username, (stats) => {
+            var result = Object.assign({}, response[0]);
+            result.stats = stats;
+            return res.json(response[0]);
+          });
         }
       });
     });
