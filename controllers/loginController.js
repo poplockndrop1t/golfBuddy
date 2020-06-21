@@ -30,11 +30,7 @@ module.exports = {
         if (!passwordMatch) return res.send('PASSWORDS DID NOT MATCH - Please re enter your password.')
         if (passwordMatch) {
           response[0].password = '';
-          statsController.getStats(req.body.username, (stats) => {
-            var result = Object.assign({}, response[0]);
-            result.stats = stats;
-            return res.json(response[0]);
-          });
+          return res.json(response[0]);
         }
       });
     });
