@@ -3,7 +3,7 @@ const Scheme = mongoose.Schema;
 
 mongoose.Promise = global.Promise;
 
-const statsSchema = mongoose({
+const statsSchema = mongoose.Schema({
   username: String,
   scores: [{
     fir: Number,
@@ -17,7 +17,7 @@ const statsSchema = mongoose({
     puttsMadeWithin12Ft: Number,
     puttsMadeWithin12FtAttempts: Number,
     score: Number,
-    par: Number,
+    par: Number
   }]
 });
 
