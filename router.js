@@ -13,6 +13,6 @@ router.post('/createUser', loginController.createUser);
 router.post('/login', loginController.login);
 
 // Stats Routes
-router.get('/stats', statsController.getStats);
+router.post('/stats', statsController.getStats);
 
 module.exports = router;

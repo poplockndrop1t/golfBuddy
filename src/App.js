@@ -56,6 +56,14 @@ class App extends React.Component {
     }
   };
 
+  getStats(username) {
+    const request = { method: 'POST', headers: { 'Content-Type': 'application/json' }};
+    request.body = JSON.stringify( { username: username });
+    fetch('/api/stats', request)
+      .then(res => res.json())
+      .then(data => console.log('data', data));
+  }
+
   handleBagResponseFromServer(dataObject) {
     const { driver, woods, hybrids, irons, wedges, putter, username } = dataObject;
     this.props.setBag({ driver, woods, hybrids, irons, wedges, putter });
