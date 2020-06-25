@@ -1,5 +1,5 @@
 import React from 'react';
-import { verifyString } from '../../Helpers/Helpers.js';
+import { isALetter } from '../../Helpers/Helpers.js';
 import { useHistory } from 'react-router-dom';
 import './SignIn.css';
 
@@ -23,11 +23,11 @@ function SignIn(props) {
 
   function handleChange(event) {
     if (event.target.name === 'username') {
-      if (verifyString(event.target.value)) {
+      if (isALetter(event.target.value)) {
         username = event.target.value;
       }
     } else {
-      if (verifyString(event.target.value)) {
+      if (isALetter(event.target.value)) {
         password = event.target.value;
       }
     }

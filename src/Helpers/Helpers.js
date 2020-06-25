@@ -4,7 +4,7 @@ export function formatClubTitle(string) {
   return `${firstChar}${remainder}`;
 };
 
-export function verifyString(string) {
+export function isALetter(string) {
   var result = true;
   for (var i = 0; i < string.length; i++) {
     if (/[a-z]/gi.test(string[i]) === false) {
