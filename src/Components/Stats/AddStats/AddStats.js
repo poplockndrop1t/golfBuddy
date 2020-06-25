@@ -1,9 +1,12 @@
 import React from 'react';
+import { isANumber } from '../../../Helpers/Helpers.js';
 import './AddStats.css';
 
 function AddStats(props) {
   function handleChange(event) {
-    console.log('event', event.target.name, event.target.value);
+    if (isANumber(event.target.value)) {
+      console.log('event', event.target.name, event.target.value);
+    }
   };
 
   function onClick(event) {
