@@ -6,6 +6,7 @@ import Footer from './Footer/Footer.js';
 import Landing from './Components/Landing/Landing.js';
 import Nav from './Nav/Nav.js';
 import SignIn from './Components/SignIn/SignIn.js';
+import Stats from './Components/Stats/Stats.js';
 import './App.css';
 import { addNewClub, decrementBagSize, incrementBagSize, resetClub, removeClub, setBag, setBagSize, setLogoDisplay, setNewClubValue, setUsername
 } from './redux/actions/actions';
