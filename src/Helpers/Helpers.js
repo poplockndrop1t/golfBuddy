@@ -13,3 +13,13 @@ export function isALetter(string) {
   }
   return result;
 };
+
+export function isANumber(string) {
+  var result = true;
+  for (var i = 0; i < string.length; i++) {
+    if (/[0-9]/gi.test(string[i]) === false) {
+      result = false;
+    }
+  }
+  return result;
+};
