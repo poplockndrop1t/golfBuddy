@@ -14,9 +14,6 @@ function Nav(props) {
     } else {
       return (
         <div className="signedInContainer">
-          <Link to="/stats">
-            <p>Stats</p>
-          </Link>
           <Link to="/signIn">
             <p onClick={props.logoutUser}>Sign Out</p>
           </Link>
@@ -39,6 +36,9 @@ function Nav(props) {
         <p>Bag Creator</p>
       </Link>
       { isLoggedIn(props.username) }
+      <Link to="/stats">
+        <p>Stats</p>
+      </Link>
     </div>
   )
 };
