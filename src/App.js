@@ -129,6 +129,9 @@ class App extends React.Component {
               logoDisplay={this.props.logoDisplay}
             />
           </Route>
+          <Route path="/stats">
+            <Stats />
+          </Route>
           <Footer />
         </Router>
       </div>

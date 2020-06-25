@@ -13,9 +13,14 @@ function Nav(props) {
       )
     } else {
       return (
-        <Link to="/signIn">
-          <p onClick={props.logoutUser}>Sign Out</p>
-        </Link>
+        <div className="signedInContainer">
+          <Link to="/stats">
+            <p>Stats</p>
+          </Link>
+          <Link to="/signIn">
+            <p onClick={props.logoutUser}>Sign Out</p>
+          </Link>
+        </div>
       )
     }
   };

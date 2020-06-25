@@ -26,3 +26,7 @@ a {
   border-width: thin;
   font-weight: 900;
 }
+
+.signedInContainer {
+  display: flex;
+}
