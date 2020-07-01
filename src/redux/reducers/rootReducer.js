@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { SET_LOGO_DISPLAY } from '../constants/constants.js';
 import clubReducer from './clubReducer.js';
 import bagCountReducer from './bagCountReducer';
+import addStatsReducer from './addStatsReducer';
 
 const initialState = {
   brands: ["", "Callaway", "Cobra", "Mizuno", "TaylorMade", "Titleist", "Ping"],
@@ -31,5 +32,6 @@ function rootReducer(state = initialState, action) {
 export default combineReducers({
   bagCountReducer,
   clubReducer,
-  rootReducer
+  rootReducer,
+  addStatsReducer
 });
