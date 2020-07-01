@@ -8,7 +8,7 @@ import Nav from './Nav/Nav.js';
 import SignIn from './Components/SignIn/SignIn.js';
 import Stats from './Components/Stats/Stats.js';
 import './App.css';
-import { addNewClub, decrementBagSize, incrementBagSize, resetClub, removeClub, setBag, setBagSize, setLogoDisplay, setNewClubValue, setUsername
+import { addNewClub, addStats, decrementBagSize, incrementBagSize, resetClub, removeClub, setBag, setBagSize, setLogoDisplay, setNewClubValue, setUsername
 } from './redux/actions/actions';
 
 function mapStateToProps(state) {
@@ -19,6 +19,7 @@ function mapStateToProps(state) {
     clubOptions: state.rootReducer,
     logoDisplay: state.rootReducer.logoDisplay,
     newClub: state.clubReducer.newClub,
+    stats: state.statsReducer.stats,
     username: state.clubReducer.username
   };
 };
@@ -26,6 +27,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     addNewClub: club => dispatch(addNewClub(club)),
+    addStats: statObj => dispatch(addStats(statObj)),
     decrementBagSize: size => dispatch(decrementBagSize(size)),
     incrementBagSize: size => dispatch(incrementBagSize(size)),
     removeClub: club => dispatch(removeClub(club)),
