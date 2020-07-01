@@ -8,8 +8,8 @@ import Nav from './Nav/Nav.js';
 import SignIn from './Components/SignIn/SignIn.js';
 import Stats from './Components/Stats/Stats.js';
 import './App.css';
-import { addNewClub, addStats, decrementBagSize, incrementBagSize, resetClub, removeClub, setBag, setBagSize, setLogoDisplay, setNewClubValue, setUsername
-} from './redux/actions/actions';
+
+import * as actions from './redux/actions/actions';
 
 function mapStateToProps(state) {
   // console.log(state);
@@ -26,17 +26,17 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addNewClub: club => dispatch(addNewClub(club)),
-    addStats: statObj => dispatch(addStats(statObj)),
-    decrementBagSize: size => dispatch(decrementBagSize(size)),
-    incrementBagSize: size => dispatch(incrementBagSize(size)),
-    removeClub: club => dispatch(removeClub(club)),
-    resetClub: club => dispatch(resetClub(club)),
-    setBag: bagObject => dispatch(setBag(bagObject)),
-    setBagSize: bagObject => dispatch(setBagSize(bagObject)),
-    setLogoDisplay: boolean => dispatch(setLogoDisplay(boolean)),
-    setNewClubValue: value => dispatch(setNewClubValue(value)),
-    setUsername: usernameObject => dispatch(setUsername(usernameObject))
+    addNewClub: club => dispatch(actions.addNewClub(club)),
+    addStats: statObj => dispatch(actions.addStats(statObj)),
+    decrementBagSize: size => dispatch(actions.decrementBagSize(size)),
+    incrementBagSize: size => dispatch(actions.incrementBagSize(size)),
+    removeClub: club => dispatch(actions.removeClub(club)),
+    resetClub: club => dispatch(actions.resetClub(club)),
+    setBag: bagObject => dispatch(actions.setBag(bagObject)),
+    setBagSize: bagObject => dispatch(actions.setBagSize(bagObject)),
+    setLogoDisplay: boolean => dispatch(actions.setLogoDisplay(boolean)),
+    setNewClubValue: value => dispatch(actions.setNewClubValue(value)),
+    setUsername: usernameObject => dispatch(actions.setUsername(usernameObject))
   }
 };
 
