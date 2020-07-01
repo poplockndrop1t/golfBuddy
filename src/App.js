@@ -19,7 +19,7 @@ function mapStateToProps(state) {
     clubOptions: state.rootReducer,
     logoDisplay: state.rootReducer.logoDisplay,
     newClub: state.clubReducer.newClub,
-    stats: state.statsReducer.stats,
+    stats: state.addStatsReducer.stats,
     username: state.clubReducer.username
   };
 };
