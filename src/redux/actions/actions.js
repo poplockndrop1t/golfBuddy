@@ -1,5 +1,6 @@
 import {
   ADD_NEW_CLUB,
+  ADD_STATS,
   DECREMENT_BAG_SIZE,
   INCREMENT_BAG_SIZE,
   REMOVE_CLUB,
@@ -12,6 +13,10 @@ import {
 
 export function addNewClub(payload) {
   return { type: ADD_NEW_CLUB, payload };
+};
+
+export function addStats(payload) {
+  return { type: ADD_STATS, payload };
 };
 
 export function decrementBagSize(payload) {
