@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 
 const statsSchema = mongoose.Schema({
   username: String,
-  scores: [{
+  stats: [{
     fir: Number,
     firAttempts: Number,
     gir: Number,
